@@ -24,8 +24,8 @@ Route::get('/', function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/perfil', PruebaController::class)->middleware('auth');;
-Route::resource('/datospersonales', DatosPersonalesController::class)->middleware('auth');;
-Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middleware('auth');;
+Route::resource('/perfil', PruebaController::class)->middleware('auth');
+Route::resource('/datospersonales', DatosPersonalesController::class)->middleware('auth');
+Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middleware('auth');
 Route::view('/profile/edit', 'profile.edit')->middleware('auth');
 Route::view('/profile/password', 'profile.password')->middleware('auth');
