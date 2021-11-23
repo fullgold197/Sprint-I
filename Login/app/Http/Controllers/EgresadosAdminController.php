@@ -25,7 +25,7 @@ class EgresadosAdminController extends Controller
         ->orWhere('nombres', 'LIKE', '%'.$texto.'%')
         ->orWhere('matricula', 'LIKE', '%'.$texto.'%')
         ->orderBy('ap_paterno','asc')
-        ->paginate(10);
+        ->paginate(5);
         return view('admin.egresado.index',compact('egresados','texto'));
     }
 
