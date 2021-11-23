@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CambiarContrasenaController;
 use App\Http\Controllers\DatosPersonalesController;
+use App\Http\Controllers\EgresadosAdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PruebaController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/perfil', PruebaController::class)->middleware('auth');
 Route::resource('/datospersonales', DatosPersonalesController::class)->middleware('auth');
 Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middleware('auth');
+Route::resource('/admin/egresado', EgresadosAdminController::class)->middleware('auth');
 
 Route::resource('/permisos', App\Http\Controllers\PermissionController::class);
 
