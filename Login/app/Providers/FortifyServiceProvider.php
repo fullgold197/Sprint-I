@@ -13,6 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Contracts\LoginResponse;
+use Illuminate\Support\Facades\Auth;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -36,6 +37,8 @@ class FortifyServiceProvider extends ServiceProvider
 
             }
         }); */
+
+
     }
 
     /**
@@ -51,10 +54,12 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         Fortify::loginView(function () {
+
             return view('auth.login');
         });
 
         Fortify::registerView(function () {
+
             return view('auth.register');
         });
 
