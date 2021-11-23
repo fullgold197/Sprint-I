@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <body>
     <div class="container">
@@ -22,12 +23,12 @@
                 </form>
 
             </div>
-            <div class="col-xl-12">
-                <div class="table-responsive">
-                    <table class="table table-striped">
+            <div class="col-xl-12 my-2">
+                <div class="table-responsive ">
+                    <table class="table table-striped" >
                         <thead>
 
-                            <tr>
+                            <tr class="text-center">
                                 <th>Codigo matricula</th>
                                 <th>Nombres</th>
                                 <th>Genero</th>
@@ -38,14 +39,14 @@
                         </thead>
                         <tbody>
                             @if (count($egresados)<=0)
-                                <tr>
+                                <tr class="text-center">
                                     <td colspan="8">No hay resultados</td>
                                 </tr>
                             @else
                                 @foreach ($egresados as $egresado)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{$egresado->matricula}}</td>
-                                <td>{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
+                                <td class="text-capitalize">{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
                                 <td>{{$egresado->genero}}</td>
                                 <td>{{$egresado->fecha_nacimiento}}</td>
                                 <td>{{$egresado->telefono}}</td>
@@ -60,18 +61,14 @@
                             @endforeach
                             @endif
 
-
-
-
-
-
                         </tbody>
                     </table>
                     {{$egresados->links()}}
+
                 </div>
 
             </div>
-            <div class="col-auto my-1">
+<div class="col-auto my-1 ">
                 <a href="{{url('/admin')}}" class="btn btn-danger">Atrás</a>
             </div>
         </div>
