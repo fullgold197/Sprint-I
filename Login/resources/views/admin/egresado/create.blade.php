@@ -27,13 +27,11 @@
                         <input type="text" class="form-control" name="nombres" required maxlength="15" >
                     </div>
                     <div class="form-group">
-                        <label for="direccion">Genero</label>
-                        <select name="genero" class="form-control">
-
-                            <option selected>Masculino</option>
-
-                            <option>Femenino</option>
-
+                        <label for="genero">Genero</label>
+                        <select name="genero" class="form-control" required>
+                            <option selected disabled value="">Seleccione genero</option>
+                            <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
                           </select>
                     </div>
                     <div class="form-group">
@@ -47,7 +45,7 @@
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Guardar">
                         <input type="reset" class="btn btn-primary" value="Cancelar">
-                        <a href="javascript:history.back()">Ir al listado</a>
+                        <a href="{{url('/admin/egresado')}}" class="btn btn-danger">Atrás</a>
                     </div>
                 </form>
             </div>
@@ -57,4 +55,6 @@
     </div>
 
 </body>
+
+</html>
 @endsection

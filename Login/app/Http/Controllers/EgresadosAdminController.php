@@ -84,6 +84,7 @@ class EgresadosAdminController extends Controller
         //
 
         $egresados=Egresado::findOrFail($matricula);
+
         //return $egresados;
         return view('admin.egresado.editar',compact('egresados'));
     }
