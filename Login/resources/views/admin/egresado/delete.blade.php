@@ -1,9 +1,9 @@
 <!-- Modal -->
-<form action="{{route('egresado.destroy', $egresados->matricula)}}" method="POST">
+<form action="{{route('egresado.destroy', $egresado->matricula)}}" method="POST">
     @csrf
     @method('DELETE')
 
-    <div class="modal fade" id="modal-delete-{{$egresados->matricula}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-delete-{{$egresado->matricula}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -11,7 +11,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Deseas eliminar el registro {{$egresados->ap_paterno."".$egresados->ap_materno."".$egresados->nombres}}
+            Deseas eliminar el registro: {{$egresado->ap_paterno." ".$egresado->ap_materno." ".$egresado->nombres}}
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

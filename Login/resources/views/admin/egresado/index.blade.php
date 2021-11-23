@@ -6,7 +6,8 @@
         <h4>Gestion de Egresados</h4>
         <div class="row">
             <div class="col-xl-12">
-                <form action="{{route('egresado.index')}}" method="POST">
+                <form action="{{route('egresado.index')}}" method="GET">
+
                     <div class="form-row">
                         <div class="col-sm-4 my-1">
                             <input type="text" class="form-control" name="texto" value="{{$texto}}">
@@ -19,6 +20,7 @@
                         </div>
                     </div>
                 </form>
+
             </div>
             <div class="col-xl-12">
                 <div class="table-responsive">
@@ -54,6 +56,7 @@
                         </button></td>
                             </tr>
                             @include('admin.egresado.delete')
+
                             @endforeach
                             @endif
 
@@ -68,9 +71,14 @@
                 </div>
 
             </div>
+            <div class="col-auto my-1">
+                <a href="{{url('/admin')}}" class="btn btn-danger">Atrás</a>
+            </div>
         </div>
 
     </div>
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
 @endsection
