@@ -22,9 +22,9 @@ class CreateEgresadoTable extends Migration
             $table->enum('genero', ['Masculino', 'Femenino'])->nullable();
             $table->date('fecha_nacimiento');
             $table->string('telefono', 12)->nullable();
-            $table->string('Provincia', 200);
+            $table->string('Provincia', 200)->nullable();
             $table->string('Distrito', 200)->nullable();
-            $table->boolean('habilitado');
+            $table->boolean('habilitado')->default('1');
             $table->integer('primer_empleo_id')->unsigned()->nullable();
             $table->foreign('primer_empleo_id')->references('id')->on('PrimerEmpleo')->unique();
             $table->integer('id_academico')->unsigned()->nullable();

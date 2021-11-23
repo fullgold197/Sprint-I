@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Egresado;
 
 class EgresadosAdminController extends Controller
 {
@@ -11,9 +13,20 @@ class EgresadosAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $texto=$request->get('texto');
+
+        //trae de la tabla egresa$egresados todo los campos
+        $egresados=DB::table('egresado')
+        ->select('matricula','ap_paterno','ap_materno','nombres','genero','fecha_nacimiento','telefono')
+        ->where('ap_paterno','LIKE','%'.$texto.'%')
+        ->orWhere('nombres', 'LIKE', '%'.$texto.'%')
+        ->orWhere('matricula', 'LIKE', '%'.$texto.'%')
+        ->orderBy('ap_paterno','asc')
+        ->paginate(10);
+        return view('admin.egresado.index',compact('egresados','texto'));
     }
 
     /**
@@ -24,6 +37,8 @@ class EgresadosAdminController extends Controller
     public function create()
     {
         //
+        return view('admin.egresado.create');
+
     }
 
     /**
@@ -35,6 +50,16 @@ class EgresadosAdminController extends Controller
     public function store(Request $request)
     {
         //
+        $egresados=new Egresado;
+        $egresados->matricula=$request->input('matricula');
+        $egresados->ap_paterno=$request->input('ap_paterno');
+        $egresados->ap_materno = $request->input('ap_materno');
+        $egresados->nombres = $request->input('nombres');
+        $egresados->genero = $request->input('genero');
+        $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $egresados->telefono = $request->input('telefono');
+        $egresados->save();
+        return redirect()->route('egresado.index');
     }
 
     /**
@@ -54,9 +79,13 @@ class EgresadosAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($matricula)
     {
         //
+
+        $egresados=Egresado::findOrFail($matricula);
+        //return $egresados;
+        return view('admin.egresado.editar',compact('egresados'));
     }
 
     /**
@@ -66,9 +95,18 @@ class EgresadosAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $matricula)
     {
         //
+        $egresados=Egresado::findOrFail($matricula);
+        $egresados->ap_paterno=$request->input('ap_paterno');
+        $egresados->ap_materno = $request->input('ap_materno');
+        $egresados->nombres = $request->input('nombres');
+        $egresados->genero = $request->input('genero');
+        $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $egresados->telefono = $request->input('telefono');
+        $egresados->save();
+        return redirect()->route('egresado.index');
     }
 
     /**
@@ -77,8 +115,11 @@ class EgresadosAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($matricula)
     {
         //
+        $egresados = Egresado::findOrFail($matricula);
+        $egresados->delete();
+        return redirect()->route('egresado.index');
     }
 }
