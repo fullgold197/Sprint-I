@@ -10,6 +10,10 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
+                        <label for="matricula">Matricula</label>
+                        <input type="text" class="form-control" name="matricula" required maxlength="50" value="{{$egresados->matricula}}">
+                    </div>
+                    <div class="form-group">
                         <label for="ap_paterno">Apellido paterno</label>
                         <input type="text" class="form-control" id="ap_paterno" name="ap_paterno" required maxlength="50" value="{{$egresados->ap_paterno}}">
                     </div>

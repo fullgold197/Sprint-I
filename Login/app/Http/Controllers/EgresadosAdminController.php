@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Egresado;
+use App\Http\Requests\EgresadoCreateRequest;
 
 class EgresadosAdminController extends Controller
 {
@@ -47,9 +48,10 @@ class EgresadosAdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EgresadoCreateRequest $request)
     {
         //
+
         $egresados=new Egresado;
         $egresados->matricula=$request->input('matricula');
         $egresados->ap_paterno=$request->input('ap_paterno');
@@ -58,6 +60,7 @@ class EgresadosAdminController extends Controller
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->telefono = $request->input('telefono');
+        $egresados->messages();
         $egresados->save();
         return redirect()->route('egresado.index');
     }
@@ -100,6 +103,7 @@ class EgresadosAdminController extends Controller
     {
         //
         $egresados=Egresado::findOrFail($matricula);
+        $egresados->matricula=$request->input('matricula');
         $egresados->ap_paterno=$request->input('ap_paterno');
         $egresados->ap_materno = $request->input('ap_materno');
         $egresados->nombres = $request->input('nombres');

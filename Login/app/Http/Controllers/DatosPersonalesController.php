@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Egresado;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class DatosPersonalesController extends Controller
 {
     /**
@@ -14,9 +16,10 @@ class DatosPersonalesController extends Controller
      */
     public function index(Request $request)
     {
-        $texto = $request->get('texto');
-        $users = Egresado::all();
-        return view('datospersonales', compact('users', 'texto'));
+        $egresados = Egresado::select('ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'telefono','Provincia','Distrito')->where('matricula', Auth::user()->egresado_matricula)->get();
+        /* return $users; */
+        return view('datospersonales', compact('egresados'));
+
 
     }
 
