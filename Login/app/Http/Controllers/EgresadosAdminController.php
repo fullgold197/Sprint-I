@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Egresado;
 use App\Http\Requests\EgresadoCreateRequest;
+use App\Models\Egresado;
+use App\Models\User;
+use Illuminate\Validation\Rule;
+use App\Http\Requests\EgresadoEditRequest;
+
 
 class EgresadosAdminController extends Controller
 {
@@ -60,7 +64,6 @@ class EgresadosAdminController extends Controller
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->telefono = $request->input('telefono');
-        $egresados->messages();
         $egresados->save();
         return redirect()->route('egresado.index');
     }
@@ -99,9 +102,12 @@ class EgresadosAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $matricula)
+    public function update(EgresadoEditRequest $request,$matricula)
     {
         //
+        /* $data=$request->validate([
+            'matricula' => ['required',Rule::unique('egresado')->ignore($user->id), 'matricula']
+        ]); */
         $egresados=Egresado::findOrFail($matricula);
         $egresados->matricula=$request->input('matricula');
         $egresados->ap_paterno=$request->input('ap_paterno');

@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use App\Models\Egresado;
 
 class EgresadoCreateRequest extends FormRequest
 {
@@ -21,12 +23,24 @@ class EgresadoCreateRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
-        return [
-            //Nuestras reglas o validaciones
-            'matricula'=> 'required|unique:egresado|max:50',
 
+        return [
+
+            //Nuestras reglas o validaciones
+
+            'matricula'=> 'required|integer|unique:egresado',
+           // 'matricula' => 'required|unique:users_table,user_name,'.$id.',user_id' ,
+
+            //'email' => 'unique:table,email_column_to_check,id_to_ignore'
+
+            'ap_paterno' => 'required|alpha',
+            'ap_materno' => 'required|alpha',
+            'nombres' => 'required|regex:/^[\pL\s\-]+$/u',
+            'fecha_nacimiento' => 'required|date',
+            'telefono' => 'nullable|integer',
 
         ];
     }
@@ -34,8 +48,15 @@ class EgresadoCreateRequest extends FormRequest
     public function messages(){
 
 return [
+    'matricula.integer' => 'Formato no valido, solo numeros',
+    'matricula.unique' => 'El codigo ya existe, por favor eliga otro',
+    'ap_paterno.alpha' => 'Formato no valido, solo letras',
+    'ap_materno.alpha' => 'Formato no valido, solo letras',
+    'nombres.alpha' => 'Formato no valido, solo letras',
+    'telefono.integer' => 'Formato no valido, solo numeros',
 
-    'matricula.unique:egresados' => 'El codigo ya existe, eliga otro'
+
+
 
             ];
 
