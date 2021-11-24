@@ -16,7 +16,7 @@
       </div>
     </nav>
   </div>
-                        <div class="container-fluid">
+        <div class="container-fluid">
 
         <table class="table" align="center" border="1">
                         <thead>

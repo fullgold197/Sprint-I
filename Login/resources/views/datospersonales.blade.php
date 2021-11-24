@@ -38,38 +38,40 @@
                         </thead>
 
                         <form action="#" method="#">
-                            @foreach ($users as $user)
+
+                            @foreach ($egresados as $egresado)
                             <tbody>
                             <tr>
                                 <td>
                                     <a class="nav-link" href="{{ route('datospersonales.index') }}">Datos personales</a>
                                 </td>
-                                <td>Nombres: {{$user->ap_paterno}} {{$user->ap_materno}} {{$user->nombres}}</td>
+                                <td>Nombres: {{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
                             </tr>
                             <tr>
                                 <td>
                                     <a class="nav-link" href="#">Trayectoria académica</a>
                                 </td>
-                                <td>Género:{{$user->genero}}</td>
+                                <td>Género:{{$egresado->genero}}</td>
                             </tr>
                             <tr>
                                 <td>
                                     <a class="nav-link" href="#">Trayectoria profesional</a>
                                 </td>
-                                <td>Fecha de nacimiento:{{$user->fecha_nacimiento}}</td>
+                                <td>Fecha de nacimiento:{{$egresado->fecha_nacimiento}}</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Teléfono: {{$user->telefono}}</td>
+                                <td>Teléfono: {{$egresado->telefono}}</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Provincia: {{$user->lugar_origen}}</td>
+                                <td>Provincia: {{$egresado->Provincia}}</td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Distrito: {{$user->direccion_actual}}</td>
+                                <td>Distrito: {{$egresado->Distrito}}</td>
                             </tr>
+
                         </tbody>
                          @endforeach
                         </form>
