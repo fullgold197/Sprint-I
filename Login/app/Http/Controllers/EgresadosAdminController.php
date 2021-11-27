@@ -9,7 +9,7 @@ use App\Models\Egresado;
 use App\Models\User;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\EgresadoEditRequest;
-
+use PDF;
 
 class EgresadosAdminController extends Controller
 {
@@ -21,8 +21,16 @@ class EgresadosAdminController extends Controller
     public function index(Request $request)
     {
         //
-        $texto=$request->get('texto');
+        if( $request->texto == "" ){
+        $string = "empty";
 
+    }
+        else{
+        $string = $request->texto;
+
+
+        }
+        $texto=$request->get('texto');
         //trae de la tabla egresa$egresados todo los campos
         $egresados=DB::table('egresado')
         ->select('matricula','ap_paterno','ap_materno','nombres','genero','fecha_nacimiento','telefono')
@@ -31,7 +39,7 @@ class EgresadosAdminController extends Controller
         ->orWhere('matricula', 'LIKE', '%'.$texto.'%')
         ->orderBy('ap_paterno','asc')
         ->paginate(5);
-        return view('admin.egresado.index',compact('egresados','texto'));
+        return view('admin.egresado.index',compact('egresados','texto'),[ 'valor' => $string ]);
     }
 
     /**
@@ -133,4 +141,6 @@ class EgresadosAdminController extends Controller
         $egresados->delete();
         return redirect()->route('egresado.index');
     }
+    //funcion para exportar datos a formato PDF esta ubicado ahora en ReporteAdminController
+
 }

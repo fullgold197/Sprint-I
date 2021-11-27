@@ -10,19 +10,25 @@
                 <form action="{{route('egresado.index')}}" method="GET">
 
                     <div class="form-row">
-                        <div class="col-sm-4 my-1">
+                        <div class="col-sm-4 my-2">
                             <input type="text" class="form-control" name="texto" value="{{$texto}}">
                         </div>
-                        <div class="col-auto my-1">
-                            <input type="submit" class="btn btn-primary" value="Buscar">
+                        <div class="col-sm-8 my-2">
+                            <input type="submit" class="btn btn-dark"  value="Buscar">
                         </div>
-                        <div class="col-auto my-1">
+                    </div>
+                        <div class="form-row">
+                        <div class="col-auto my-2">
                             <a href="{{route('egresado.create')}}" class="btn btn-success">Nuevo</a>
                         </div>
+                        <div class="col-auto my-2 " >
+           <a href="{{ route('imprimir', $valor)}}"  target="_blank" class="btn btn-primary" >Exportar PDF</a>
+            </div>
                     </div>
                 </form>
 
             </div>
+
             <div class="col-xl-12 my-2">
                 <div class="table-responsive ">
                     <table class="table table-striped" >

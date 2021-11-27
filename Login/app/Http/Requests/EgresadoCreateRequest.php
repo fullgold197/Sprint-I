@@ -50,9 +50,9 @@ class EgresadoCreateRequest extends FormRequest
 return [
     'matricula.integer' => 'Formato no valido, solo numeros',
     'matricula.unique' => 'El codigo ya existe, por favor eliga otro',
-    'ap_paterno.alpha' => 'Formato no valido, solo letras',
-    'ap_materno.alpha' => 'Formato no valido, solo letras',
-    'nombres.alpha' => 'Formato no valido, solo letras',
+    'ap_paterno.alpha' => 'Formato no valido, solo letras sin espacios entre ellas',
+    'ap_materno.alpha' => 'Formato no valido, solo letras sin espacios entre ellas',
+    'nombres.regex' => 'Formato no valido, solo letras o espacios entre ellas',
     'telefono.integer' => 'Formato no valido, solo numeros',
 
 
