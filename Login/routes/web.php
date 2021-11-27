@@ -29,6 +29,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/perfil', PruebaController::class)->middleware('auth');
 Route::resource('/datospersonales', DatosPersonalesController::class)->middleware('auth');
 Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middleware('auth');
+
+
+Route::get('/admin/egresado/pdf/{string}', [App\Http\Controllers\ReporteAdminController::class, 'showReporteEgresados'])->name('imprimir');
 Route::resource('/admin/egresado', EgresadosAdminController::class)->middleware('auth');
 
 Route::resource('/permisos', App\Http\Controllers\PermissionController::class);
