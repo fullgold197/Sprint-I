@@ -8,11 +8,15 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
+                   {{--  @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif --}}
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
-{{--                         <input type="hidden" name="token" value="{{ $token }}">
- --}}
+                       <input type="hidden" name="token" value="{{ request()->token}}">
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
