@@ -18,7 +18,8 @@
   </div>
 
     <div class="container-fluid">
-
+        <div class="row">
+            <div class="col-xl-12 col-md-12">
         <table class="table" align="center" border="1">
                         <thead>
                             <tr>
@@ -36,8 +37,17 @@
                                 </th>
                             </tr>
                         </thead>
+                    </table>
+                    </div>
 
-                        <form action="#" method="#">
+        </div>
+    </div>
+                 <div class="container-fluid">
+                    <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                        <table class="table" align="center" border="1">
+
+                        <form action="{{route('datospersonales.store')}}" method="post" enctype="multipart/form-data">
 
                             @foreach ($egresados as $egresado)
                             <tbody>
@@ -67,23 +77,30 @@
                                 <td></td>
                                 <td>Provincia: {{$egresado->Provincia}}</td>
                             </tr>
-                            <tr>
+                            <tr >
                                 <td></td>
                                 <td>Distrito: {{$egresado->Distrito}}</td>
+                                <td  >
+                            <label for="file"> </label>
+                            <input type="file" name="featured" id="file">
+
+                                </td>
                             </tr>
 
+                            </div>
+
+                        @endforeach
                         </tbody>
-                         @endforeach
-                        </form>
+                    </form></table>
 
 
 
 
+                    </div>
+                    </div>
 
 
 
-
-        </table>
 
 
    </div>
