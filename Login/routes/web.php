@@ -39,10 +39,10 @@ Route::resource('/permisos', App\Http\Controllers\PermissionController::class);
 Route::view('/profile/edit', 'profile.edit')->middleware('auth');
 Route::view('/profile/password', 'profile.password')->middleware('auth');
 
- Route::middleware(['auth','isAdmin'])->group( function (){
+/* Route::middleware(['auth','isAdmin'])->group( function (){
 
     Route::get('/admin', function () {
         return view('admin.home');
 
  });
-});
+}); */

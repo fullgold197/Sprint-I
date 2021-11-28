@@ -58,6 +58,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware('web','auth') //solo se ve esta ruta si estas autenticado
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php')); //define las rutas de admin.php
         });
     }
 

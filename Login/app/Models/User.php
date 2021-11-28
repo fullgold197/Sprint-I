@@ -43,4 +43,20 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //colocar foto de usuario
+    public function adminlte_image(){
+        return 'http://picsum.photos/300/300';
+    }
+     //muestra rol de usuario
+    public function adminlte_desc()
+    {
+        return "Administrador";
+    }
+
+    //perfil de usuario
+    public function adminlte_profile_url()
+    {
+        return '/datospersonales';
+    }
 }
