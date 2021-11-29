@@ -272,7 +272,7 @@ return [
         ],
         [
             'text' => 'Usuarios',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/usuario',
             'icon' => 'fas fa-fw fa-user-cog',
         ],
         /* [

@@ -1,16 +1,15 @@
-
-@extends('layouts.app')
-
-@section('content')
-
-<body>
-    <div class="container">
-        <h4>Registrar Egresados</h4>
-        <div class="row">
-            <div class="col-xl-12">
-                <form action="{{route('egresado.store')}}" method="POST">
-                    @csrf
-                    <div class="form-group">
+<!-- Modal -->
+<form action="{{route('egresado.store')}}" method="POST">
+    @csrf
+    <div class="modal fade" id="modal-create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Crear nueva lista de egresado</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
                         <label for="matricula">Matricula</label>
                         <input type="text" class="form-control" id="matricula" name="matricula" value="{{ old('matricula')}}" required maxlength="12" >
                         {{$errors->first('matricula')}}
@@ -53,14 +52,9 @@
                         <input type="reset" class="btn btn-primary" value="Cancelar">
                         <a href="{{url('/admin/egresado')}}" class="btn btn-danger">Atrás</a>
                     </div>
-                </form>
-            </div>
-
+          </div>
         </div>
-
+      </div>
     </div>
+</form>
 
-</body>
-
-</html>
-@endsection

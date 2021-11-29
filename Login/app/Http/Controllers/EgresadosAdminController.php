@@ -73,7 +73,8 @@ class EgresadosAdminController extends Controller
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->telefono = $request->input('telefono');
         $egresados->save();
-        return redirect()->route('egresado.index');
+        return $egresados;
+        /* return redirect()->route('egresado.index'); */
     }
 
     /**
@@ -125,6 +126,7 @@ class EgresadosAdminController extends Controller
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->telefono = $request->input('telefono');
         $egresados->save();
+        /* return $egresados; */
         return redirect()->route('egresado.index');
     }
 

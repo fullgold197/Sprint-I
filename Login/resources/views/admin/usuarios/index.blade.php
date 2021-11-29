@@ -9,10 +9,10 @@
 @section('content')
     <body>
     <div class="container">
-        <h4>Gestion de Egresados</h4>
+        <h4>Gestion de Usuarios</h4>
         <div class="row">
             <div class="col-xl-12">
-                <form action="{{route('egresado.index')}}" method="GET">
+                <form action="{{route('usuario.index')}}" method="GET">
 
                     <div class="form-row">
                         <div class="col-sm-4 my-2">
@@ -22,18 +22,14 @@
                             <input type="submit" class="btn btn-dark"  value="Buscar">
                         </div>
                     </div>
-
-                    <div class="form-row">
+                        <div class="form-row">
                         <div class="col-auto my-2">
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-create">Nuevo</button>
+                            <a href="{{route('usuario.create')}}" class="btn btn-success">Nuevo</a>
                         </div>
-
-
                         <div class="col-auto my-2 " >
-                        <a href="{{ route('imprimir', $valor)}}"  target="_blank" class="btn btn-primary" >Exportar PDF</a>
-                        </div>
+           <a href="{{ route('imprimir', $valor)}}"  target="_blank" class="btn btn-primary" >Exportar PDF</a>
+            </div>
                     </div>
-
                 </form>
 
             </div>
@@ -44,50 +40,43 @@
                         <thead>
 
                             <tr class="text-center">
-                                <th>Codigo matricula</th>
-                                <th>Nombres</th>
-                                <th>Genero</th>
-                                <th>Fecha nacimiento</th>
-                                <th>Telefono</th>
+                                <th>Item</th>
+                                <th>Nombre</th>
+                                <th>Usuario</th>
+                                <th>Correo</th>
+                                <th>Nivel de acceso</th>
                                 <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if (count($egresados)<=0)
+                            @if (count($usuarios)<=0)
                                 <tr class="text-center">
                                     <td colspan="8">No hay resultados</td>
                                 </tr>
                             @else
-                                @foreach ($egresados as $egresado)
+                                @foreach ($usuarios as $usuario)
                             <tr class="text-center">
-                                <td>{{$egresado->matricula}}</td>
-                                <td class="text-capitalize">{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
-                                <td>{{$egresado->genero}}</td>
-                                <td>{{$egresado->fecha_nacimiento}}</td>
-                                <td>{{$egresado->telefono}}</td>
-                                <td>
+                                <td>{{$usuario->id}}</td>
+                                <td>{{$usuario->name}}</td>
+                                {{-- <td class="text-capitalize">{{$usuario->ap_paterno}} {{$usuario->ap_materno}} {{$usuario->nombres}}</td> --}}
+                                <td>{{$usuario->email}}</td>
+                                <td>{{$usuario->role_as}}</td>
 
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->matricula}}">
-                                Editar
-                                </button>
+                               <td><a href="{{route('usuario.edit', $usuario->id)}}" class="btn btn-warning btn-sm">Editar</a>
 
-                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$egresado->matricula}}">
+                               <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$usuario->id}}">
                                 Eliminar
-                                </button>
-                                </td>
+                                </button></td>
                             </tr>
-                            //Poner aquí los include. No sé porque aqui los leé.
-                            @include('admin.egresado.crear')
-                            @include('admin.egresado.edit')
-                            @include('admin.egresado.delete')
+                            @include('admin.usuarios.delete')
 
-                                @endforeach
+                            @endforeach
                             @endif
 
                         </tbody>
                     </table>
-                    {{$egresados->links()}}
+                    {{$usuarios->links()}}
 
                 </div>
 
