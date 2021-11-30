@@ -40,9 +40,9 @@
                             <tr class="text-center">
                                 <th>N°</th>
                                 <th>Nombre</th>
+                                <th>Codigo</th>
                                 <th>Usuario</th>
                                 <th>Correo</th>
-
                                 <th>Nivel de acceso</th>
                                 <th>Opciones</th>
                             </tr>
@@ -60,7 +60,8 @@
 
                             <tr class="text-center">
                                 <td>{{++$n}}</td>
-                                <td class="text-capitalize">{{$usuario->ap_paterno}} {{$usuario->ap_materno}} {{$usuario->nombres}}</td>
+                                <td class="text-capitalize">{{$usuario->nombres}} {{$usuario->ap_paterno}} {{$usuario->ap_materno}} </td>
+                                <td>{{$usuario->matricula}}</td>
                                 <td>{{$usuario->name}}</td>
                                 <td>{{$usuario->email}}</td>
                                 @if ($usuario->role_as==1)
@@ -74,7 +75,7 @@
 
                                 <td>
                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit">
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$usuario->id}}">
                                 Editar
                                 </button>
 

@@ -26,11 +26,10 @@ class UsuarioController extends Controller
         //trae de la tabla $egresados todo los campos
         $usuarios = DB::table('users')
         ->join('egresado','users.egresado_matricula','=','egresado.matricula')
-        ->select('users.id', 'users.name', 'users.email', 'users.role_as', 'users.password','egresado.ap_paterno','egresado.ap_materno', 'egresado.nombres')
+        ->select('users.id', 'users.name', 'users.email', 'users.role_as', 'users.password','egresado.ap_paterno','egresado.ap_materno','egresado.nombres', 'egresado.matricula')
         ->where('name', 'LIKE', '%' . $texto . '%')
         ->orWhere('email', 'LIKE', '%' . $texto . '%')
         ->orWhere('role_as', 'LIKE', '%' . $texto . '%')
-
         ->orderBy('name', 'asc')
         ->paginate(5);
         /* return $usuarios; */
@@ -55,13 +54,13 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $egresados = new User;
-        $egresados->name = $request->input('name');
-        $egresados->email = $request->input('email');
-        $egresados->password = Hash::make($request->input('password'));
-        $egresados->egresado_matricula = $request->input('egresado_matricula');
-        /* $egresados->role_as = $request->input('role_as'); */
-        $egresados->save();
+        $usuarios = new User;
+        $usuarios->name = $request->input('name');
+        $usuarios->email = $request->input('email');
+        $usuarios->password = Hash::make($request->input('password'));
+        $usuarios->egresado_matricula = $request->input('egresado_matricula');
+        /* $usuarios->role_as = $request->input('role_as'); */
+        $usuarios->save();
         return redirect()->route('usuario.index');
     }
 
@@ -99,10 +98,23 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuarios = User::findOrFail($id);
+        /* $usuarios = User::findOrFail($id);
         $usuarios->name = $request->input('name');
         $usuarios->email = $request->input('email');
+        $usuarios->password = Hash::make($request->input('password'));
+        $usuarios->egresado_matricula = $request->input('egresado_matricula');
         $usuarios->save();
+        return redirect()->route('usuario.index'); */
+        $usuarios = User::findOrFail($id);
+        $data = $request->only('name','email');
+        
+        if (trim($request->password) == '') {
+            $data = $request->except('password');
+        } else {
+            $data = $request->all();
+            $data['password'] = bcrypt($request->password);
+        }
+        $usuarios->update($data);
         return redirect()->route('usuario.index');
     }
 
@@ -118,4 +130,5 @@ class UsuarioController extends Controller
         $usuarios->delete();
         return redirect()->route('usuario.index');
     }
+
 }
