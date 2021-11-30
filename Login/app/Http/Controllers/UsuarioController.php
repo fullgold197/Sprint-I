@@ -7,7 +7,7 @@ use App\Models\Egresado;
 use App\Http\Requests\EgresadoEditRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 class UsuarioController extends Controller
 {
     /**
@@ -25,12 +25,15 @@ class UsuarioController extends Controller
         $texto = $request->get('texto');
         //trae de la tabla $egresados todo los campos
         $usuarios = DB::table('users')
-        ->select('id','name', 'email', 'role_as')
+        ->join('egresado','users.egresado_matricula','=','egresado.matricula')
+        ->select('users.id', 'users.name', 'users.email', 'users.role_as', 'users.password','egresado.ap_paterno','egresado.ap_materno', 'egresado.nombres')
         ->where('name', 'LIKE', '%' . $texto . '%')
         ->orWhere('email', 'LIKE', '%' . $texto . '%')
         ->orWhere('role_as', 'LIKE', '%' . $texto . '%')
+
         ->orderBy('name', 'asc')
         ->paginate(5);
+        /* return $usuarios; */
         return view('admin.usuarios.index', compact('usuarios', 'texto'), ['valor' => $string]);
     }
 
@@ -52,16 +55,14 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        /* $egresados = new Egresado;
-        $egresados->matricula = $request->input('matricula');
-        $egresados->ap_paterno = $request->input('ap_paterno');
-        $egresados->ap_materno = $request->input('ap_materno');
-        $egresados->nombres = $request->input('nombres');
-        $egresados->genero = $request->input('genero');
-        $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
-        $egresados->telefono = $request->input('telefono');
+        $egresados = new User;
+        $egresados->name = $request->input('name');
+        $egresados->email = $request->input('email');
+        $egresados->password = Hash::make($request->input('password'));
+        $egresados->egresado_matricula = $request->input('egresado_matricula');
+        /* $egresados->role_as = $request->input('role_as'); */
         $egresados->save();
-        return redirect()->route('egresado.index'); */
+        return redirect()->route('usuario.index');
     }
 
     /**

@@ -25,7 +25,7 @@
 
                     <div class="form-row">
                         <div class="col-auto my-2">
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-create">Nuevo</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create">Nuevo</button>
                         </div>
 
 
@@ -77,11 +77,10 @@
                                 </button>
                                 </td>
                             </tr>
-                            //Poner aquí los include. No sé porque aqui los leé.
+                            {{-- Poner aquí los include. No sé porque aqui los leé. --}}
                             @include('admin.egresado.crear')
                             @include('admin.egresado.edit')
                             @include('admin.egresado.delete')
-
                                 @endforeach
                             @endif
 
@@ -92,9 +91,7 @@
                 </div>
 
             </div>
-<div class="col-auto my-1 ">
-                <a href="{{url('/admin')}}" class="btn btn-danger">Atrás</a>
-            </div>
+
         </div>
 
     </div>

@@ -24,11 +24,9 @@
                     </div>
                         <div class="form-row">
                         <div class="col-auto my-2">
-                            <a href="{{route('usuario.create')}}" class="btn btn-success">Nuevo</a>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create">Nuevo</button>
                         </div>
-                        <div class="col-auto my-2 " >
-           <a href="{{ route('imprimir', $valor)}}"  target="_blank" class="btn btn-primary" >Exportar PDF</a>
-            </div>
+
                     </div>
                 </form>
 
@@ -40,36 +38,53 @@
                         <thead>
 
                             <tr class="text-center">
-                                <th>Item</th>
+                                <th>N°</th>
                                 <th>Nombre</th>
                                 <th>Usuario</th>
                                 <th>Correo</th>
+
                                 <th>Nivel de acceso</th>
                                 <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
+
+                            @php($n=0)
+
                             @if (count($usuarios)<=0)
                                 <tr class="text-center">
                                     <td colspan="8">No hay resultados</td>
                                 </tr>
                             @else
                                 @foreach ($usuarios as $usuario)
+
                             <tr class="text-center">
-                                <td>{{$usuario->id}}</td>
+                                <td>{{++$n}}</td>
+                                <td class="text-capitalize">{{$usuario->ap_paterno}} {{$usuario->ap_materno}} {{$usuario->nombres}}</td>
                                 <td>{{$usuario->name}}</td>
-                                {{-- <td class="text-capitalize">{{$usuario->ap_paterno}} {{$usuario->ap_materno}} {{$usuario->nombres}}</td> --}}
                                 <td>{{$usuario->email}}</td>
-                                <td>{{$usuario->role_as}}</td>
+                                @if ($usuario->role_as==1)
+                                <td>Administrador</td>
+                                @else
+                                <td>Egresado</td>
+                                @endif
 
-                               <td><a href="{{route('usuario.edit', $usuario->id)}}" class="btn btn-warning btn-sm">Editar</a>
 
+
+
+                                <td>
                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit">
+                                Editar
+                                </button>
+
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$usuario->id}}">
                                 Eliminar
                                 </button></td>
                             </tr>
                             @include('admin.usuarios.delete')
+                            @include('admin.usuarios.edit')
+                            @include('admin.usuarios.create')
 
                             @endforeach
                             @endif
@@ -81,9 +96,7 @@
                 </div>
 
             </div>
-<div class="col-auto my-1 ">
-                <a href="{{url('/admin')}}" class="btn btn-danger">Atrás</a>
-            </div>
+
         </div>
 
     </div>
