@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('email', 50)->unique();
             $table->string('password', 60);
             $table->string('egresado_matricula', 12)->nullable();
-            $table->foreign('egresado_matricula')->references('matricula')->on('Egresado');
             $table->tinyInteger('role_as')->default('0'); //Add in UserTable before timestamps
             $table->rememberToken();
             $table->timestamps();
