@@ -17,9 +17,12 @@ class CreateAcademicoTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id_academico');
             $table->string('carr_profesional', 50);
+            $table->string('grado_academico', 50);
+            $table->string('pais', 50);
+            $table->string('tipo_estudio', 50);
+            $table->string('institución', 50);
             $table->date('fecha_inicial');
             $table->date('fecha_final');
-            $table->string('grado_academico', 50);
             $table->timestamps();
         });
     }

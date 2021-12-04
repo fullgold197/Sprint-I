@@ -24,6 +24,8 @@ class EgresadoSeeder extends Seeder
         $egresado->Provincia='Lima';
         $egresado->Distrito='Villa El Salvador';
         $egresado->habilitado='1';
+        $egresado->id_academico  = '1';
+        $egresado->id_profesion = '1';
         $egresado->save();
 
         $egresado1=new Egresado();
@@ -36,7 +38,9 @@ class EgresadoSeeder extends Seeder
         $egresado1->telefono='912233662';
         $egresado1->Provincia='Lima';
         $egresado1->Distrito='San Juan de Miraflores';
-        $egresado1->habilitado='0';
+        $egresado1->habilitado='1';
+        $egresado1->id_academico  = '2';
+        $egresado1->id_profesion = '2';
         $egresado1->save();
     }
 }

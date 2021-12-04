@@ -200,7 +200,7 @@
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-create">
                                 Agregar empleo
                                 </button>
-                                @include('modalEgresados.profesional_create')
+                                @include('users.modalEgresados.profesional_create')
                         </tbody>
                     </form>
                     <nav>

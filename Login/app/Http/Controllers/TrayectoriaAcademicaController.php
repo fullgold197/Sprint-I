@@ -46,9 +46,12 @@ class TrayectoriaAcademicaController extends Controller
     {
         $egresados = new Academico;
         $egresados->carr_profesional = $request->input('carr_profesional');
+        $egresados->grado_academico = $request->input('grado_academico');
+        $egresados->pais = $request->input('pais');
+        $egresados->tipo_estudio = $request->input('tipo_estudio');
+        $egresados->institución = $request->input('institución');
         $egresados->fecha_inicial = $request->input('fecha_inicial');
         $egresados->fecha_final = $request->input('fecha_final');
-        $egresados->grado_academico = $request->input('grado_academico');
         $egresados->save();
         /* return $egresados; */
         return redirect()->route('trayectoria-academica.index');

@@ -176,7 +176,7 @@
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-edit">
                                 Editar
                                 </button>
-                        @include('modalEgresados.academico_create')
+                        @include('users.modalEgresados.academico_create')
                         </tbody>
                     </form>
                     <nav>
