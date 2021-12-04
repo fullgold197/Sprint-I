@@ -100,7 +100,7 @@
 </li>
 
 <li  class="nav-item">
-    <a class="nav-link active "
+    <a class="nav-link  "
        href="http://127.0.0.1:8000/home/datos-personales">
         <i class="fas fa-fw fa-graduation-cap "></i>
         <p>Datos personales</p></a>
@@ -114,7 +114,7 @@
 </li>
 <li  class="nav-item">
 
-    <a class="nav-link  "
+    <a class="nav-link active "
        href="http://127.0.0.1:8000/home/trayectoria-profesional">
         <i class="fas fa-fw fa-user-cog "></i>
         <p>Trayectoria profesional</p>
@@ -137,49 +137,70 @@
             </div>
             <div class="col-xl-12 my-2">
                 <div class="table-responsive" align="center">
-                    <form action="{{route('datos-personales.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('trayectoria-profesional.index')}}" method="post" enctype="multipart/form-data">
                             <h5>Mi perfil</h5>
                             @foreach ($egresados as $egresado)
                             <tbody>
+
                             <tr>
-                                <td>Nombres: {{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
+                                <td>Empresa actual:{{$egresado->empresa}}</td>
                             </tr>
                             <br>
                             <tr>
 
-                                <td>Género:{{$egresado->genero}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-
-                                <td>Fecha de nacimiento:{{$egresado->fecha_nacimiento}}</td>
+                                <td>Actividad de la empresa:{{$egresado->actividad_empresa}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Teléfono: {{$egresado->telefono}}</td>
+                                <td>Puesto: {{$egresado->puesto}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Provincia: {{$egresado->Provincia}}</td>
+                                <td>Nivel de experiencia: {{$egresado->nivel_experiencia}}</td>
                             </tr>
                             <br>
-                            <tr >
+                            <tr>
                                 <td></td>
-                                <td>Distrito: {{$egresado->Distrito}}</td>
-                                <td>
-                            <label for="file"> </label>
-                            <br>
-                            <input type="file" name="featured" id="file">
-
-                                </td>
+                                <td>Area de puesto: {{$egresado->area_puesto}}</td>
                             </tr>
                             <br>
+                            <tr>
+                                <td></td>
+                                <td>Subarea: {{$egresado->subarea}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Pais: {{$egresado->pais}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Fecha de inicio: {{$egresado->fecha_inicio}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Fecha de finalización: {{$egresado->fecha_finalizacion}}</td>
+                            </tr>
 
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Descripción de responsabilidades: {{$egresado->descripcion_responsabilidades}}</td>
+                            </tr>
                             </div>
 
+
                         @endforeach
+                        <!-- Button trigger modal -->
+
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-create">
+                                Agregar empleo
+                                </button>
+                                @include('modalEgresados.profesional_create')
                         </tbody>
                     </form>
                     <nav>

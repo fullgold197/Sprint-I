@@ -15,7 +15,7 @@ class CreateEgresadoTable extends Migration
     {
         Schema::create('Egresado', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->string('matricula', 12)->primary()->unique();
+            $table->string('matricula', 10)->primary()->unique();
             $table->string('ap_paterno', 50);
             $table->string('ap_materno', 50);
             $table->string('nombres', 100);

@@ -98,16 +98,9 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /* $usuarios = User::findOrFail($id);
-        $usuarios->name = $request->input('name');
-        $usuarios->email = $request->input('email');
-        $usuarios->password = Hash::make($request->input('password'));
-        $usuarios->egresado_matricula = $request->input('egresado_matricula');
-        $usuarios->save();
-        return redirect()->route('usuario.index'); */
         $usuarios = User::findOrFail($id);
         $data = $request->only('name','email');
-        
+
         if (trim($request->password) == '') {
             $data = $request->except('password');
         } else {

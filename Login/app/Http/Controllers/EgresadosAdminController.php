@@ -50,7 +50,7 @@ class EgresadosAdminController extends Controller
     public function create()
     {
         //
-        return view('admin.egresado.create');
+        
 
     }
 

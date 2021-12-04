@@ -26,6 +26,7 @@ class CreateProfesionTable extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_finalizacion');
             $table->string('descripcion_responsabilidades', 50);
+            $table->tinyInteger('role_as'); //Add in UserTable before timestamps
             $table->timestamps();
         });
     }
