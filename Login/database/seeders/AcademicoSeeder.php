@@ -16,22 +16,22 @@ class AcademicoSeeder extends Seeder
     {
         $egresado = new Academico();
         $egresado->carr_profesional = 'Ingeniería de Sistemas';
-        $egresado->grado_academico = 'Maestro';
+        /* $egresado->grado_academico = 'Maestro';
         $egresado->pais = 'Perú';
         $egresado->tipo_estudio = 'Postgrado';
         $egresado->institución = 'Untels';
         $egresado->fecha_inicial = '2016-08-01';
-        $egresado->fecha_final = '2016-08-01';
+        $egresado->fecha_final = '2016-08-01'; */
         $egresado->save();
 
         $egresado1 = new Academico();
         $egresado1->carr_profesional = 'Ingeniería de Sistemas';
-        $egresado1->grado_academico = 'Bachiller';
+        /* $egresado1->grado_academico = 'Bachiller';
         $egresado1->pais = 'Perú';
         $egresado1->tipo_estudio = 'Pregrado';
         $egresado1->institución = 'Untels';
         $egresado1->fecha_inicial = '2016-08-01';
-        $egresado1->fecha_final = '2016-08-01';
+        $egresado1->fecha_final = '2016-08-01'; */
         $egresado1->save();
     }
 }

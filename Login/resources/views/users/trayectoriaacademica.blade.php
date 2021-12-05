@@ -150,17 +150,17 @@
                             <br>
                             <tr>
 
-                                <td>Fecha de ingreso:{{$egresado->fecha_inicial}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Fecha de egreso: {{$egresado->fecha_final}}</td>
+                                <td>Fecha de ingreso:{{$egresado->id_academico}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
                                 <td>Grado académico: {{$egresado->grado_academico}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Institución: {{$egresado->institución}}</td>
                             </tr>
                             <br>
 
