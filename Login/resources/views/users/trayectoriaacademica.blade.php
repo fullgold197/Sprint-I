@@ -138,19 +138,11 @@
             <div class="col-xl-12 my-2">
                 <div class="table-responsive" align="center">
                     <form action="{{route('trayectoria-academica.index')}}" method="post" enctype="multipart/form-data">
-                            <h5>Mi perfil</h5>
+                            <h5>Maestría</h5>
                             @foreach ($egresados as $egresado)
                             <tbody>
-
-                            <br>
                             <tr>
-
                                 <td>Carrera profesional:{{$egresado->carr_profesional}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-
-                                <td>Fecha de ingreso:{{$egresado->id_academico}}</td>
                             </tr>
                             <br>
                             <tr>
@@ -163,8 +155,57 @@
                                 <td>Institución: {{$egresado->institución}}</td>
                             </tr>
                             <br>
-
+                            <tr>
+                                <td></td>
+                                <td>País: {{$egresado->pais}}</td>
+                            </tr>
                             <br>
+                            <tr>
+                                <td></td>
+                                <td>Fecha inicial: {{$egresado->fecha_inicial}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Fecha final: {{$egresado->fecha_final}}</td>
+                            </tr>
+                            <br>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->id_academico}}">
+                                Editar
+                                </button>
+                            <br>
+                            <br>
+                            <h5>Doctorado</h5>
+                            <tr>
+                                <td></td>
+                                <td>Grado académico: {{$egresado->doctorado_grado_academico}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Institución: {{$egresado->doctorado_institución}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>País: {{$egresado->doctorado_pais}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Fecha inicial: {{$egresado->doctorado_fecha_inicial}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Fecha final: {{$egresado->doctorado_fecha_final}}</td>
+                            </tr>
+                            <br>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-edit">
+                                Editar
+                                </button>
+
+
 
                             </div>
 
@@ -173,14 +214,14 @@
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-create">
                                 Agregar estudios
                                 </button>
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-edit">
-                                Editar
-                                </button>
+
                         @include('users.modalEgresados.academico_create')
+                        @include('users.modalEgresados.academico_edit')
                         </tbody>
                     </form>
                     <nav>
         <ul class="pagination">
+            
 </li>
 </ul>
     </nav>
