@@ -14,7 +14,7 @@ class DoctoradoSeeder extends Seeder
      */
     public function run()
     {
-        $egresado = new Doctorado();
+       /*  $egresado = new Doctorado();
         $egresado->grado_academico = 'Doctor';
         $egresado->pais = 'Colombia';
         $egresado->institución = 'Universidad Nacional de Colombia';
@@ -31,5 +31,27 @@ class DoctoradoSeeder extends Seeder
         $egresado1->fecha_final = '2025-05-01';
         $egresado1->id_academico  = '2';
         $egresado1->save();
+ */
+        Doctorado::create(
+        [
+            'grado_academico' =>'Doctor',
+            'pais' => 'Colombia',
+            'institución'=>'Universidad Nacional de Colombia',
+            'fecha_inicial' => '2024-05-01',
+            'fecha_final'=> '2025-05-01',
+            'id_academico' => '1',
+        ]
+        );
+
+        Doctorado::create(
+            [
+                'grado_academico' =>'Doctor',
+                'pais' => 'Chile',
+                'institución'=>'Universidad Nacional de Chile',
+                'fecha_inicial' => '2024-05-01',
+                'fecha_final'=> '2025-05-01',
+                'id_academico' => '1',
+            ]
+            );
     }
 }

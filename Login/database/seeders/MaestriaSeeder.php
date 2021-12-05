@@ -14,7 +14,7 @@ class MaestriaSeeder extends Seeder
      */
     public function run()
     {
-        $egresado = new Maestria();
+        /* $egresado = new Maestria();
         $egresado->grado_academico = 'Maestro';
         $egresado->pais = 'Peru';
         $egresado->institución = 'UNMSM';
@@ -31,5 +31,27 @@ class MaestriaSeeder extends Seeder
         $egresado1->fecha_final = '2023-05-01';
         $egresado1->id_academico  = '2';
         $egresado1->save();
+         */
+
+        Maestria::create(
+            [
+                'grado_academico' =>'Maestro',
+                'pais' => 'Peru',
+                'institución'=>'UNMSM',
+                'fecha_inicial' => '2022-07-01',
+                'fecha_final'=> '2023-07-01',
+                'id_academico' => '1',
+            ]
+            );
+      Maestria::create(
+            [
+                'grado_academico' =>'Maestro',
+                'pais' => 'Peru',
+                'institución'=>'UNI',
+                'fecha_inicial' => '2022-05-01',
+                'fecha_final'=> '2023-05-01',
+                'id_academico' => '1',
+            ]
+            );
     }
 }
