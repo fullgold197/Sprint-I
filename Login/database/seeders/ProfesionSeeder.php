@@ -14,7 +14,7 @@ class ProfesionSeeder extends Seeder
      */
     public function run()
     {
-        $egresado = new Profesion();
+        /* $egresado = new Profesion();
         $egresado->empresa = 'Meta';
         $egresado->actividad_empresa = 'Desarrollador de tecnologías';
         $egresado->puesto= 'Técnico';
@@ -39,5 +39,34 @@ class ProfesionSeeder extends Seeder
         $egresado1->fecha_finalizacion = '2022-12-01';
         $egresado1->descripcion_responsabilidades = 'Gestionar las tecnologías de la empresa';
         $egresado1->save();
+ */
+        Profesion::create(
+            [
+                'empresa' =>'Meta',
+                'actividad_empresa' => 'Desarrollador de tecnologías',
+                'puesto'=>'Técnico',
+                'nivel_experiencia' => 'Básico',
+                'area_puesto'=> 'Producción',
+                'subarea' => 'ISO',
+                'pais'=>'Perú',
+                'fecha_inicio' => '2021-08-01',
+                'fecha_finalizacion' => '2022-08-01',
+                'descripcion_responsabilidades' => 'Desarrollar sistemas tecnológicos'
+            ]
+            );
+         Profesion::create(
+            [
+                'empresa' =>'Google',
+                'actividad_empresa' => 'Producción de productos y servicios tecnológicos',
+                'puesto'=>'Administrativo',
+                'nivel_experiencia' => 'Intermedio',
+                'area_puesto'=> 'Administración',
+                'subarea' => 'ISO',
+                'pais'=>'Perú',
+                'fecha_inicio' => '2021-12-01',
+                'fecha_finalizacion' => '2022-12-01',
+                'descripcion_responsabilidades' => 'Gestionar las tecnologías de la empresa'
+            ]
+            );
     }
 }

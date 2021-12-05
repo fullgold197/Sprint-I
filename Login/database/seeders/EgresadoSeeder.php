@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use App\Models\Egresado;
+
 class EgresadoSeeder extends Seeder
 {
     /**
@@ -13,34 +15,106 @@ class EgresadoSeeder extends Seeder
      */
     public function run()
     {
-        $egresado=new Egresado();
-        $egresado->matricula= '2016200241';
-        $egresado->ap_paterno='Vilca';
-        $egresado->ap_materno='Rivera';
-        $egresado->nombres='Oscar Ernesto';
-        $egresado->genero='Masculino';
-        $egresado->fecha_nacimiento='1997-08-01';
-        $egresado->telefono='912233669';
-        $egresado->Provincia='Lima';
-        $egresado->Distrito='Villa El Salvador';
-        $egresado->habilitado='1';
-        $egresado->id_academico  = '1';
-        $egresado->id_profesion = '1';
-        $egresado->save();
+        //
 
-        $egresado1=new Egresado();
-        $egresado1->matricula='2016200062';
-        $egresado1->ap_paterno='Cruz';
-        $egresado1->ap_materno='Huanca';
-        $egresado1->nombres='Jean Carlos';
-        $egresado1->genero='Masculino';
-        $egresado1->fecha_nacimiento='1996-08-01';
-        $egresado1->telefono='912233662';
-        $egresado1->Provincia='Lima';
-        $egresado1->Distrito='San Juan de Miraflores';
-        $egresado1->habilitado='1';
-        $egresado1->id_academico  = '2';
-        $egresado1->id_profesion = '2';
-        $egresado1->save();
+        //constructor de consultas sql
+        /* DB::table('egresado')->insert(
+        [
+            'matricula' =>'201520006123',
+            'ap_paterno' => 'cabezas',
+            'ap_materno'=>'lopez',
+            'nombres' => 'Agusto',
+            'genero'=> 'Masculino',
+            'fecha_nacimiento' => '2021-12-28',
+            'telefono'=>'12345678',
+            'Provincia' => 'Lima',
+            'Distrito' => 'Villa el salvador',
+            'habilitado' => '1'
+            ]
+        ); */
+
+//Utilizando Eloquent, interactuando con el modelo
+        Egresado::create(
+        [
+            'matricula' =>'2016200062',
+            'ap_paterno' => 'cruz',
+            'ap_materno'=>'huanca',
+            'nombres' => 'Jean Carlos',
+            'genero'=> 'Masculino',
+            'fecha_nacimiento' => '1996-02-19',
+            'telefono'=>'936866788',
+            'Provincia' => 'Lima',
+            'Distrito' => 'SJM',
+            'habilitado' => '1',
+            'id_academico' => '1',
+            'id_profesion' => '1'
+
+        ]
+        );
+        Egresado::create(
+            [
+                'matricula' =>'2016200241',
+                'ap_paterno' => 'vilca',
+                'ap_materno'=>'rivera',
+                'nombres' => 'Oscar Ernesto',
+                'genero'=> 'Masculino',
+                'fecha_nacimiento' => '1997-08-01',
+                'telefono'=>'912233669',
+                'Provincia' => 'Lima',
+                'Distrito' => 'V.E.S',
+                'habilitado' => '1',
+                'id_academico' => '1',
+                'id_profesion' => '2'
+            ]
+            );
+            Egresado::create(
+                [
+                    'matricula' =>'2016200186',
+                    'ap_paterno' => 'ramos',
+                    'ap_materno'=>'machuca',
+                    'nombres' => 'Jose Orlando',
+                    'genero'=> 'Masculino',
+                    'fecha_nacimiento' => '1997-09-30',
+                    'telefono'=>'888888888',
+                    'Provincia' => 'Lima',
+                    'Distrito' => 'V.E.S',
+                    'habilitado' => '1',
+                    'id_academico' => '1',
+                    'id_profesion' => '1'
+                ]
+                );
+                Egresado::create(
+                    [
+                        'matricula' =>'2016200216',
+                        'ap_paterno' => 'silvera',
+                        'ap_materno'=>'iñigo',
+                        'nombres' => 'Nathan Josue',
+                        'genero'=> 'Masculino',
+                        'fecha_nacimiento' => '1999-03-14',
+                        'telefono'=>'777777777',
+                        'Provincia' => 'Lima',
+                        'Distrito' => 'V.E.S',
+                        'habilitado' => '1',
+                        'id_academico' => '1',
+                        'id_profesion' => '2'
+                    ]
+                    );
+                    Egresado::create(
+                        [
+                            'matricula' =>'2016200092',
+                            'ap_paterno' => 'gomez',
+                            'ap_materno'=>'flores',
+                            'nombres' => 'Elias',
+                            'genero'=> 'Masculino',
+                            'fecha_nacimiento' => '1999-03-04',
+                            'telefono'=>'666666666',
+                            'Provincia' => 'Lima',
+                            'Distrito' => 'V.E.S',
+                            'habilitado' => '1',
+                            'id_academico' => '1',
+                            'id_profesion' => '1'
+                        ]
+                        );
+
     }
 }
