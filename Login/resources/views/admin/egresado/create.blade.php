@@ -51,7 +51,11 @@
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Guardar">
                         <input type="reset" class="btn btn-primary" value="Cancelar">
-                        <a href="{{url('/admin/egresado')}}" class="btn btn-danger">Atrás</a>
+{{--                         <a href="{{url('/admin/egresado')}}" class="btn btn-danger">Atrás</a>
+
+ --}}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
                     </div>
                 </form>
             </div>
