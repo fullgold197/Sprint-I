@@ -107,14 +107,14 @@
 
 </li>
 <li  class="nav-item">
-<a class="nav-link  "
+<a class="nav-link active "
        href="http://127.0.0.1:8000/home/trayectoria-academica">
         <i class="fas fa-fw fa-file "></i>
         <p>Trayectoria académica</p></a>
 </li>
 <li  class="nav-item">
 
-    <a class="nav-link active "
+    <a class="nav-link  "
        href="http://127.0.0.1:8000/home/trayectoria-profesional">
         <i class="fas fa-fw fa-user-cog "></i>
         <p>Trayectoria profesional</p>
@@ -137,64 +137,46 @@
             </div>
             <div class="col-xl-12 my-2">
                 <div class="table-responsive" align="center">
-                    <form action="{{route('datos-personales.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('trayectoria-academica.index')}}" method="post" enctype="multipart/form-data">
                             <h5>Mi perfil</h5>
                             @foreach ($egresados as $egresado)
                             <tbody>
 
                             <br>
                             <tr>
-                                <td>Empresa actual:{{$egresado->empresa}}</td>
+
+                                <td>Carrera profesional:{{$egresado->carr_profesional}}</td>
                             </tr>
                             <br>
                             <tr>
 
-                                <td>Actividad de la empresa:{{$egresado->actividad_empresa}}</td>
+                                <td>Fecha de ingreso:{{$egresado->id_academico}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Puesto: {{$egresado->puesto}}</td>
+                                <td>Grado académico: {{$egresado->grado_academico}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Nivel de experiencia: {{$egresado->nivel_experiencia}}</td>
+                                <td>Institución: {{$egresado->institución}}</td>
                             </tr>
                             <br>
-                            <tr>
-                                <td></td>
-                                <td>Area de puesto: {{$egresado->area_puesto}}</td>
-                            </tr>
+
                             <br>
-                            <tr>
-                                <td></td>
-                                <td>Subarea: {{$egresado->subarea}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Pais: {{$egresado->pais}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Fecha de inicio: {{$egresado->fecha_inicio}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Fecha de finalización: {{$egresado->fecha_finalizacion}}</td>
-                            </tr>
+
                             </div>
 
                         @endforeach
                         <!-- Button trigger modal -->
-
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-create">
-                                Agregar empleo
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-create">
+                                Agregar estudios
                                 </button>
-                                @include('modalEgresados.profesional_create')
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-edit">
+                                Editar
+                                </button>
+                        @include('users.modalEgresados.academico_create')
                         </tbody>
                     </form>
                     <nav>
@@ -209,6 +191,7 @@
     </div>
 
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
         </div>

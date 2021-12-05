@@ -16,12 +16,14 @@ class DatabaseSeeder extends Seeder
     {
 
         // \App\Models\User::factory(10)->create();
-        $this->truncatetables([
-            'egresado',
-            'users'
-        ]);
-        $this->call(EgresadosSeeder::class); //invocar al seeder de egresados
-        $this->call(UsuarioSeeder::class); //invocar al seeder de usuarios(tabla que depende de egresados mediante la llave foranea egresado_matricula)
+
+        $this->call(AcademicoSeeder::class);
+        $this->call(MaestriaSeeder::class);
+        $this->call(DoctoradoSeeder::class);
+        $this->call(ProfesionSeeder::class);
+        $this->call(EgresadosSeeder::class);
+        $this->call(UsersSeeder::class);
+
 
     }
     public function truncatetables(array $tables){

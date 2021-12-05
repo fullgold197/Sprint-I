@@ -100,14 +100,14 @@
 </li>
 
 <li  class="nav-item">
-    <a class="nav-link  "
+    <a class="nav-link active "
        href="http://127.0.0.1:8000/home/datos-personales">
         <i class="fas fa-fw fa-graduation-cap "></i>
         <p>Datos personales</p></a>
 
 </li>
 <li  class="nav-item">
-<a class="nav-link active "
+<a class="nav-link  "
        href="http://127.0.0.1:8000/home/trayectoria-academica">
         <i class="fas fa-fw fa-file "></i>
         <p>Trayectoria académica</p></a>
@@ -137,46 +137,49 @@
             </div>
             <div class="col-xl-12 my-2">
                 <div class="table-responsive" align="center">
-                    <form action="{{route('trayectoria-academica.index')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('datos-personales.index')}}" method="post" enctype="multipart/form-data">
                             <h5>Mi perfil</h5>
                             @foreach ($egresados as $egresado)
                             <tbody>
-
-                            <br>
                             <tr>
-
-                                <td>Carrera profesional:{{$egresado->carr_profesional}}</td>
+                                <td>Nombres: {{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
                             </tr>
                             <br>
                             <tr>
 
-                                <td>Fecha de ingreso:{{$egresado->fecha_inicial}}</td>
+                                <td>Género:{{$egresado->genero}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+
+                                <td>Fecha de nacimiento:{{$egresado->fecha_nacimiento}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Fecha de egreso: {{$egresado->fecha_final}}</td>
+                                <td>Teléfono: {{$egresado->telefono}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Grado académico: {{$egresado->grado_academico}}</td>
+                                <td>Provincia: {{$egresado->Provincia}}</td>
                             </tr>
                             <br>
+                            <tr >
+                                <td></td>
+                                <td>Distrito: {{$egresado->Distrito}}</td>
+                                <td>
+                            <label for="file"> </label>
+                            <br>
+                            <input type="file" name="featured" id="file">
 
+                                </td>
+                            </tr>
                             <br>
 
                             </div>
 
                         @endforeach
-                        <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-create">
-                                Agregar estudios
-                                </button>
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-edit">
-                                Editar
-                                </button>
-                        @include('modalEgresados.academico_create')
                         </tbody>
                     </form>
                     <nav>
@@ -191,7 +194,6 @@
     </div>
 
 </body>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
         </div>

@@ -6,7 +6,9 @@ use App\Http\Controllers\EgresadosAdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\TrayectoriaAcademica;
+use App\Http\Controllers\TrayectoriaAcademicaController;
 use App\Http\Controllers\TrayectoriaProfesional;
+use App\Http\Controllers\TrayectoriaProfesionalController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
 
@@ -30,8 +32,8 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/perfil', PruebaController::class)->middleware('auth');
 Route::resource('/home/datos-personales', DatosPersonalesController::class)->middleware('auth');
-Route::resource('/home/trayectoria-academica', TrayectoriaAcademica::class)->middleware('auth');
-Route::resource('/home/trayectoria-profesional', TrayectoriaProfesional::class)->middleware('auth');
+Route::resource('/home/trayectoria-academica', TrayectoriaAcademicaController::class)->middleware('auth');
+Route::resource('/home/trayectoria-profesional', TrayectoriaProfesionalController::class)->middleware('auth');
 Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middleware('auth');
 
 

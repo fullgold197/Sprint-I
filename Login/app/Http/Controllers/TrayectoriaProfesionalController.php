@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Egresado;
 use App\Models\Profesion;
 use Illuminate\Support\Facades\Auth;
-class TrayectoriaProfesional extends Controller
+use Illuminate\Support\Facades\DB;
+
+class TrayectoriaProfesionalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,15 @@ class TrayectoriaProfesional extends Controller
      */
     public function index(Request $request)
     {
-        $egresados = Profesion::all();
+        /* $egresados = Profesion::all(); */
         /* return $users; */
-        return view('trayectoriaprofesional', compact('egresados'));
+        $egresados = DB::table('egresado')
+            ->join('profesion', 'profesion.id_profesion', '=', 'egresado.id_profesion')
+            ->select('egresado.matricula', 'profesion.empresa', 'profesion.actividad_empresa', 'profesion.actividad_empresa', 'profesion.puesto', 'profesion.nivel_experiencia', 'profesion.area_puesto', 'profesion.subarea', 'profesion.pais', 'profesion.fecha_inicio', 'profesion.fecha_finalizacion', 'profesion.descripcion_responsabilidades')
+            ->where('matricula', Auth::user()->egresado_matricula)
+            ->get();
+        /* return $egresados; */
+        return view('users.trayectoriaprofesional', compact('egresados'));
     }
     /**
      * Show the form for creating a new resource.

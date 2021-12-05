@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Egresado;
 use App\Models\Academico;
 use Illuminate\Support\Facades\Auth;
-class TrayectoriaAcademica extends Controller
+use Illuminate\Support\Facades\DB;
+
+class TrayectoriaAcademicaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,14 @@ class TrayectoriaAcademica extends Controller
      */
     public function index(Request $request)
     {
-        $egresados = Academico::all();
-        /* return $users; */
-        return view('trayectoriaacademica', compact('egresados'));
+        $egresados = DB::table('egresado')
+            ->join('academico', 'academico.id_academico', '=', 'egresado.id_academico')
+            ->join('maestria', 'academico.id_academico', '=', 'maestria.id_academico')
+            ->select('egresado.matricula', 'academico.carr_profesional', 'academico.id_academico','maestria.grado_academico', 'maestria.institución' )
+            ->where('matricula', Auth::user()->egresado_matricula)
+            ->get();
+        /* return $egresados; */
+        return view('users.trayectoriaacademica', compact('egresados'));
     }
 
     /**
@@ -38,7 +45,17 @@ class TrayectoriaAcademica extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $egresados = new Academico;
+        $egresados->carr_profesional = $request->input('carr_profesional');
+        $egresados->grado_academico = $request->input('grado_academico');
+        $egresados->pais = $request->input('pais');
+        $egresados->tipo_estudio = $request->input('tipo_estudio');
+        $egresados->institución = $request->input('institución');
+        $egresados->fecha_inicial = $request->input('fecha_inicial');
+        $egresados->fecha_final = $request->input('fecha_final');
+        $egresados->save();
+        /* return $egresados; */
+        return redirect()->route('trayectoria-academica.index');
     }
 
     /**

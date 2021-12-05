@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('name', 60);
             $table->string('email', 50)->unique();
             $table->string('password', 60);
-            $table->string('egresado_matricula', 12)->nullable();
-            $table->tinyInteger('role_as')->default('0'); //Add in UserTable before timestamps
+            $table->string('egresado_matricula', 10)->nullable();
+            $table->tinyInteger('role_as')->default('0');
             $table->rememberToken();
             $table->timestamps();
 

@@ -18,9 +18,7 @@ class DatosPersonalesController extends Controller
     {
         $egresados = Egresado::select('ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'telefono','Provincia','Distrito')->where('matricula', Auth::user()->egresado_matricula)->get();
         /* return $users; */
-        return view('datospersonales', compact('egresados'));
-
-
+        return view('users.datospersonales', compact('egresados'));
     }
 
     /**
