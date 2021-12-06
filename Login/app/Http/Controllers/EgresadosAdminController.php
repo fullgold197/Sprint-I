@@ -50,7 +50,7 @@ class EgresadosAdminController extends Controller
     public function create()
     {
         //
-        
+
 
     }
 
@@ -72,6 +72,7 @@ class EgresadosAdminController extends Controller
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->telefono = $request->input('telefono');
+        $egresados->id_academico = $request->input('telefono');
         $egresados->save();
         /* return $egresados; */
         return redirect()->route('egresado.index');

@@ -1,63 +1,63 @@
 <!-- Modal -->
-<form action="{{route('egresado.update', $egresado->matricula)}}" method="POST">
+<form action="{{route('maestria.update', $egresado->id_maestria)}}" method="POST">
     @csrf
     @method('PUT')
-    <div class="modal fade" id="modal-edit-{{$egresado->id_academico}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-edit-{{$egresado->id_maestria}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Editar usuarios</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Editar maestria</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-group">
-                <label for="grado_academico">Grado Academico</label>
-                <input type="text" class="form-control" id="grado_academico" name="grado_academico" required maxlength="20"
+                <label for="maestria_grado_academico">Grado Academico</label>
+                <input type="text" class="form-control" id="maestria_grado_academico" name="maestria_grado_academico" required maxlength="20"
                 @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('grado_academico')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('grado_academico')}}
+                value="{{old('maestria_grado_academico')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
+                {{$errors->first('maestria_grado_academico')}}
                 @else
-                value="{{$egresado->grado_academico}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
+                value="{{$egresado->maestria_grado_academico}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
             <div class="form-group">
-                <label for="pais">País</label>
-                <input type="text" class="form-control" id="pais" name="pais" required maxlength="20"
+                <label for="maestria_pais">País</label>
+                <input type="text" class="form-control" id="maestria_pais" name="maestria_pais" required maxlength="20"
                 @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('pais')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('pais')}}
+                value="{{old('maestria_pais')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
+                {{$errors->first('maestria_pais')}}
                 @else
-                value="{{$egresado->pais}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
+                value="{{$egresado->maestria_pais}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
             <div class="form-group">
-                <label for="institución">Institución</label>
-                <input type="text" class="form-control" id="institución" name="institución" required maxlength="20"
+                <label for="maestria_institución">Institución</label>
+                <input type="text" class="form-control" id="maestria_institución" name="maestria_institución" required maxlength="20"
                 @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('institución')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('institución')}}
+                value="{{old('maestria_institución')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
+                {{$errors->first('maestria_institución')}}
                 @else
-                value="{{$egresado->institución}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
+                value="{{$egresado->maestria_institución}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
             <div class="form-group">
-                <label for="fecha_inicial">Fecha inicial</label>
-                <input type="date" class="form-control" id="fecha_inicial" name="fecha_inicial" required maxlength="20"
+                <label for="maestria_fecha_inicial">Fecha inicial</label>
+                <input type="date" class="form-control" id="maestria_fecha_inicial" name="maestria_fecha_inicial" required maxlength="20"
                 @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('fecha_inicial')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('fecha_inicial')}}
+                value="{{old('maestria_fecha_inicial')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
+                {{$errors->first('maestria_fecha_inicial')}}
                 @else
-                value="{{$egresado->fecha_inicial}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
+                value="{{$egresado->maestria_fecha_inicial}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
             <div class="form-group">
-                <label for="fecha_final">Fecha final</label>
-                <input type="date" class="form-control" id="fecha_final" name="fecha_final" required maxlength="20"
+                <label for="maestria_fecha_final">Fecha final</label>
+                <input type="date" class="form-control" id="maestria_fecha_final" name="maestria_fecha_final" required maxlength="20"
                 @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('fecha_final')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('fecha_final')}}
+                value="{{old('maestria_fecha_final')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
+                {{$errors->first('maestria_fecha_final')}}
                 @else
-                value="{{$egresado->fecha_final}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
+                value="{{$egresado->maestria_fecha_final}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
 

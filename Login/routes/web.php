@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\CambiarContrasenaController;
 use App\Http\Controllers\DatosPersonalesController;
+use App\Http\Controllers\DoctoradoController;
 use App\Http\Controllers\EgresadosAdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MaestriaController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\TrayectoriaAcademica;
 use App\Http\Controllers\TrayectoriaAcademicaController;
@@ -33,6 +35,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/perfil', PruebaController::class)->middleware('auth');
 Route::resource('/home/datos-personales', DatosPersonalesController::class)->middleware('auth');
 Route::resource('/home/trayectoria-academica', TrayectoriaAcademicaController::class)->middleware('auth');
+Route::resource('/home/trayectoria-academica/maestria', MaestriaController::class)->middleware('auth');
+Route::resource('/home/trayectoria-academica/doctorado', DoctoradoController::class)->middleware('auth');
 Route::resource('/home/trayectoria-profesional', TrayectoriaProfesionalController::class)->middleware('auth');
 Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middleware('auth');
 

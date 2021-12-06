@@ -5,29 +5,24 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Trayectoria académica</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Crear nuevo estudio</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
                     <div class="form-group">
-                        <label for="carr_profesional">Titulo/Carrera</label>
-                        <input type="text" class="form-control" id="name" name="carr_profesional" value="" required maxlength="50" >
-
+                        <label for="grado_academico">Grado academico</label>
+                        <select name="grado_academico" class="form-control"  id="grado_academico" required>
+                            <option selected disabled value="">Seleccione grado académico</option>
+                            <option value="Maestro">Maestro</option>
+                                <option value="Doctor">Doctor</option>
+                          </select>
                     </div>
                     <div class="form-group">
-                        <label for="grado_academico">Grado académico</label>
-                        <input type="text" class="form-control" id="grado_academico" name="grado_academico" value="" required maxlength="50" >
-
-                    </div>
-                    <div class="form-group">
-                        <label for="email">País</label>
+                        <label for="pais">País</label>
                         <input type="text" class="form-control" id="pais" name="pais" value="" required maxlength="50" >
 
                     </div>
-                    <div class="form-group">
-                        <label for="tipo_estudio">Tipo de estudio</label>
-                        <input type="text" class="form-control" id="tipo_estudio" name="tipo_estudio" required maxlength="50" >
-                    </div>
+
                     <div class="form-group">
                         <label for="institución">Institucion</label>
                         <input type="text" class="form-control" id="institución" name="institución" required maxlength="50" >
@@ -41,10 +36,12 @@
                         <input type="date" min="1910-01-01" max="2100-12-31" class="form-control" id="fecha_final" name="fecha_final" required maxlength="20" >
                     </div>
 
+                    {{$egresado->id_academico}}
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Guardar">
-                        <input type="reset" class="btn btn-primary" value="Cancelar">
+                        <input type="hidden" value="{{$egresado->id_academico}}" name="id_academico" />
 
+                        <input type="reset" class="btn btn-primary" value="Cancelar">
                     </div>
           </div>
         </div>

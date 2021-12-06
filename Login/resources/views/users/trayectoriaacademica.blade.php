@@ -147,35 +147,53 @@
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Grado académico: {{$egresado->grado_academico}}</td>
+                                <td>Grado académico: {{$egresado->maestria_grado_academico}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Institución: {{$egresado->institución}}</td>
+                                <td>Institución: {{$egresado->maestria_institución}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>País: {{$egresado->pais}}</td>
+                                <td>País: {{$egresado->maestria_pais}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Fecha inicial: {{$egresado->fecha_inicial}}</td>
+                                <td>Fecha inicial: {{$egresado->maestria_fecha_inicial}}</td>
                             </tr>
                             <br>
                             <tr>
                                 <td></td>
-                                <td>Fecha final: {{$egresado->fecha_final}}</td>
+                                <td>Fecha final: {{$egresado->maestria_fecha_final}}</td>
                             </tr>
                             <br>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->id_academico}}">
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->id_maestria}}">
                                 Editar
-                                </button>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-modal-delete-{{$egresado->id_maestria}}">
+                                Eliminar
+                            </button>
                             <br>
+
+                            @include('users.modalEgresados.academico_maestria_delete')
+                            @include('users.modalEgresados.academico_edit')
+
+
+                        @endforeach
+                         <br>
+                         <br>
+                        <h5>Doctorado</h5>
+                        @foreach ($egresados1 as $egresado)
+                            <tbody>
+
                             <br>
-                            <h5>Doctorado</h5>
+                            <tr>
+                                <td>Carrera profesional:{{$egresado->carr_profesional}}</td>
+                            </tr>
+                            <br>
                             <tr>
                                 <td></td>
                                 <td>Grado académico: {{$egresado->doctorado_grado_academico}}</td>
@@ -201,27 +219,32 @@
                                 <td>Fecha final: {{$egresado->doctorado_fecha_final}}</td>
                             </tr>
                             <br>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-edit">
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-doctorado-edit-{{$egresado->id_doctorado}}">
                                 Editar
-                                </button>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-doctorado-delete-{{$egresado->id_doctorado}}">
+                                Eliminar
+                            </button>
+                            <br>
 
 
-
-                            </div>
+                            @include('users.modalEgresados.academico_doctorado_edit')
+                            @include('users.modalEgresados.academico_doctorado_delete')
 
                         @endforeach
+                       <br>
                         <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-create">
-                                Agregar estudios
-                                </button>
-
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-create">
+                                Agregar nuevo estudio
+                        </button>
+                        {{--  {{$egresado->id_academico}}  --}}
+                        {{--  <input type="hidden" value="{{$egresado->id_academico}}" name="id_academico" />  --}}
                         @include('users.modalEgresados.academico_create')
-                        @include('users.modalEgresados.academico_edit')
                         </tbody>
                     </form>
                     <nav>
         <ul class="pagination">
-            
+
 </li>
 </ul>
     </nav>
