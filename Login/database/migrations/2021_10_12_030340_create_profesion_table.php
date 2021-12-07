@@ -26,6 +26,7 @@ class CreateProfesionTable extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_finalizacion');
             $table->string('descripcion_responsabilidades', 50);
+            $table->string('matricula',10)->nullable();
             $table->timestamps();
         });
     }
@@ -40,5 +41,6 @@ class CreateProfesionTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('profesion');
         Schema::enableForeignKeyConstraints();
+
     }
 }
