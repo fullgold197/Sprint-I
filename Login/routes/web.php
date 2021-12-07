@@ -39,7 +39,6 @@ Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middl
 
 Route::get('/admin/egresado/pdf/{string}', [App\Http\Controllers\ReporteAdminController::class, 'showReporteEgresados'])->name('imprimir');
 Route::resource('/admin/egresado', EgresadosAdminController::class)->middleware('auth');
-
 Route::resource('/permisos', App\Http\Controllers\PermissionController::class);
 
 Route::view('/profile/edit', 'profile.edit')->middleware('auth');

@@ -46,8 +46,7 @@ class EgresadoSeeder extends Seeder
             'Provincia' => 'Lima',
             'Distrito' => 'SJM',
             'habilitado' => '1',
-            'id_academico' => '1',
-            'id_profesion' => '1'
+            'id_academico' => '1'
 
         ]
         );
@@ -63,8 +62,7 @@ class EgresadoSeeder extends Seeder
                 'Provincia' => 'Lima',
                 'Distrito' => 'V.E.S',
                 'habilitado' => '1',
-                'id_academico' => '1',
-                'id_profesion' => '2'
+                'id_academico' => '1'
             ]
             );
             Egresado::create(
@@ -79,8 +77,7 @@ class EgresadoSeeder extends Seeder
                     'Provincia' => 'Lima',
                     'Distrito' => 'V.E.S',
                     'habilitado' => '1',
-                    'id_academico' => '1',
-                    'id_profesion' => '1'
+                    'id_academico' => '1'
                 ]
                 );
                 Egresado::create(
@@ -95,8 +92,7 @@ class EgresadoSeeder extends Seeder
                         'Provincia' => 'Lima',
                         'Distrito' => 'V.E.S',
                         'habilitado' => '1',
-                        'id_academico' => '1',
-                        'id_profesion' => '2'
+                        'id_academico' => '1'
                     ]
                     );
                     Egresado::create(
@@ -111,8 +107,7 @@ class EgresadoSeeder extends Seeder
                             'Provincia' => 'Lima',
                             'Distrito' => 'V.E.S',
                             'habilitado' => '1',
-                            'id_academico' => '1',
-                            'id_profesion' => '1'
+                            'id_academico' => '1'
                         ]
                         );
 

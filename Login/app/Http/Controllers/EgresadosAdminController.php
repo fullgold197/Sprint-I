@@ -50,7 +50,7 @@ class EgresadosAdminController extends Controller
     public function create()
     {
         //
-        
+
 
     }
 
