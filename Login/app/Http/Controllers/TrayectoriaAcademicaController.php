@@ -28,7 +28,6 @@ class TrayectoriaAcademicaController extends Controller
         $egresados= DB::table('academico')
             ->join('egresado', 'academico.id_academico', '=', 'egresado.id_academico')
             ->join('maestria', 'academico.id_academico', '=', 'maestria.id_academico')
-            /* ->select('egresado.matricula', 'academico.carr_profesional', 'academico.id_academico','maestria.id_maestria','maestria.id_academico','maestria.grado_academico', 'maestria.pais','maestria.institución', 'maestria.fecha_inicial','maestria.fecha_final', 'doctorado.id_doctorado', 'doctorado.grado_academico as doctorado_grado_academico', 'doctorado.pais as doctorado_pais', 'doctorado.institución as doctorado_institución', 'doctorado.fecha_inicial as doctorado_fecha_inicial', 'doctorado.fecha_final as doctorado_fecha_final') */
             ->select('egresado.matricula', 'academico.carr_profesional', 'academico.id_academico', 'maestria.id_maestria', 'maestria.id_academico', 'maestria.grado_academico as maestria_grado_academico', 'maestria.pais as maestria_pais', 'maestria.institución as maestria_institución', 'maestria.fecha_inicial as maestria_fecha_inicial', 'maestria.fecha_final as maestria_fecha_final')
             ->where('matricula', Auth::user()->egresado_matricula)
             ->get();

@@ -3,7 +3,7 @@
     @csrf
     <div class="modal fade" id="modal-academico-create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" align="left">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Crear nuevo estudio</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

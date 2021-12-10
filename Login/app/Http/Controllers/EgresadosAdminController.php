@@ -41,6 +41,21 @@ class EgresadosAdminController extends Controller
         ->paginate(5);
         return view('admin.egresado.index',compact('egresados','texto'),[ 'valor' => $string ]);
     }
+    public function TrayectoriaAcademicaindex(Request $request)
+    {
+        $egresados = new Egresado;
+        $egresados->matricula = $request->input('matricula');
+        $egresados->ap_paterno = $request->input('ap_paterno');
+        $egresados->ap_materno = $request->input('ap_materno');
+        $egresados->nombres = $request->input('nombres');
+        $egresados->genero = $request->input('genero');
+        $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $egresados->telefono = $request->input('telefono');
+        $egresados->id_academico = $request->input('telefono');
+        $egresados->save();
+        /* return $egresados; */
+        return redirect()->route('egresado.index');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -77,6 +92,7 @@ class EgresadosAdminController extends Controller
         /* return $egresados; */
         return redirect()->route('egresado.index');
     }
+
 
     /**
      * Display the specified resource.

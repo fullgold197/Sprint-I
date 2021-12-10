@@ -38,7 +38,7 @@ class MaestriaController extends Controller
 
      public function store(Request $request)
     {
-        
+
 
 
     }
@@ -62,10 +62,10 @@ class MaestriaController extends Controller
      */
     public function edit($id_maestria)
     {
-        $egresados = Maestria::findOrFail($id_maestria);
+        /* $egresados = Maestria::findOrFail($id_maestria); */
 
         /* return $egresados; */
-        return view('users.modalEgresados.academico_edit', compact('egresados'));
+        /* return view('users.modalEgresados.academico_edit', compact('egresados')); */
     }
 
     /**

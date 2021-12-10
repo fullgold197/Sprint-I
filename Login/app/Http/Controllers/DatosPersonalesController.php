@@ -104,9 +104,20 @@ $imagenes='';
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $matricula)
     {
-        //
+        $egresados = Egresado::findOrFail($matricula);
+        $egresados->ap_paterno = $request->input('ap_paterno');
+        $egresados->ap_materno = $request->input('ap_materno');
+        $egresados->nombres = $request->input('nombres');
+        $egresados->genero = $request->input('genero');
+        $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $egresados->Provincia = $request->input('Provincia');
+        $egresados->Distrito = $request->input('Distrito');
+        $egresados->save();
+        /* return $egresados; */
+        return redirect()->route('datos-personales.index');
     }
 
     /**

@@ -66,10 +66,10 @@ class DoctoradoController extends Controller
      */
     public function edit($id_doctorado)
     {
-        $egresados = Doctorado::findOrFail($id_doctorado);
+        /* $egresados = Doctorado::findOrFail($id_doctorado);
 
         /* return $egresados; */
-        return view('users.modalEgresados.academico_doctorado_edit', compact('egresados'));
+        /* return view('users.modalEgresados.academico_doctorado_edit', compact('egresados')); */ 
     }
 
     /**

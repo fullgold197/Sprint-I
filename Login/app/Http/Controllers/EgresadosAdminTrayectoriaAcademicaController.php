@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Egresado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class PruebaController extends Controller
+class EgresadosAdminTrayectoriaAcademicaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,7 @@ class PruebaController extends Controller
      */
     public function index(Request $request)
     {
-        $texto = $request->get('texto');
-        $users = Egresado::all();
-        return view('perfil', compact('users', 'texto'));
-
+        
     }
 
     /**
