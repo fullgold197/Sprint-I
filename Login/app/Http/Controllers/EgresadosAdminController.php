@@ -115,10 +115,12 @@ class EgresadosAdminController extends Controller
     {
         //
 
-        /* $egresados=Egresado::findOrFail($matricula); */
+       /*  $egresados=Egresado::findOrFail($matricula);
 
         //return $egresados;
-        /* return view('admin.egresado.editar',compact('egresados')); */
+        return view('admin.egresado.edit',compact('egresados')); 
+        //No se utiliza este metodo, en admin.egresado.index se @include('admin.egresado.edit') y esta vista envia los datos a egresado.update
+        */
     }
 
     /**

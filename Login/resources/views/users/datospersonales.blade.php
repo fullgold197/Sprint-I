@@ -137,10 +137,14 @@
             </div>
             <div class="col-xl-12 my-2">
                 <div class="table-responsive" align="center">
-                    <form action="{{route('datos-personales.index')}}" method="post" enctype="multipart/form-data">
+                    @foreach ($egresados as $egresado)
+
+                    <form action="{{route('datos-personales.update',$egresado->matricula)}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
                             <h5>Mi perfil</h5>
-                            @foreach ($egresados as $egresado)
-                            <tbody>
+{{--                             @foreach ($egresados as $egresado)
+ --}}                            <tbody>
                             <tr>
                                 <td>Nombres: {{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
                             </tr>
@@ -168,23 +172,31 @@
                             <tr >
                                 <td></td>
                                 <td>Distrito: {{$egresado->Distrito}}</td>
-                                <td>
-                            <label for="file"> </label>
-                            <br>
-                            <input type="file" name="featured" id="file">
-
-                                </td>
                             </tr>
+                            <input type="hidden" class="form-control" id="matricula" name="matricula" 
+                             value="{{$egresado->matricula}}">
                             <br>
-                            <br>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-datospersonales-edit-{{$egresado->matricula}}">
-                                Editar
-                            </button>
+                            <tr>
+                                <td><img src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" class="img-fluid img-thumbnail" width="300px"></td>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="file"> </label>
+                                            <input type="file" name="file" id="file" accept="image/*"><br>
+                                            @error('file')
+                                            <small class="text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Subir Imagen</button>
+                                        </div>
+                            </tr>
+
                             </div>
-                            @include('users.modalEgresados.datospersonales_edit')
                         @endforeach
                         </tbody>
                     </form>
+                  
+                    </div>
                     <nav>
         <ul class="pagination">
 </li>
