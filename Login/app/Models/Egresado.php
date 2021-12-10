@@ -13,7 +13,7 @@ class Egresado extends Model
     protected $filiable = [
         'ap_paterno', 'ap_materno', 'nombres','genero','fecha_nacimiento',
         'telefono','Provincia','Distrito','habilitado', 'primer_empleo_id','id_academico',
-        'id_profesion', 'direccion_actual', 'habilitado', 'primer_empleo_id', 'created_at', 'updated_at'
+         'direccion_actual', 'habilitado', 'primer_empleo_id', 'created_at', 'updated_at'
     ];
     public $timestamps = false;
     //use HasFactory;

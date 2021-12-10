@@ -51,7 +51,8 @@ class ProfesionSeeder extends Seeder
                 'pais'=>'Perú',
                 'fecha_inicio' => '2021-08-01',
                 'fecha_finalizacion' => '2022-08-01',
-                'descripcion_responsabilidades' => 'Desarrollar sistemas tecnológicos'
+                'descripcion_responsabilidades' => 'Desarrollar sistemas tecnológicos',
+                'matricula' =>'2016200186'
             ]
             );
          Profesion::create(
@@ -65,8 +66,25 @@ class ProfesionSeeder extends Seeder
                 'pais'=>'Perú',
                 'fecha_inicio' => '2021-12-01',
                 'fecha_finalizacion' => '2022-12-01',
-                'descripcion_responsabilidades' => 'Gestionar las tecnologías de la empresa'
+                'descripcion_responsabilidades' => 'Gestionar las tecnologías de la empresa',
+                'matricula' =>'2016200092'
             ]
             );
+            Profesion::create(
+                [
+                    'empresa' =>'Facebook',
+                    'actividad_empresa' => 'Ingeniero de software',
+                    'puesto'=>'Ingeniero',
+                    'nivel_experiencia' => 'Intermedio',
+                    'area_puesto'=> 'Desarrollo',
+                    'subarea' => 'ISO',
+                    'pais'=>'Perú',
+                    'fecha_inicio' => '2022-12-01',
+                    'fecha_finalizacion' => '2023-12-01',
+                    'descripcion_responsabilidades' => 'Gestionar proyectos de software',
+                    'matricula' =>'2016200216'
+                ]
+                );
+
     }
 }
