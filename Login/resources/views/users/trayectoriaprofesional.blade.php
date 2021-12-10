@@ -46,7 +46,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('perfil.index') }}"
+                                    <a class="dropdown-item" href="#"
                                        >
                                         {{ __('Mi perfil') }}
                                     </a>
@@ -127,22 +127,21 @@
 
 </aside>
 
-    <div class="content-wrapper ">
+    <div class="content-wrapper" align="center">
     <div class="content">
-        <div class="container-fluid">
+    <div class="container-fluid">
                 <body>
     <div class="container">
         <div class="row">
-            <div class="col-xl-12">
-            </div>
+
             <div class="col-xl-12 my-2">
-                <div class="table-responsive"  >
-                    <form action="{{route('trayectoria-profesional.index')}}" method="post" enctype="multipart/form-data" >
-                            <h5 >Mi perfil</h5>
-                            @foreach ($egresados as $egresado)
+                <div class="table-responsive" align="center">
+                    <form action="{{route('trayectoria-profesional.index')}}" method="POST" enctype="multipart/form-data" >
+                            <h5>Trayectoria profesional</h5>
+                        @foreach ($egresados as $egresado)
                             <tbody>
                             <tr>
-                                <td >Empresa: {{$egresado->empresa}}</td>
+                                <td >Empresa: {{$egresado->empresa }} {{$egresado->id_profesion}}</td>
                             </tr>
                             <br>
                             <tr>
@@ -194,6 +193,7 @@
                             <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-edit-{{$egresado->id_profesion}}">
                                 Editar
                             </button>
+                            <a href="{{route('trayectoria-profesional.edit', $egresado->id_profesion)}}">Editar</a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-delete-{{$egresado->id_profesion}}">
                                 Eliminar
                             </button>
@@ -201,27 +201,24 @@
                             <br>
                             <br>
                             </div>
+
                             @include('users.modalEgresados.profesional_edit')
                             @include('users.modalEgresados.profesional_delete')
 
                         @endforeach
 
+
                         <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-create">
                                 Agregar empleo
                                 </button>
-                                @include('users.modalEgresados.profesional_create')
+                        @include('users.modalEgresados.profesional_create')
                         </tbody>
                     </form>
-                    <nav>
-        <ul class="pagination">
-</li>
-</ul>
-    </nav>
-</div>
-</div>
-</div>
 
+            </div>
+        </div>
+    </div>
     </div>
 
 </body>

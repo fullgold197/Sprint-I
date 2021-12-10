@@ -8,6 +8,7 @@ use App\Http\Controllers\EgresadosAdminTrayectoriaAcademicaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaestriaController;
 use App\Http\Controllers\PruebaController;
+use App\Http\Controllers\QQR2Controller;
 use App\Http\Controllers\TrayectoriaAcademica;
 use App\Http\Controllers\TrayectoriaAcademicaController;
 use App\Http\Controllers\TrayectoriaProfesional;
@@ -33,12 +34,13 @@ Route::get('/', function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/perfil', PruebaController::class)->middleware('auth');
+
 Route::resource('/home/datos-personales', DatosPersonalesController::class)->middleware('auth');
 Route::resource('/home/trayectoria-academica', TrayectoriaAcademicaController::class)->middleware('auth');
 Route::resource('/home/trayectoria-academica/maestria', MaestriaController::class)->middleware('auth');
 Route::resource('/home/trayectoria-academica/doctorado', DoctoradoController::class)->middleware('auth');
 Route::resource('/home/trayectoria-profesional', TrayectoriaProfesionalController::class)->middleware('auth');
+
 Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middleware('auth');
 
 

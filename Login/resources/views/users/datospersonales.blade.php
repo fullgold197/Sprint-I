@@ -46,7 +46,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('perfil.index') }}"
+                                    <a class="dropdown-item" href="#"
                                        >
                                         {{ __('Mi perfil') }}
                                     </a>
@@ -147,7 +147,7 @@
                             <br>
                             <tr>
 
-                                <td>Género:{{$egresado->genero}}</td>
+                                <td>Género:{{$egresado->genero}} </td>
                             </tr>
                             <br>
                             <tr>
@@ -177,9 +177,9 @@
                             </tr>
                             <br>
                             <br>
-                            {{--  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-datospersonales-edit-{{$egresado->matricula}}">
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-datospersonales-edit-{{$egresado->matricula}}">
                                 Editar
-                            </button>  --}}
+                            </button>
                             </div>
                             @include('users.modalEgresados.datospersonales_edit')
                         @endforeach

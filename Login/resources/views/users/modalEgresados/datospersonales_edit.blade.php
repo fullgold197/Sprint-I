@@ -1,8 +1,7 @@
 <!-- Modal -->
-<form action="{{route('datos-personales.update', $egresado->matricula)}}" method="POST  ">
+<form action="{{route('datos-personales.update', $egresado->matricula)}}" method="POST">
     @csrf
     @method('PUT')
-
     <div class="modal fade" id="modal-datospersonales-edit-{{$egresado->matricula}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">

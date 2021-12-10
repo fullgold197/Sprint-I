@@ -23,7 +23,13 @@ class TrayectoriaProfesionalController extends Controller
             ->select('id_profesion','empresa', 'actividad_empresa', 'actividad_empresa', 'puesto', 'nivel_experiencia', 'area_puesto', 'subarea', 'pais', 'fecha_inicio', 'fecha_finalizacion', 'descripcion_responsabilidades')
             ->where('matricula', Auth::user()->egresado_matricula)
             ->get();
+        /* $egresados = DB::table('profesion')
+            ->join('egresado', 'profesion.matricula', '=', 'egresado.matricula')
+            ->select('profesion.id_profesion', 'profesion.empresa', 'profesion.actividad_empresa',  'profesion.puesto', 'profesion.nivel_experiencia', 'profesion.area_puesto', 'profesion.subarea', 'profesion.pais', 'profesion.fecha_inicio', 'profesion.fecha_finalizacion', 'profesion.descripcion_responsabilidades')
+            ->where('profesion.matricula', Auth::user()->egresado_matricula)
+            ->get(); */
         /* return $egresados; */
+
         return view('users.trayectoriaprofesional', compact('egresados'));
     }
     /**
@@ -58,6 +64,7 @@ class TrayectoriaProfesionalController extends Controller
         $egresados->matricula = Auth::user()->egresado_matricula;
         $egresados->save();
         return redirect()->route('trayectoria-profesional.index');
+
     }
 
     /**
@@ -77,9 +84,11 @@ class TrayectoriaProfesionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_profesion)
     {
-        //
+        $egresado = Profesion::findOrFail($id_profesion);
+        //return $cliente;
+        return view('users.modalEgresados.vistaprofesional', compact('egresado'));
     }
 
     /**
