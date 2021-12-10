@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Egresado;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 class DatosPersonalesController extends Controller
 {
     /**
@@ -16,7 +18,7 @@ class DatosPersonalesController extends Controller
      */
     public function index(Request $request)
     {
-        $egresados = Egresado::select('ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'telefono','Provincia','Distrito')->where('matricula', Auth::user()->egresado_matricula)->get();
+        $egresados = Egresado::select('ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'telefono','Provincia','Distrito','url')->where('matricula', Auth::user()->egresado_matricula)->get();
         /* return $users; */
         return view('users.datospersonales', compact('egresados'));
     }
@@ -40,6 +42,37 @@ class DatosPersonalesController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate(
+            [
+                'file' => 'image|max:2048'
+            ]
+        );
+/*         return $request->all();*/
+/*          return $request->file('file')->store('public/imagenes'); //ahora devuelve una url public/imagenes/da$%1¿.png , pero queremos cambiar el nombre public por storage(storage/imagenes/da$%1¿.png) con el Facade Storage */
+
+$imagenes='';
+    if ($request->hasFile('file')){
+    $imagenes=$request->file('file')->store('public/imagenes');
+}
+    $url=Storage::url($imagenes); //ahora si podemos almacenar esta url en nuestra BD
+ /*    $img=new Egresado();
+    $img->url=$url;
+    $img->save(); */
+     /*   $egresados=Egresado::create(   
+        [
+            'url' =>$url
+        ]
+        ); */
+        $egresados=new Egresado();
+        $egresados->matricula='2016200032';
+        $egresados->ap_paterno='sdaasd';
+        $egresados->ap_materno='sadsadasd';
+        $egresados->nombres='2016200032';
+        $egresados->fecha_nacimiento='1996-02-02';
+        $egresados->url=$url;
+        $egresados->save();
+        
+        return redirect()->route('datos-personales.index');
     }
 
     /**
