@@ -173,7 +173,7 @@
                             <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->id_maestria}}">
                                 Editar
                             </button>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-modal-delete-{{$egresado->id_maestria}}">
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$egresado->id_maestria}}">
                                 Eliminar
                             </button>
                             <br>

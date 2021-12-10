@@ -79,12 +79,23 @@
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$egresado->matricula}}">
                                 Eliminar
                                 </button>
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
+                                TA
+                                </button>
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
+                                TP
+                                </button>
+
+
+
                                 </td>
+
                             </tr>
                             {{-- Poner aquí los include. No sé porque aqui los leé. --}}
                             @include('admin.egresado.crear')
                             @include('admin.egresado.edit')
                             @include('admin.egresado.delete')
+                            @include('admin.egresado.trayectoriacademica')
                                 @endforeach
                             @endif
 

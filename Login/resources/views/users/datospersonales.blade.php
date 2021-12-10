@@ -176,9 +176,12 @@
                                 </td>
                             </tr>
                             <br>
-
+                            <br>
+                            {{--  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-datospersonales-edit-{{$egresado->matricula}}">
+                                Editar
+                            </button>  --}}
                             </div>
-
+                            @include('users.modalEgresados.datospersonales_edit')
                         @endforeach
                         </tbody>
                     </form>

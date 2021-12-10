@@ -1,5 +1,5 @@
 <!-- Modal -->
-<form action="#" method="POST">
+<form action="{{route('trayectoria-profesional.store')}}" method="POST">
     @csrf
     <div class="modal fade" id="modal-profesional-create" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -10,55 +10,54 @@
           </div>
           <div class="modal-body">
                     <div class="form-group">
-                        <label for="Nombre">Empresa</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name')}}" required maxlength="12" >
-                        {{$errors->first('name')}}
+                        <label for="empresa">Empresa</label>
+                        <input type="text" class="form-control" id="empresa" name="empresa" value="{{ old('empresa')}}" required maxlength="50" >
+                        {{$errors->first('empresa')}}
                     </div>
                     <div class="form-group">
-                        <label for="egresado_matricula">Nivel de experiencia</label>
-                        <input type="text" class="form-control" id="egresado_matricula" name="egresado_matricula" value="{{ old('egresado_matricula')}}" required maxlength="20" >
-                        {{$errors->first('egresado_matricula')}}
+                        <label for="actividad_empresa">Actividad de la empresa</label>
+                        <input type="text" class="form-control" id="actividad_empresa" name="actividad_empresa" required maxlength="50" >
                     </div>
                     <div class="form-group">
-                        <label for="email">Pais</label>
-                        <input type="text" class="form-control" id="email" name="email" value="{{ old('email')}}" required maxlength="20" >
-                        {{$errors->first('email')}}
+                        <label for="puesto">Puesto</label>
+                        <input type="text" class="form-control" id="puesto" name="puesto" required maxlength="50" >
                     </div>
                     <div class="form-group">
-                        <label for="password">Actividad de la empresa</label>
-                        <input type="password" class="form-control" id="password" name="password" required maxlength="20" >
+                        <label for="nivel_experiencia">Nivel de experiencia</label>
+                        <input type="text" class="form-control" id="nivel_experiencia" name="nivel_experiencia" value="{{ old('nivel_experiencia')}}" required maxlength="20" >
+                        {{$errors->first('nivel_experiencia')}}
                     </div>
                     <div class="form-group">
-                        <label for="password">Area de puesto</label>
-                        <input type="password" class="form-control" id="password" name="password" required maxlength="20" >
+                        <label for="area_puesto">Area de puesto</label>
+                        <input type="text" class="form-control" id="area_puesto" name="area_puesto" required maxlength="20" >
                     </div>
                     <div class="form-group">
-                        <label for="password">Fecha de inicio</label>
-                        <input type="password" class="form-control" id="password" name="password" required maxlength="20" >
+                        <label for="subarea">Subarea</label>
+                        <input type="text" class="form-control" id="subarea" name="subarea" required maxlength="20" >
                     </div>
                     <div class="form-group">
-                        <label for="password">Fecha de finalizacion</label>
-                        <input type="password" class="form-control" id="password" name="password" required maxlength="20" >
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Puesto</label>
-                        <input type="password" class="form-control" id="password" name="password" required maxlength="20" >
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Subarea</label>
-                        <input type="password" class="form-control" id="password" name="password" required maxlength="20" >
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Descripcion de responsabilidades</label>
-                        <input type="password" class="form-control" id="password" name="password" required maxlength="20" >
+                        <label for="pais">Pais</label>
+                        <input type="text" class="form-control" id="pais" name="pais" value="{{ old('pais')}}" required maxlength="20" >
+                        {{$errors->first('pais')}}
                     </div>
 
 
+                    <div class="form-group">
+                        <label for="fecha_inicio">Fecha de inicio</label>
+                        <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" required maxlength="20" >
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_finalizacion">Fecha de finalizacion</label>
+                        <input type="date" class="form-control" id="fecha_finalizacion" name="fecha_finalizacion" required maxlength="20" >
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion_responsabilidades">Descripcion de responsabilidades</label>
+                        <input type="text" class="form-control" id="descripcion_responsabilidades" name="descripcion_responsabilidades" required maxlength="50" >
+                    </div>
 
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Guardar">
                         <input type="reset" class="btn btn-primary" value="Cancelar">
-
                     </div>
           </div>
         </div>

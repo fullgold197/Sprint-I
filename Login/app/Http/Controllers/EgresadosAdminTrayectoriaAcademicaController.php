@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Doctorado;
-use App\Models\Maestria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class MaestriaController extends Controller
+class EgresadosAdminTrayectoriaAcademicaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -34,13 +34,9 @@ class MaestriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-
-     public function store(Request $request)
+    public function store(Request $request)
     {
-
-
-
+        //
     }
 
     /**
@@ -60,12 +56,9 @@ class MaestriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_maestria)
+    public function edit($id)
     {
-        /* $egresados = Maestria::findOrFail($id_maestria); */
-
-        /* return $egresados; */
-        /* return view('users.modalEgresados.academico_edit', compact('egresados')); */
+        //
     }
 
     /**
@@ -75,17 +68,9 @@ class MaestriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_maestria)
+    public function update(Request $request, $id)
     {
-        $egresados = Maestria::findOrFail($id_maestria);
-        $egresados->grado_academico = $request->input('maestria_grado_academico');
-        $egresados->pais = $request->input('maestria_pais');
-        $egresados->institución = $request->input('maestria_institución');
-        $egresados->fecha_inicial = $request->input('maestria_fecha_inicial');
-        $egresados->fecha_final = $request->input('maestria_fecha_final');
-        $egresados->save();
-        /* return $egresados; */
-        return redirect()->route('trayectoria-academica.index');
+        //
     }
 
     /**
@@ -94,10 +79,8 @@ class MaestriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_maestria)
+    public function destroy($id)
     {
-        $egresados = Maestria::findOrFail($id_maestria);
-        $egresados->delete();
-        return redirect()->route('trayectoria-academica.index');
+        //
     }
 }

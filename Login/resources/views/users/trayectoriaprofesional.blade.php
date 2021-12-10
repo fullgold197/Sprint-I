@@ -136,14 +136,13 @@
             <div class="col-xl-12">
             </div>
             <div class="col-xl-12 my-2">
-                <div class="table-responsive" align="center">
-                    <form action="{{route('trayectoria-profesional.index')}}" method="post" enctype="multipart/form-data">
-                            <h5>Mi perfil</h5>
+                <div class="table-responsive"  >
+                    <form action="{{route('trayectoria-profesional.index')}}" method="post" enctype="multipart/form-data" >
+                            <h5 >Mi perfil</h5>
                             @foreach ($egresados as $egresado)
                             <tbody>
-
                             <tr>
-                                <td>Empresa actual:{{$egresado->empresa}}</td>
+                                <td >Empresa: {{$egresado->empresa}}</td>
                             </tr>
                             <br>
                             <tr>
@@ -191,12 +190,23 @@
                                 <td></td>
                                 <td>Descripción de responsabilidades: {{$egresado->descripcion_responsabilidades}}</td>
                             </tr>
+                            <br>
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-edit-{{$egresado->id_profesion}}">
+                                Editar
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-delete-{{$egresado->id_profesion}}">
+                                Eliminar
+                            </button>
+                            <br>
+                            <br>
+                            <br>
                             </div>
-
+                            @include('users.modalEgresados.profesional_edit')
+                            @include('users.modalEgresados.profesional_delete')
 
                         @endforeach
-                        <!-- Button trigger modal -->
 
+                        <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-create">
                                 Agregar empleo
                                 </button>

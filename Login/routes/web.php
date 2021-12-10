@@ -4,6 +4,7 @@ use App\Http\Controllers\CambiarContrasenaController;
 use App\Http\Controllers\DatosPersonalesController;
 use App\Http\Controllers\DoctoradoController;
 use App\Http\Controllers\EgresadosAdminController;
+use App\Http\Controllers\EgresadosAdminTrayectoriaAcademicaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaestriaController;
 use App\Http\Controllers\PruebaController;
@@ -43,6 +44,7 @@ Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middl
 
 Route::get('/admin/egresado/pdf/{string}', [App\Http\Controllers\ReporteAdminController::class, 'showReporteEgresados'])->name('imprimir');
 Route::resource('/admin/egresado', EgresadosAdminController::class)->middleware('auth');
+Route::resource('/admin/egresado/datos', EgresadosAdminTrayectoriaAcademicaController::class)->middleware('auth');
 
 Route::resource('/permisos', App\Http\Controllers\PermissionController::class);
 

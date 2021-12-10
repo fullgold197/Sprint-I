@@ -19,9 +19,8 @@ class TrayectoriaProfesionalController extends Controller
     {
         /* $egresados = Profesion::all(); */
         /* return $users; */
-        $egresados = DB::table('egresado')
-            ->join('profesion', 'profesion.id_profesion', '=', 'egresado.id_profesion')
-            ->select('egresado.matricula', 'profesion.empresa', 'profesion.actividad_empresa', 'profesion.actividad_empresa', 'profesion.puesto', 'profesion.nivel_experiencia', 'profesion.area_puesto', 'profesion.subarea', 'profesion.pais', 'profesion.fecha_inicio', 'profesion.fecha_finalizacion', 'profesion.descripcion_responsabilidades')
+        $egresados = DB::table('profesion')
+            ->select('id_profesion','empresa', 'actividad_empresa', 'actividad_empresa', 'puesto', 'nivel_experiencia', 'area_puesto', 'subarea', 'pais', 'fecha_inicio', 'fecha_finalizacion', 'descripcion_responsabilidades')
             ->where('matricula', Auth::user()->egresado_matricula)
             ->get();
         /* return $egresados; */
@@ -45,7 +44,20 @@ class TrayectoriaProfesionalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $egresados = new Profesion();
+        $egresados->empresa = $request->input('empresa');
+        $egresados->actividad_empresa = $request->input('actividad_empresa');
+        $egresados->puesto = $request->input('puesto');
+        $egresados->nivel_experiencia = $request->input('nivel_experiencia');
+        $egresados->area_puesto = $request->input('area_puesto');
+        $egresados->subarea = $request->input('subarea');
+        $egresados->pais = $request->input('pais');
+        $egresados->fecha_inicio = $request->input('fecha_inicio');
+        $egresados->fecha_finalizacion = $request->input('fecha_finalizacion');
+        $egresados->descripcion_responsabilidades = $request->input('descripcion_responsabilidades');
+        $egresados->matricula = Auth::user()->egresado_matricula;
+        $egresados->save();
+        return redirect()->route('trayectoria-profesional.index');
     }
 
     /**
@@ -77,9 +89,21 @@ class TrayectoriaProfesionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_profesion)
     {
-        //
+        $egresados = Profesion::findOrFail($id_profesion);
+        $egresados->empresa = $request->input('empresa');
+        $egresados->actividad_empresa = $request->input('actividad_empresa');
+        $egresados->puesto = $request->input('puesto');
+        $egresados->nivel_experiencia = $request->input('nivel_experiencia');
+        $egresados->area_puesto = $request->input('area_puesto');
+        $egresados->subarea = $request->input('subarea');
+        $egresados->pais = $request->input('pais');
+        $egresados->fecha_inicio = $request->input('fecha_inicio');
+        $egresados->fecha_finalizacion = $request->input('fecha_finalizacion');
+        $egresados->descripcion_responsabilidades = $request->input('descripcion_responsabilidades');
+        $egresados->save();
+        return redirect()->route('trayectoria-profesional.index');
     }
 
     /**
@@ -88,8 +112,10 @@ class TrayectoriaProfesionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_profesion)
     {
-        //
+        $egresados = Profesion::findOrFail($id_profesion);
+        $egresados->delete();
+        return redirect()->route('trayectoria-profesional.index');
     }
 }

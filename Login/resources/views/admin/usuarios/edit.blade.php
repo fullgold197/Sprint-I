@@ -45,9 +45,7 @@
             <div class="form-group">
                 <label for="password">Contraseña</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese la contraseña solo en caso de modificarla">
-
             </div>
-
 
           </div>
           <div class="modal-footer">
