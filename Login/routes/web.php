@@ -43,7 +43,9 @@ Route::resource('/home/trayectoria-profesional', TrayectoriaProfesionalControlle
 
 Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middleware('auth');
 
-
+Route::get('/admin/egresado/VistaImportexcel',[App\Http\Controllers\ReporteAdminController::class,'VistaImportexcel'])->name('egresados.Import-excel');
+Route::post('admin/egresado/ImportExcel',[App\Http\Controllers\ReporteAdminController::class,'importExcel'])->name('admin/egresado/ImportExcel');
+Route::get('/admin/egresado/Exportexcel',[App\Http\Controllers\ReporteAdminController::class,'exportExcel'])->name('egresados.Export-excel');
 Route::get('/admin/egresado/pdf/{string}', [App\Http\Controllers\ReporteAdminController::class, 'showReporteEgresados'])->name('imprimir');
 Route::resource('/admin/egresado', EgresadosAdminController::class)->middleware('auth');
 
