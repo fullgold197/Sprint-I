@@ -91,12 +91,16 @@
                                 <td>
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->matricula}}">
-                                Editar
+
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->matricula}}">
+                                <i class="fas fa-edit"></i>
                                 </button>
 
+
+
+
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$egresado->matricula}}">
-                                Eliminar
+                                <i class="fas fa-trash-alt"></i>
                                 </button>
                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
                                 TA

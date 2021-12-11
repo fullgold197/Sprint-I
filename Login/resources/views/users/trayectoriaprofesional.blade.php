@@ -132,9 +132,10 @@
     <div class="container-fluid">
                 <body>
     <div class="container">
-        <div class="row">
-
-            <div class="col-xl-12 my-2">
+            <div class="row">
+            <div class="col-xl-12">
+            </div>
+                <div class="col-xl-12 my-2">
                 <div class="table-responsive" align="center">
                     <form action="{{route('trayectoria-profesional.index')}}" method="POST" enctype="multipart/form-data" >
                             <h5>Trayectoria profesional</h5>
@@ -191,11 +192,11 @@
                             </tr>
                             <br>
 
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-profesional-edit-{{$egresado->id_profesion}}">
-                            Editar
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-profesional-edit-{{$egresado->id_profesion}}">
+                            <i class="fas fa-edit"></i>
                             </button>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-delete-{{$egresado->id_profesion}}">
-                                Eliminar
+                                <i class="fas fa-trash-alt"></i>
                             </button>
 
                             <br>
@@ -216,8 +217,11 @@
                         @include('users.modalEgresados.profesional_create')
                         </tbody>
                     </form>
+                </div>
 
-            </div>
+                </div>
+    </div>
+
         </div>
     </div>
     </div>

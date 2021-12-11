@@ -133,12 +133,9 @@
                 <body>
     <div class="container">
         <div class="row">
-            <div class="col-xl-12">
-            </div>
             <div class="col-xl-12 my-2">
                 <div class="table-responsive" align="center">
                     @foreach ($egresados as $egresado)
-
                     <form action="{{route('datos-personales.update',$egresado->matricula)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')

@@ -76,13 +76,13 @@
                                 <td>
                                <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$usuario->id}}">
-                                Editar
+                                <i class="fas fa-edit"></i>
                                 </button>
 
 
 
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$usuario->id}}">
-                                Eliminar
+                                <i class="fas fa-trash-alt"></i>
                                 </button>
 
 
