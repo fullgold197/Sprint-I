@@ -27,21 +27,40 @@
                         <div class="col-auto my-2">
 {{--                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create">Nuevo</button>
  --}}
-                <button type="button" class="btn btn-success" id="open" data-bs-toggle="modal" data-bs-target="#modal-create">
-                            Nuevo
+                <button type="button" class="btn btn-primary" id="open" data-bs-toggle="modal" data-bs-target="#modal-create">
+                    <i class="fas fa-user"> Nuevo Egresado</i>
                     </button>
                         </div>
 
-
-                        <div class="col-auto my-2 " >
-                        <a href="{{ route('imprimir', $valor)}}"  target="_blank" class="btn btn-primary" >Exportar PDF</a>
-                        </div>
                     </div>
-
                 </form>
+            </div>
+            </div>
+        </div>
+                <div class="container">
+            <div class="col-xl-12">
+                <div class="row">
+                    <div class="form-row">
+            <div class="col-auto my-1" >
+                <a href="{{ route('imprimir', $valor)}}"  target="_blank" class="btn btn-danger" ><i class="fas fa-file-pdf"></i></a>
+                </div>
+                <div class="col-auto my-1" >
+                    <a href="{{ route('egresados.Export-excel')}}"  target="_blank" class="btn btn-success" ><i class="fas fa-file-export"></i></a>
+                    </div>
+            <div class="col-auto my-1">
+          {{--   <form action="{{ url('admin/egresado/ImportExcel')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                    <input type="file"  name="file" id="" class="form-group" >
+                    <input type="submit"  value="Importar" class="btn btn-warning">
+
+                </form> --}}
+                <a href="{{ route('egresados.Import-excel')}}" class="btn btn-warning" ><i class="fas fa-upload"></i></a>
+                </div>
 
             </div>
-
+        </div>
+    </div>
+</div>
             <div class="col-xl-12 my-2">
                 <div class="table-responsive ">
                     <table class="table table-striped" >
