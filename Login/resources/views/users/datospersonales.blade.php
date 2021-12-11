@@ -173,7 +173,13 @@
                                 <td></td>
                                 <td>Distrito: {{$egresado->Distrito}}</td>
                             </tr>
-                            <input type="hidden" class="form-control" id="matricula" name="matricula" 
+                            <br>
+                            <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-datos-personales-edit-{{$egresado->matricula}}">
+                                Editar datos personales
+                                </button>
+
+                            <input type="hidden" class="form-control" id="matricula" name="matricula"
                              value="{{$egresado->matricula}}">
                             <br>
                             <tr>
@@ -192,10 +198,12 @@
                             </tr>
 
                             </div>
+                            @include('users.modalEgresados.datos_personales_edit')
                         @endforeach
+
                         </tbody>
                     </form>
-                  
+
                     </div>
                     <nav>
         <ul class="pagination">
@@ -225,4 +233,3 @@
 
 </body>
 </html>
-

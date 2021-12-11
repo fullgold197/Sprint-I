@@ -141,7 +141,7 @@
                         @foreach ($egresados as $egresado)
                             <tbody>
                             <tr>
-                                <td >Empresa: {{$egresado->empresa }} {{$egresado->id_profesion}}</td>
+                                <td >Empresa: {{$egresado->empresa }}</td>
                             </tr>
                             <br>
                             <tr>
@@ -190,21 +190,22 @@
                                 <td>Descripción de responsabilidades: {{$egresado->descripcion_responsabilidades}}</td>
                             </tr>
                             <br>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-edit-{{$egresado->id_profesion}}">
-                                Editar
+
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-profesional-edit-{{$egresado->id_profesion}}">
+                            Editar
                             </button>
-                            <a href="{{route('trayectoria-profesional.edit', $egresado->id_profesion)}}">Editar</a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-delete-{{$egresado->id_profesion}}">
                                 Eliminar
                             </button>
+
                             <br>
                             <br>
                             <br>
                             </div>
 
-                            @include('users.modalEgresados.profesional_edit')
-                            @include('users.modalEgresados.profesional_delete')
 
+                            @include('users.modalEgresados.profesional_delete')
+                            @include('users.modalEgresados.profesional_edit')
                         @endforeach
 
 

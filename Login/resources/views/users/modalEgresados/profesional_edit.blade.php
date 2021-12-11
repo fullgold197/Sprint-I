@@ -2,15 +2,17 @@
 <form action="{{route('trayectoria-profesional.update', $egresado->id_profesion)}}" method="POST">
     @csrf
     @method('PUT')
-    <div class="modal fade" id="modal-profesional-edit-{{$egresado->id_profesion}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content" align="left">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Editar profesión</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
+    <div class="modal fade" id="modal-profesional-edit-{{$egresado->id_profesion}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
                 <label for="empresa">Empresa</label>
                 <input type="text" class="form-control" id="empresa" name="empresa" required maxlength="20"
                 @if($errors->any()) {{-- Si existe algun error entonces--}}
@@ -20,7 +22,6 @@
                 value="{{$egresado->empresa}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
-
             <div class="form-group">
                 <label for="actividad_empresa">Actividad de la empresa</label>
                 <input type="text" class="form-control" id="actividad_empresa" name="actividad_empresa" required maxlength="20"
@@ -30,7 +31,7 @@
                 @else
                 value="{{$egresado->actividad_empresa}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
-                {{$egresado->id_profesion}}
+
             </div>
             <div class="form-group">
                 <label for="puesto">Puesto</label>
@@ -82,16 +83,7 @@
                 value="{{$egresado->pais}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
-            <div class="form-group">
-                <label for="puesto">Puesto</label>
-                <input type="text" class="form-control" id="puesto" name="puesto" required maxlength="20"
-                @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('puesto')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('puesto')}}
-                @else
-                value="{{$egresado->puesto}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
-                @endif
-            </div>
+
             <div class="form-group">
                 <label for="fecha_inicio">Fecha de inicio</label>
                 <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" required maxlength="20"
@@ -122,15 +114,12 @@
                 value="{{$egresado->descripcion_responsabilidades}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
-
-
-          </div>
-          <div class="modal-footer">
-            <input type="submit" class="btn btn-danger " value="Editar">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-
-          </div>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Editar</button>
       </div>
     </div>
+  </div>
+</div>
 </form>

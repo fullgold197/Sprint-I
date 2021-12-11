@@ -12,7 +12,7 @@
         <h4>Gestion de Usuarios</h4>
         <div class="row">
             <div class="col-xl-12">
-                <form action="{{route('usuario.index')}}" method="GET">
+                <form action="{{route('usuario.index')}}" method="POST">
 
                     <div class="form-row">
                         <div class="col-sm-4 my-2">
@@ -67,7 +67,7 @@
                                 @if ($usuario->role_as==1)
                                 <td>Administrador</td>
                                 @else
-                                <td>Egresado</td>
+                                <td>Usuario</td>
                                 @endif
 
 
@@ -79,13 +79,22 @@
                                 Editar
                                 </button>
 
+
+
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$usuario->id}}">
                                 Eliminar
-                                </button></td>
+                                </button>
+
+
+                            </td>
+
+
                             </tr>
+
                             @include('admin.usuarios.delete')
                             @include('admin.usuarios.edit')
                             @include('admin.usuarios.create')
+
 
                             @endforeach
                             @endif

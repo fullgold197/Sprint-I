@@ -58,7 +58,7 @@ $imagenes='';
  /*    $img=new Egresado();
     $img->url=$url;
     $img->save(); */
-     /*   $egresados=Egresado::create(   
+     /*   $egresados=Egresado::create(
         [
             'url' =>$url
         ]
@@ -71,7 +71,7 @@ $imagenes='';
         $egresados->fecha_nacimiento='1996-02-02';
         $egresados->url=$url;
         $egresados->save();
-        
+
         return redirect()->route('datos-personales.index');
     }
 
@@ -121,14 +121,14 @@ $imagenes='';
     $url=Storage::url($imagenes);
 
         $egresados = Egresado::findOrFail($matricula);
-       /*  $egresados->ap_paterno = $request->input('ap_paterno');
+        $egresados->ap_paterno = $request->input('ap_paterno');
         $egresados->ap_materno = $request->input('ap_materno');
         $egresados->nombres = $request->input('nombres');
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->Provincia = $request->input('Provincia');
-        $egresados->Distrito = $request->input('Distrito'); */
+        $egresados->Distrito = $request->input('Distrito');
         $egresados->url=$url;
 
         $egresados->save();
