@@ -135,94 +135,94 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12 my-2">
-                <div class="table-responsive" align="left">
-
+                <div class="table-responsive" >
                     <form action="{{route('trayectoria-profesional.index')}}" method="POST" enctype="multipart/form-data">
+
+
                             <h5>PERFIL DEL EGRESADO
                                 <!-- Button trigger modal -->
-                                <button style="margin-left: 750px" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-create">
+                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-create">
                                 <i class="fa fa-plus-circle" aria-hidden="true">Agregar trabajo</i>
                                 </button>
                             </h5>
                             <h5>Trayectoría profesional</h5>
                             @foreach ($egresados as $egresado)
+                            <div class="card">
+                            <div class="card-body">
+                            <table>
                             <tbody>
                             <tr>
-                                <td>Empresa:{{$egresado->empresa}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Actividad de la empresa: {{$egresado->actividad_empresa}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Puesto: {{$egresado->puesto}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Nivel de experiencia: {{$egresado->nivel_experiencia}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Area de puesto: {{$egresado->area_puesto}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Subarea: {{$egresado->subarea}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>País: {{$egresado->pais}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Fecha de inicio: {{$egresado->fecha_inicio}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Fecha de finalizacion: {{$egresado->fecha_finalizacion}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Descripcion de responsabilidades: {{$egresado->descripcion_responsabilidades}}
-                                </td>
+                                <td>Empresa:</td>
+                                <td>{{$egresado->empresa}}</td>
                             </tr>
 
-                            <button style="margin-left: 1000px" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesion-edit-{{$egresado->id_profesion}}">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-delete-{{$egresado->id_profesion}}">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
+                            <tr>
+                                <td>Actividad de la empresa:</td>
+                                <td>{{$egresado->actividad_empresa}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Puesto:</td>
+                                <td>{{$egresado->puesto}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Nivel de experiencia:</td>
+                                <td>{{$egresado->nivel_experiencia}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Area de puesto:</td>
+                                <td>{{$egresado->area_puesto}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Subarea:</td>
+                                <td>{{$egresado->subarea}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>País:</td>
+                                <td>{{$egresado->pais}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Fecha de inicio:</td>
+                                <td>{{$egresado->fecha_inicio}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Fecha de finalizacion:</td>
+                                <td>{{$egresado->fecha_finalizacion}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Descripcion de responsabilidades:</td>
+                                <td>{{$egresado->descripcion_responsabilidades}}</td>
+                                <td>
+                                    <button  type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesion-edit-{{$egresado->id_profesion}}">
+                                    <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-delete-{{$egresado->id_profesion}}">
+                                    <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
                            {{--   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-edit-{{$egresado->id_profesion}}">
                                 <i class="fas fa-edit"></i>
                             </button>  --}}
-
-                            <br>
-                            <br>
-
                             @include('users.modalEgresados.profesional_edit')
                             @include('users.modalEgresados.profesional.profesion_edit')
                             @include('users.modalEgresados.profesional.profesional_delete')
-
-
+                            </tbody>
+                        </table>
+                            </div>
+                        </div>
                         @endforeach
-                         <br>
-                         <br>
-
-                       <br>
-
                         @include('users.modalEgresados.profesional.profesional_create')
-                        </tbody>
+
 
                     </form>
                 </div>

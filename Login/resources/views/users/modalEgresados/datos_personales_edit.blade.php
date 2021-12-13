@@ -9,7 +9,7 @@
             <h5 class="modal-title" id="exampleModalLabel">Editar perfil</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body" align="left">
             <div class="form-group">
                 <label for="ap_paterno">Apellido Paterno</label>
                 <input type="text" class="form-control" id="ap_paterno" name="ap_paterno" required maxlength="20"
@@ -20,7 +20,7 @@
                 @else
                 value="{{$egresado->ap_paterno}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
-                {{$egresado->matricula}}
+
             </div>
             <div class="form-group">
                 <label for="ap_materno">Apellido Materno</label>
@@ -95,8 +95,8 @@
 
           </div>
           <div class="modal-footer">
-            <input type="submit" class="btn btn-danger " value="Editar">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <input type="submit" class="btn btn-primary " value="Editar">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 
           </div>
         </div>

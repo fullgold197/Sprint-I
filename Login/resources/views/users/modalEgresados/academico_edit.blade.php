@@ -63,7 +63,7 @@
 
           </div>
           <div class="modal-footer">
-            <input type="submit" class="btn btn-danger " value="Editar">
+            <input type="submit" class="btn btn-primary" value="Editar">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 
           </div>

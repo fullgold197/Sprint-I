@@ -14,8 +14,9 @@
             ¿Deseas eliminar el sig. registro?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
           </div>
         </div>
       </div>

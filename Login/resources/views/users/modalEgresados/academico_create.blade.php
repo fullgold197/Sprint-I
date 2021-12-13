@@ -36,12 +36,11 @@
                         <input type="date" min="1910-01-01" max="2100-12-31" class="form-control" id="fecha_final" name="fecha_final" required maxlength="20" >
                     </div>
 
-                    {{$egresado->id_academico}}
+
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Guardar">
                         <input type="hidden" value="{{$egresado->id_academico}}" name="id_academico" />
-
-                        <input type="reset" class="btn btn-primary" value="Cancelar">
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     </div>
           </div>
         </div>
