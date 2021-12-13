@@ -134,14 +134,76 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12 my-2">
+                <div class="table-responsive" align="left">
+                    <tbody>
+                        <h5>PERFIL DEL EGRESADO</h5>
+                        <h5>Datos personales</h5>
+                    </tbody>
+                </div>
                 <div class="table-responsive" align="center">
+
+
+
                     @foreach ($egresados as $egresado)
                     <form action="{{route('datos-personales.update',$egresado->matricula)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                            <h5>Mi perfil</h5>
+
 {{--                             @foreach ($egresados as $egresado)
- --}}                            <tbody>
+ --}}                       <tbody>
+
+                            {{--  <tr>
+                                <td>Nombres: {{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+
+                                <td>Género:{{$egresado->genero}} </td>
+                            </tr>
+                            <br>
+                            <tr>
+
+                                <td>Fecha de nacimiento:{{$egresado->fecha_nacimiento}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Teléfono: {{$egresado->telefono}}</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td></td>
+                                <td>Provincia: {{$egresado->Provincia}}</td>
+                            </tr>
+                            <br>
+                            <tr >
+                                <td></td>
+                                <td>Distrito: {{$egresado->Distrito}}</td>
+                            </tr>
+                            <br>
+                            <!-- Button trigger modal -->
+                                <button style="margin-left: 750px" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-datos-personales-edit-{{$egresado->matricula}}">
+                                Editar datos personales
+                                </button>
+  --}}
+                            <input type="hidden" class="form-control" id="matricula" name="matricula"
+                             value="{{$egresado->matricula}}">
+                            <br>
+                            <tr>
+                                <td><img src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" class="img-fluid img-thumbnail" width="300px">
+                                </td>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="file"> </label>
+                                            <input type="file" name="file" id="file" accept="image/*"><br>
+                                            @error('file')
+                                            <small class="text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Subir Imagen</button>
+                                        </div>
+                            </tr>
                             <tr>
                                 <td>Nombres: {{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
                             </tr>
@@ -172,27 +234,13 @@
                             </tr>
                             <br>
                             <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-datos-personales-edit-{{$egresado->matricula}}">
+                                <button style="margin-left: 750px" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-datos-personales-edit-{{$egresado->matricula}}">
                                 Editar datos personales
                                 </button>
 
                             <input type="hidden" class="form-control" id="matricula" name="matricula"
                              value="{{$egresado->matricula}}">
                             <br>
-                            <tr>
-                                <td><img src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" class="img-fluid img-thumbnail" width="300px"></td>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="file"> </label>
-                                            <input type="file" name="file" id="file" accept="image/*"><br>
-                                            @error('file')
-                                            <small class="text-danger">{{$message}}</small>
-                                            @enderror
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Subir Imagen</button>
-                                        </div>
-                            </tr>
 
                             </div>
                             @include('users.modalEgresados.datos_personales_edit')

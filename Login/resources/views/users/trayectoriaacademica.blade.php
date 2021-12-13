@@ -127,22 +127,51 @@
 
 </aside>
 
-    <div class="content-wrapper ">
+<div class="content-wrapper ">
     <div class="content">
         <div class="container-fluid">
-                <body>
+
+<body>
     <div class="container">
         <div class="row">
-            <div class="col-xl-12">
-            </div>
             <div class="col-xl-12 my-2">
                 <div class="table-responsive" align="left">
+                    <h5>PERFIL DE EGRESADO
+                        <!-- Button trigger modal -->
+                        <button style="margin-left: 750px" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-create">
+                          <i class="fa fa-plus-circle" aria-hidden="true">Agregar estudio</i>
+                        </button></h5>
                     <form action="{{route('trayectoria-academica.index')}}" method="post" enctype="multipart/form-data">
-                            <h5>Maestría</h5>
+
+                            <tbody>
+                                <tr>
+                                <td>CARRERA PROFESIONAL:</td>
+                                </tr>
+                                <br>
+                                <tr>
+                                <td>GRADO ACADÉMICO:</td>
+                                </tr>
+                                <br>
+                                <tr>
+                                <td>FECHA DE INGRESO:</td>
+                                </tr>
+                                <br>
+                                <tr>
+                                <td>FECHA DE EGRESO:</td>
+                                </tr>
+                                <br>
+                            </tbody>
+                            <br>
+                            <h5>Trayectoria Académica</h5>
+                            <h5>Maestrías</h5>
                             @foreach ($egresados as $egresado)
                             <tbody>
+
                             <tr>
+                                <link href="css/colores.css" rel="stylesheet" type="text/css"/>
+
                                 <td>Carrera profesional:{{$egresado->carr_profesional}}</td>
+
                             </tr>
                             <br>
                             <tr>
@@ -168,14 +197,16 @@
                             <tr>
                                 <td></td>
                                 <td>Fecha final: {{$egresado->maestria_fecha_final}}</td>
-                            </tr>
-                            <br>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->id_maestria}}">
+                                <button style="margin-left: 800px" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->id_maestria}}">
                                 <i class="fas fa-edit"></i>
-                            </button>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$egresado->id_maestria}}">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
+
+                                </button>
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$egresado->id_maestria}}">
+                                <i class="
+
+                            </tr>
+                                fas fa-trash-alt"></i>
+                                </button>
                             <br>
                             <br>
 
@@ -186,11 +217,9 @@
                         @endforeach
                          <br>
                          <br>
-                        <h5>Doctorado</h5>
+                        <h5>Doctorados</h5>
                         @foreach ($egresados1 as $egresado)
                             <tbody>
-
-
                             <tr>
                                 <td>Carrera profesional:{{$egresado->carr_profesional}}</td>
                             </tr>
@@ -219,8 +248,8 @@
                                 <td></td>
                                 <td>Fecha final: {{$egresado->doctorado_fecha_final}}</td>
                             </tr>
-                            <br>
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-doctorado-edit-{{$egresado->id_doctorado}}">
+
+                            <button style="margin-left: 800px" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-doctorado-edit-{{$egresado->id_doctorado}}">
                                 <i class="fas fa-edit"></i>
                             </button>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-doctorado-delete-{{$egresado->id_doctorado}}">
@@ -234,25 +263,15 @@
 
                         @endforeach
                        <br>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-academico-create">
-                                Agregar nuevo estudio
-                        </button>
+
                         {{--  {{$egresado->id_academico}}  --}}
                         {{--  <input type="hidden" value="{{$egresado->id_academico}}" name="id_academico" />  --}}
                         @include('users.modalEgresados.academico_create')
                         </tbody>
                     </form>
-                    <nav>
-
-
-        </li>
-        </ul>
-        </nav>
                 </div>
             </div>
-</div>
-
+        </div>
     </div>
 
 </body>
