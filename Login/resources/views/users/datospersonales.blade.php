@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
                 <link rel="stylesheet" href="/css/admin_custom.css">
+                <link rel="stylesheet" href="{{ asset('css/letras.css') }}"> {{--  negrita texto  --}}
 </head>
 
 <body class="sidebar-mini">
@@ -142,81 +143,93 @@
                     </tbody>
                 </div>
 
-                <div class="table-responsive" align="center">
+                <div class="table-responsive">
                     @foreach ($egresados as $egresado)
                     <form action="{{route('datos-personales.update',$egresado->matricula)}}" method="POST" enctype="multipart/form-data">
                         <div class="card">
                         <div class="card-body">
+                        <table align="center">
                         <tbody>
                         @csrf
                         @method('PUT')
                             <input type="hidden" class="form-control" id="matricula" name="matricula"
                              value="{{$egresado->matricula}}">
-                            <br>
                             <tr>
-                                <td><img src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" class="img-fluid img-thumbnail" width="300px">
+                                <td colspan="2">
+                                    <img  src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" class="img-fluid img-thumbnail" width="300px">
                                 </td>
-                                <div class="form-group">
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="2">
+                                    <div class="form-group">
                                     <label for="file"> </label>
                                         <input type="file" name="file" id="file" accept="image/*"><br>
                                         @error('file')
                                         <small class="text-danger">{{$message}}</small>
                                         @enderror
                                 </div>
-                                <div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="2">
                                     <button type="submit" class="btn btn-primary">Cambiar foto</button>
-                                </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Nombres: {{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
+                                <th>NOMBRES</th>
+                                <td>{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
                             </tr>
-                            <br>
-                            <tr>
 
-                                <td>Género:{{$egresado->genero}} </td>
-                            </tr>
-                            <br>
-                            <tr>
-
-                                <td>Fecha de nacimiento:{{$egresado->fecha_nacimiento}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Teléfono: {{$egresado->telefono}}</td>
-                            </tr>
-                            <br>
-                            <tr>
-                                <td></td>
-                                <td>Provincia: {{$egresado->Provincia}}</td>
-                            </tr>
-                            <br>
                             <tr >
-                                <td></td>
-                                <td>Distrito: {{$egresado->Distrito}}</td>
+                                <th>GÉNERO</th>
+                                <td>{{$egresado->genero}} </td>
                             </tr>
-                            <br>
-                            <!-- Button trigger modal -->
+
+                            <tr >
+                                <th>FECHA DE NACIMIENTO</th>
+                                <td>{{$egresado->fecha_nacimiento}}</td>
+                            </tr>
+
+                            <tr >
+                                <th>TELÉFONO</th>
+                                <td>{{$egresado->telefono}}</td>
+                            </tr>
+
+                            <tr >
+                                <th>PROVINCIA</th>
+                                <td>{{$egresado->Provincia}}</td>
+                            </tr>
+
+                            <tr>
+                                <th>DISTRITO</th>
+                                <td>{{$egresado->Distrito}}</td>
+                            </tr>
+                            <tr >
+                                <td align="center" colspan="2">
+                                <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-datos-personales-edit-{{$egresado->matricula}}">
                                 Editar
                                 </button>
-                            <br>
+                                </td>
+                            </tr>
+
+
+
 
 
                             <input type="hidden" class="form-control" id="matricula" name="matricula"
                              value="{{$egresado->matricula}}">
-                            <br>
+
 
                             </div>
                             @include('users.modalEgresados.datos_personales_edit')
                         @endforeach
 
                     </tbody>
-                    </form>
+                </table>
+                </form>
 
-
-
-                    </div>
+            </div>
 
 </div>
 </div>

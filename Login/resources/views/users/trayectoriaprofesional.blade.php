@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
                 <link rel="stylesheet" href="/css/admin_custom.css">
+                <link rel="stylesheet" href="{{ asset('css/letras.css') }}"> {{--  negrita texto  --}}
 </head>
 
 <body class="sidebar-mini">
@@ -137,77 +138,74 @@
             <div class="col-xl-12 my-2">
                 <div class="table-responsive" >
                     <form action="{{route('trayectoria-profesional.index')}}" method="POST" enctype="multipart/form-data">
-
-
-                            <h5>PERFIL DEL EGRESADO
-                                <!-- Button trigger modal -->
+                            <div align="right">
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-create">
                                 <i class="fa fa-plus-circle" aria-hidden="true">Agregar trabajo</i>
                                 </button>
+                            </div>
+                            <h5>
+                                PERFIL DEL EGRESADO
                             </h5>
-                            <h5>Trayectoría profesional</h5>
+                            <h5>Trayectoria profesional</h5>
                             @foreach ($egresados as $egresado)
                             <div class="card">
                             <div class="card-body">
+
                             <table>
                             <tbody>
                             <tr>
-                                <td>Empresa:</td>
+                                <th>EMPRESA</th>
                                 <td>{{$egresado->empresa}}</td>
                             </tr>
 
                             <tr>
-                                <td>Actividad de la empresa:</td>
+                                <th>ACTIVIDAD DE LA EMPRESA</th>
                                 <td>{{$egresado->actividad_empresa}}</td>
                             </tr>
 
                             <tr>
-                                <td>Puesto:</td>
+                                <th>PUESTO</th>
                                 <td>{{$egresado->puesto}}</td>
                             </tr>
 
                             <tr>
-                                <td>Nivel de experiencia:</td>
+                                <th>NIVEL DE EXPERIENCIA</th>
                                 <td>{{$egresado->nivel_experiencia}}</td>
                             </tr>
 
                             <tr>
-                                <td>Area de puesto:</td>
+                                <th>ÁREA DE PUESTO</th>
                                 <td>{{$egresado->area_puesto}}</td>
                             </tr>
 
                             <tr>
-                                <td>Subarea:</td>
+                                <th>SUBAREA</th>
                                 <td>{{$egresado->subarea}}</td>
                             </tr>
 
                             <tr>
-                                <td>País:</td>
+                                <th>PAÍS</th>
                                 <td>{{$egresado->pais}}</td>
                             </tr>
 
                             <tr>
-                                <td>Fecha de inicio:</td>
+                                <th>FECHA DE INICIO</th>
                                 <td>{{$egresado->fecha_inicio}}</td>
                             </tr>
 
                             <tr>
-                                <td>Fecha de finalizacion:</td>
+                                <th>FECHA DE FINALIZACIÓN</th>
                                 <td>{{$egresado->fecha_finalizacion}}</td>
                             </tr>
 
                             <tr>
-                                <td>Descripcion de responsabilidades:</td>
+                                <th>DESCRIPCIÓN DE RESPONSABILIDADES</th>
                                 <td>{{$egresado->descripcion_responsabilidades}}</td>
                                 <td>
-                                    <button  type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesion-edit-{{$egresado->id_profesion}}">
-                                    <i class="fas fa-edit"></i>
-                                    </button>
+
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-delete-{{$egresado->id_profesion}}">
-                                    <i class="fas fa-trash-alt"></i>
-                                    </button>
+
                                 </td>
                             </tr>
                            {{--   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-edit-{{$egresado->id_profesion}}">
@@ -218,6 +216,14 @@
                             @include('users.modalEgresados.profesional.profesional_delete')
                             </tbody>
                         </table>
+                        <div align="right">
+                            <button  type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesion-edit-{{$egresado->id_profesion}}">
+                            <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-profesional-delete-{{$egresado->id_profesion}}">
+                            <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
                             </div>
                         </div>
                         @endforeach

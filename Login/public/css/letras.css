@@ -1,0 +1,19 @@
+
+h5 {
+    font-weight: 600;
+
+    color:#1B2430;
+}
+td {
+    padding: 0 50px 0 50px;
+}
+
+#derecha{
+    background-color: aqua;
+}
+
+.imgRedonda {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+}
