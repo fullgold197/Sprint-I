@@ -76,6 +76,8 @@ class DatosPersonalesController extends Controller
      */
     public function update(Request $request, $matricula)
     {
+        $egresados = Egresado::findOrFail($matricula);
+
         $request->validate(
             [
                 'file' => 'image|max:2048'
@@ -86,9 +88,12 @@ class DatosPersonalesController extends Controller
 
 $imagenes='';
     if ($request->hasFile('file')){
-    $imagenes=$request->file('file')->store('public/imagenes');
+    $imagenes=$request->file('file')->getClientOriginalName();
+    $ruta=$request->file('file')->storeAs('public/imagenes/subfolder/ '. $egresados->matricula,$imagenes);
+    $url=Storage::url($ruta);
+    $egresados->update(['url'=>$url]);
 }
-$url=Storage::url($imagenes); //ahora si podemos almacenar esta url en nuestra BD
+    //ahora si podemos almacenar esta url en nuestra BD
 /*    $img=new Egresado();
    $img->url=$url;
    $img->save(); */
@@ -97,8 +102,6 @@ $url=Storage::url($imagenes); //ahora si podemos almacenar esta url en nuestra B
            'url' =>$url
        ]
        ); */
-
-        $egresados = Egresado::findOrFail($matricula);
         $egresados->ap_paterno = $request->input('ap_paterno');
         $egresados->ap_materno = $request->input('ap_materno');
         $egresados->nombres = $request->input('nombres');
@@ -107,8 +110,7 @@ $url=Storage::url($imagenes); //ahora si podemos almacenar esta url en nuestra B
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->Provincia = $request->input('Provincia');
         $egresados->Distrito = $request->input('Distrito');
-        $egresados->url=$url;
-
+      //  $egresados->url=$url;
         $egresados->save();
         /* return $egresados; */
         return redirect()->route('datos-personales.index');

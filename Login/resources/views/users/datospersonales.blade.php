@@ -160,7 +160,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="center" colspan="2">
+                                {{-- <td align="center" colspan="2">
                                     <div class="form-group">
                                     <label for="file"> </label>
                                         <input type="file" name="file" id="file" accept="image/*"><br>
@@ -168,13 +168,13 @@
                                         <small class="text-danger">{{$message}}</small>
                                         @enderror
                                 </div>
-                                </td>
+                                </td> --}}
                             </tr>
-                            <tr>
+                          {{--   <tr>
                                 <td align="center" colspan="2">
                                     <button type="submit" class="btn btn-primary">Cambiar foto</button>
                                 </td>
-                            </tr>
+                            </tr> --}}
                             <tr>
                                 <th>NOMBRES</th>
                                 <td>{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
