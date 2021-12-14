@@ -265,11 +265,11 @@ return [
             'url'  => 'admin/egresado',
             'icon' => 'fas fa-fw fa-graduation-cap',
         ],
-        /* [
-            'text' => 'Reportes',
-            'url'  => 'admin/settings',
+        [
+            'text' => 'qqr2',
+            'url'  => 'admin/academico-profesional',
             'icon' => 'fas fa-fw fa-file',
-        ], */
+        ],
         [
             'text' => 'Usuarios',
             'url'  => 'admin/usuario',
