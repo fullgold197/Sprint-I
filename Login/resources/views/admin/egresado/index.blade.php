@@ -25,8 +25,7 @@
 
                     <div class="form-row">
                         <div class="col-auto my-2">
-{{--                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create">Nuevo</button>
- --}}
+
                 <button type="button" class="btn btn-primary" id="open" data-bs-toggle="modal" data-bs-target="#modal-create">
                     <i class="fas fa-user"> Nuevo Egresado</i>
                     </button>
@@ -48,12 +47,7 @@
                     <a href="{{ route('egresados.Export-excel')}}"  target="_blank" class="btn btn-success" ><i class="fas fa-file-export"></i></a>
                     </div>
             <div class="col-auto my-1">
-          {{--   <form action="{{ url('admin/egresado/ImportExcel')}}" method="post" enctype="multipart/form-data">
-                @csrf
-                    <input type="file"  name="file" id="" class="form-group" >
-                    <input type="submit"  value="Importar" class="btn btn-warning">
 
-                </form> --}}
                 <a href="{{ route('egresados.Import-excel')}}" class="btn btn-warning" ><i class="fas fa-upload"></i></a>
                 </div>
 
@@ -65,7 +59,6 @@
                 <div class="table-responsive ">
                     <table class="table table-striped" >
                         <thead>
-
                             <tr class="text-center">
                                 <th>Codigo matricula</th>
                                 <th>Nombres</th>
@@ -91,27 +84,17 @@
                                 <td>
 
                                 <!-- Button trigger modal -->
-
+                                <a href=""></a>
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                </button>
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->matricula}}">
                                 <i class="fas fa-edit"></i>
                                 </button>
-
-
-
-
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$egresado->matricula}}">
                                 <i class="fas fa-trash-alt"></i>
                                 </button>
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
-                                TA
-                                </button>
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
-                                TP
-                                </button>
-
-
-
-                                </td>
+                            </td>
 
                             </tr>
                             {{-- Poner aquí los include. No sé porque aqui los leé. --}}
@@ -119,7 +102,7 @@
                             @include('admin.egresado.edit')
                             @include('admin.egresado.delete')
                             @include('admin.egresado.trayectoriacademica')
-                                @endforeach
+                            @endforeach
                             @endif
 
                         </tbody>

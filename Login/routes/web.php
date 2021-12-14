@@ -3,6 +3,7 @@
 use App\Http\Controllers\CambiarContrasenaController;
 use App\Http\Controllers\DatosPersonalesController;
 use App\Http\Controllers\DoctoradoController;
+use App\Http\Controllers\EgresadoAcademicoProfesionalController;
 use App\Http\Controllers\EgresadosAdminController;
 use App\Http\Controllers\EgresadosAdminTrayectoriaAcademicaController;
 use App\Http\Controllers\HomeController;
@@ -48,7 +49,7 @@ Route::post('admin/egresado/ImportExcel',[App\Http\Controllers\ReporteAdminContr
 Route::get('/admin/egresado/Exportexcel',[App\Http\Controllers\ReporteAdminController::class,'exportExcel'])->name('egresados.Export-excel');
 Route::get('/admin/egresado/pdf/{string}', [App\Http\Controllers\ReporteAdminController::class, 'showReporteEgresados'])->name('imprimir');
 Route::resource('/admin/egresado', EgresadosAdminController::class)->middleware('auth');
-
+Route::resource('/admin/academico-profesional', EgresadoAcademicoProfesionalController::class)->middleware('auth');
 
 Route::resource('/permisos', App\Http\Controllers\PermissionController::class);
 

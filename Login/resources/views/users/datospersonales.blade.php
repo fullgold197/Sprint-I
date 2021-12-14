@@ -156,7 +156,7 @@
                              value="{{$egresado->matricula}}">
                             <tr>
                                 <td colspan="2">
-                                    <img  src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" class="img-fluid img-thumbnail" width="300px">
+                                    <img src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" class="img-fluid img-thumbnail" width="300px">
                                 </td>
                             </tr>
                             <tr>
