@@ -1,5 +1,5 @@
 <!-- Modal -->
-<form action="{{route('datos-personales.update', $egresado->matricula)}}" method="POST">
+<form action="{{route('datos-personales.update', $egresado->matricula)}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="modal fade" id="modal-datos-personales-edit-{{$egresado->matricula}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -10,6 +10,8 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" align="left">
+
+
             <div class="form-group">
                 <label for="ap_paterno">Apellido Paterno</label>
                 <input type="text" class="form-control" id="ap_paterno" name="ap_paterno" required maxlength="20"
@@ -92,6 +94,16 @@
                 value="{{$egresado->Distrito}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
+            <div class="form-group">
+                <label for="file"> Seleccione Imagen: </label><br>
+                    <input type="file" name="file" id="file" accept="image/*"
+                    @if($errors->any())
+                    value="{{old('file')}}">
+                    @else
+                    value="{{$egresado->url}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
+                @endif
+            </div>
+
 
           </div>
           <div class="modal-footer">
