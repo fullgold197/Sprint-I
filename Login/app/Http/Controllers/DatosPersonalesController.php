@@ -8,6 +8,7 @@ use App\Models\Egresado;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\File;
 
 class DatosPersonalesController extends Controller
 {
@@ -91,6 +92,13 @@ $imagenes='';
     $imagenes=$request->file('file')->getClientOriginalName();
     $ruta=$request->file('file')->storeAs('public/imagenes/subfolder/ '. $egresados->matricula,$imagenes);
     $url=Storage::url($ruta);
+    if($egresados->url != ''){  //si ya hay imagenes anteriores entonces eliminarlas y que solo quede la ultima imagen actualizada
+        //unlink(storage_path('app/public/imagenes/subfolder/ '. $egresados->matricula.'/image (1).png'));
+
+
+
+    };
+     //para obtener la ruta de la imagen correspondiente a app/storage/public/imagenes/subfolder.... hayamos definido en la variable $ruta
     $egresados->update(['url'=>$url]);
 }
     //ahora si podemos almacenar esta url en nuestra BD

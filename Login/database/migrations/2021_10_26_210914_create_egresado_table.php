@@ -24,6 +24,7 @@ class CreateEgresadoTable extends Migration
             $table->string('telefono', 12)->nullable();
             $table->string('Provincia', 200)->nullable();
             $table->string('Distrito', 200)->nullable();
+            $table->string('url')->nullable();
             $table->boolean('habilitado')->default('1');
             $table->integer('primer_empleo_id')->unsigned()->nullable();
             $table->foreign('primer_empleo_id')->references('id')->on('PrimerEmpleo')->unique();
