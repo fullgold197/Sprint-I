@@ -8,6 +8,7 @@ use App\Models\Egresado;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\File;
 
 class DatosPersonalesController extends Controller
 {
@@ -76,6 +77,8 @@ class DatosPersonalesController extends Controller
      */
     public function update(Request $request, $matricula)
     {
+        $egresados = Egresado::findOrFail($matricula);
+
         $request->validate(
             [
                 'file' => 'image|max:2048'
@@ -86,9 +89,19 @@ class DatosPersonalesController extends Controller
 
 $imagenes='';
     if ($request->hasFile('file')){
-    $imagenes=$request->file('file')->store('public/imagenes');
+    $imagenes=$request->file('file')->getClientOriginalName();
+    $ruta=$request->file('file')->storeAs('public/imagenes/subfolder/ '. $egresados->matricula,$imagenes);
+    $url=Storage::url($ruta);
+    if($egresados->url != ''){  //si ya hay imagenes anteriores entonces eliminarlas y que solo quede la ultima imagen actualizada
+        //unlink(storage_path('app/public/imagenes/subfolder/ '. $egresados->matricula.'/image (1).png'));
+
+
+
+    };
+     //para obtener la ruta de la imagen correspondiente a app/storage/public/imagenes/subfolder.... hayamos definido en la variable $ruta
+    $egresados->update(['url'=>$url]);
 }
-$url=Storage::url($imagenes); //ahora si podemos almacenar esta url en nuestra BD
+    //ahora si podemos almacenar esta url en nuestra BD
 /*    $img=new Egresado();
    $img->url=$url;
    $img->save(); */
@@ -97,15 +110,13 @@ $url=Storage::url($imagenes); //ahora si podemos almacenar esta url en nuestra B
            'url' =>$url
        ]
        ); */
-
-        $egresados = Egresado::findOrFail($matricula);
         $egresados->ap_paterno = $request->input('ap_paterno');
         $egresados->ap_materno = $request->input('ap_materno');
         $egresados->nombres = $request->input('nombres');
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
-        $egresados->url=$url;
+        /* $egresados->url=$url; */
 
         $egresados->save();
         /* return $egresados; */
