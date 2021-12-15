@@ -19,12 +19,18 @@ class TrayectoriaAcademicaController extends Controller
      */
     public function index(Request $request)
     {
+        $egresados0= DB::table('egresado')
+        ->select('grado_academico', 'semestre_ingreso', 'semestre_egreso')
+        ->where('matricula', Auth::user()->egresado_matricula)
+        ->get();
+
         $egresados1 = DB::table('academico')
             ->join('egresado', 'academico.id_academico', '=', 'egresado.id_academico')
             ->join('doctorado', 'academico.id_academico', '=', 'doctorado.id_academico')
             ->select('egresado.matricula', 'academico.carr_profesional', 'academico.id_academico', 'doctorado.id_doctorado', 'doctorado.id_academico', 'doctorado.grado_academico as doctorado_grado_academico', 'doctorado.pais as doctorado_pais', 'doctorado.institución as doctorado_institución', 'doctorado.fecha_inicial as doctorado_fecha_inicial', 'doctorado.fecha_final as doctorado_fecha_final')
             ->where('matricula', Auth::user()->egresado_matricula)
             ->get();
+
         $egresados= DB::table('academico')
             ->join('egresado', 'academico.id_academico', '=', 'egresado.id_academico')
             ->join('maestria', 'academico.id_academico', '=', 'maestria.id_academico')
@@ -32,7 +38,7 @@ class TrayectoriaAcademicaController extends Controller
             ->where('matricula', Auth::user()->egresado_matricula)
             ->get();
         /* return $egresados; */
-        return view('users.trayectoriaacademica', compact('egresados','egresados1'));
+        return view('users.trayectoriaacademica', compact('egresados0','egresados','egresados1'));
     }
 
     /**

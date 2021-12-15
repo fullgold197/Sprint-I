@@ -266,7 +266,7 @@ return [
             'icon' => 'fas fa-fw fa-graduation-cap',
         ],
         [
-            'text' => 'qqr2',
+            /* 'text' => 'qqr2', */
             'url'  => 'admin/academico-profesional',
             'icon' => 'fas fa-fw fa-file',
         ],

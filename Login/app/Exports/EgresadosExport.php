@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\egresado;
+use App\Models\Egresado;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class EgresadosExport implements FromCollection
@@ -12,6 +12,6 @@ class EgresadosExport implements FromCollection
     */
     public function collection()
     {
-        return egresado::select('matricula','ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'telefono','Provincia','Distrito')->get();
+        return Egresado::select('matricula','ap_paterno', 'ap_materno', 'nombres', 'grado_academico', 'dni','genero', 'fecha_nacimiento', 'semestre_ingreso', 'semestre_egreso', 'celular', 'pais_origen', 'departamento_origen', 'pais_residencia','cuidad_residencia', 'lugar_residencia')->get();
     }
 }

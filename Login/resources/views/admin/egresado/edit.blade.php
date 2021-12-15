@@ -70,13 +70,13 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono"  maxlength="9"
+                        <label for="celular">Celular</label>
+                        <input type="text" class="form-control" id="celular" name="celular"  maxlength="9"
                         @if($errors->any())
-                        value="{{old('telefono')}}">
-                        {{$errors->first('telefono')}}
+                        value="{{old('celular')}}">
+                        {{$errors->first('celular')}}
                         @else
-                        value="{{$egresado->telefono}}">
+                        value="{{$egresado->celular}}">
                         @endif
                     </div>
           </div>

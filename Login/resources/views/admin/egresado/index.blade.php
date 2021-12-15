@@ -60,11 +60,14 @@
                     <table class="table table-striped" >
                         <thead>
                             <tr class="text-center">
-                                <th>Codigo matricula</th>
+                                <th>Código</th>
+                                <th>Carrera</th>
                                 <th>Nombres</th>
-                                <th>Genero</th>
-                                <th>Fecha nacimiento</th>
-                                <th>Telefono</th>
+                                <th>Semestre de ingreso</th>
+                                <th>Semestre de egreso</th>
+                                {{--  <th>Genero</th>
+                                <th>Fecha nacimiento</th>  --}}
+                                <th>Celular</th>
                                 <th>Opciones</th>
                             </tr>
                         </thead>
@@ -77,17 +80,21 @@
                                 @foreach ($egresados as $egresado)
                             <tr class="text-center">
                                 <td>{{$egresado->matricula}}</td>
+                                <td>{{$egresado->carrera}}</td>
                                 <td class="text-capitalize">{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
-                                <td>{{$egresado->genero}}</td>
-                                <td>{{$egresado->fecha_nacimiento}}</td>
-                                <td>{{$egresado->telefono}}</td>
+                                <td>{{$egresado->semestre_ingreso}}</td>
+                                <td>{{$egresado->semestre_egreso}}</td>
+                                {{--  <td>{{$egresado->genero}}</td>
+                                <td>{{$egresado->fecha_nacimiento}}</td>  --}}
+                                <td>{{$egresado->celular}}</td>
                                 <td>
 
                                 <!-- Button trigger modal -->
-                                <a href=""></a>
+                                <a href="{{route('academico-profesional.index')}}">
                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                 </button>
+                                </a>
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->matricula}}">
                                 <i class="fas fa-edit"></i>
                                 </button>

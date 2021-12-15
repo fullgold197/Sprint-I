@@ -33,12 +33,14 @@ class EgresadosAdminController extends Controller
         $texto=$request->get('texto');
         //trae de la tabla egresa$egresados todo los campos
         $egresados=DB::table('egresado')
-        ->select('matricula','ap_paterno','ap_materno','nombres','genero','fecha_nacimiento','telefono')
+        ->join('carrera', 'carrera.id_carrera', '=', 'egresado.id_carrera')
+        ->select('egresado.matricula', 'egresado.ap_paterno', 'egresado.ap_materno', 'egresado.nombres', 'egresado.genero', 'egresado.fecha_nacimiento', 'egresado.celular', 'semestre_ingreso', 'semestre_egreso', 'carrera.carrera')
         ->where('ap_paterno','LIKE','%'.$texto.'%')
         ->orWhere('nombres', 'LIKE', '%'.$texto.'%')
         ->orWhere('matricula', 'LIKE', '%'.$texto.'%')
         ->orderBy('ap_paterno','asc')
         ->paginate(5);
+        /* return $egresados; */
         return view('admin.egresado.index',compact('egresados','texto'),[ 'valor' => $string ]);
     }
     public function TrayectoriaAcademicaindex(Request $request)
@@ -118,7 +120,7 @@ class EgresadosAdminController extends Controller
        /*  $egresados=Egresado::findOrFail($matricula);
 
         //return $egresados;
-        return view('admin.egresado.edit',compact('egresados')); 
+        return view('admin.egresado.edit',compact('egresados'));
         //No se utiliza este metodo, en admin.egresado.index se @include('admin.egresado.edit') y esta vista envia los datos a egresado.update
         */
     }

@@ -29,7 +29,7 @@ use Spatie\Permission\Models\Permission;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 

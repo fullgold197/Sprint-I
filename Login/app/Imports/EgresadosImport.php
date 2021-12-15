@@ -20,11 +20,18 @@ class EgresadosImport implements ToModel
             'ap_paterno'            =>$row['1'],
             'ap_materno'            =>$row['2'],
             'nombres'               =>$row['3'],
-            'genero'                =>$row['4'],
-            'fecha_nacimiento'      =>$row['5'],
-            'telefono'              =>$row['6'],
-            'Provincia'             =>$row['7'],
-            'Distrito'              =>$row['8']
+            'grado_academico'       =>$row['4'],
+            'dni'                   =>$row['5'],
+            'genero'                =>$row['6'],
+            'fecha_nacimiento'      =>$row['7'],
+            'semestre_ingreso'      =>$row['8'],
+            'semestre_egreso'       =>$row['9'],
+            'celular'               =>$row['10'],
+            'pais_origen'           =>$row['11'],
+            'departamento_origen'   =>$row['12'],
+            'pais_residencia'       =>$row['13'],
+            'cuidad_residencia'     =>$row['14'],
+            'lugar_residencia'      =>$row['15']
 
         ]);
     }

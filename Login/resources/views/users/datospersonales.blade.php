@@ -179,31 +179,24 @@
                                 <th>NOMBRES</th>
                                 <td>{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
                             </tr>
-
+                            <tr>
+                                <th>DNI</th>
+                                <td>{{$egresado->dni}}</td>
+                            </tr>
+                            <tr >
+                                <th>CELULAR</th>
+                                <td>{{$egresado->celular}}</td>
+                            </tr>
+                            <tr >
+                                <th>FECHA DE NACIMIENTO</th>
+                                <td>{{$egresado->fecha_nacimiento}}</td>
+                            </tr>
                             <tr >
                                 <th>GÉNERO</th>
                                 <td>{{$egresado->genero}} </td>
                             </tr>
 
-                            <tr >
-                                <th>FECHA DE NACIMIENTO</th>
-                                <td>{{$egresado->fecha_nacimiento}}</td>
-                            </tr>
-
-                            <tr >
-                                <th>TELÉFONO</th>
-                                <td>{{$egresado->telefono}}</td>
-                            </tr>
-
-                            <tr >
-                                <th>PROVINCIA</th>
-                                <td>{{$egresado->Provincia}}</td>
-                            </tr>
-
-                            <tr>
-                                <th>DISTRITO</th>
-                                <td>{{$egresado->Distrito}}</td>
-                            </tr>
+                            
                             <tr >
                                 <td align="center" colspan="2">
                                 <!-- Button trigger modal -->

@@ -36,78 +36,113 @@ class EgresadoSeeder extends Seeder
 //Utilizando Eloquent, interactuando con el modelo
         Egresado::create(
         [
-            'matricula' =>'2016200062',
-            'ap_paterno' => 'cruz',
-            'ap_materno'=>'huanca',
-            'nombres' => 'Jean Carlos',
-            'genero'=> 'Masculino',
-            'fecha_nacimiento' => '1996-02-19',
-            'telefono'=>'936866788',
-            'Provincia' => 'Lima',
-            'Distrito' => 'SJM',
-            'habilitado' => '1',
-            'id_academico' => '1'
+                'matricula' => '2016200216',
+                'ap_paterno' => 'Silvera',
+                'ap_materno' => 'Iñigo',
+                'nombres' => 'Nathan Josue',
+                'grado_academico' => 'Bachiller',
+                'dni' => '77071134',
+                'genero' => 'Masculino',
+                'fecha_nacimiento' => '1997-03-12',
+                'semestre_ingreso' => '2016-2',
+                'semestre_egreso' => '2021-1',
+                'celular' => '931345654',
+                'pais_origen' => 'Perú',
+                'departamento_origen' => 'Lima',
+                'pais_residencia' => 'Chile',
+                'cuidad_residencia' => 'Santiago de Chile',
+                'lugar_residencia' => 'Av. Ferreñape 390',
+                'linkedin' => 'www.linkendin.com',
+                'id_carrera' => '1'
 
         ]
         );
         Egresado::create(
             [
                 'matricula' =>'2016200241',
-                'ap_paterno' => 'vilca',
-                'ap_materno'=>'rivera',
+                'ap_paterno' => 'Vilca',
+                'ap_materno'=>'Rivera',
                 'nombres' => 'Oscar Ernesto',
-                'genero'=> 'Masculino',
-                'fecha_nacimiento' => '1997-08-01',
-                'telefono'=>'912233669',
-                'Provincia' => 'Lima',
-                'Distrito' => 'V.E.S',
-                'habilitado' => '1',
-                'id_academico' => '1'
+                'grado_academico'=> 'Bachiller',
+                'dni' => '77072553',
+                'genero'=>'Masculino',
+                'fecha_nacimiento' => '1997-09-01',
+                'semestre_ingreso' => '2016-2',
+                'semestre_egreso' => '2021-1',
+                'celular' => '931193664',
+                'pais_origen' => 'Perú',
+                'departamento_origen' => 'Lima',
+                'pais_residencia' => 'México',
+                'cuidad_residencia' => 'Cuidad de México',
+                'lugar_residencia' => 'Av. Guadalupe 344',
+                'linkedin' => 'www.linkendin.com',
+                'id_carrera' => '1'
+
             ]
             );
             Egresado::create(
                 [
-                    'matricula' =>'2016200186',
-                    'ap_paterno' => 'ramos',
-                    'ap_materno'=>'machuca',
-                    'nombres' => 'Jose Orlando',
-                    'genero'=> 'Masculino',
-                    'fecha_nacimiento' => '1997-09-30',
-                    'telefono'=>'888888888',
-                    'Provincia' => 'Lima',
-                    'Distrito' => 'V.E.S',
-                    'habilitado' => '1',
-                    'id_academico' => '1'
+                'matricula' => '2016200062',
+                'ap_paterno' => 'Cruz',
+                'ap_materno' => 'Huanca',
+                'nombres' => 'Jean Carlos',
+                'grado_academico' => 'Bachiller',
+                'dni' => '77078963',
+                'genero' => 'Masculino',
+                'fecha_nacimiento' => '1996-02-17',
+                'semestre_ingreso' => '2016-2',
+                'semestre_egreso' => '2021-1',
+                'celular' => '931193332',
+                'pais_origen' => 'Perú',
+                'departamento_origen' => 'Lima',
+                'pais_residencia' => 'Colombia',
+                'cuidad_residencia' => 'Cuidad de Colombia',
+                'lugar_residencia' => 'Av. Guadalajara 788',
+                'linkedin' => 'www.linkendin.com',
+                'id_carrera' => '1'
                 ]
                 );
                 Egresado::create(
                     [
-                        'matricula' =>'2016200216',
-                        'ap_paterno' => 'silvera',
-                        'ap_materno'=>'iñigo',
-                        'nombres' => 'Nathan Josue',
-                        'genero'=> 'Masculino',
-                        'fecha_nacimiento' => '1999-03-14',
-                        'telefono'=>'777777777',
-                        'Provincia' => 'Lima',
-                        'Distrito' => 'V.E.S',
-                        'habilitado' => '1',
-                        'id_academico' => '1'
+                'matricula' => '2016200186',
+                'ap_paterno' => 'Ramos',
+                'ap_materno' => 'Machuca',
+                'nombres' => 'Jose Orlando',
+                'grado_academico' => 'Bachiller',
+                'dni' => '77895632',
+                'genero' => 'Masculino',
+                'fecha_nacimiento' => '1997-09-30',
+                'semestre_ingreso' => '2016-2',
+                'semestre_egreso' => '2021-1',
+                'celular' => '931189544',
+                'pais_origen' => 'Perú',
+                'departamento_origen' => 'Lima',
+                'pais_residencia' => 'Venezuela',
+                'cuidad_residencia' => 'Caracas',
+                'lugar_residencia' => 'Av. Chavez 728',
+                'linkedin' => 'www.linkendin.com',
                     ]
                     );
                     Egresado::create(
                         [
                             'matricula' =>'2016200092',
-                            'ap_paterno' => 'gomez',
-                            'ap_materno'=>'flores',
+                            'ap_paterno' => 'Gomez',
+                            'ap_materno'=>'Florez',
                             'nombres' => 'Elias',
-                            'genero'=> 'Masculino',
-                            'fecha_nacimiento' => '1999-03-04',
-                            'telefono'=>'666666666',
-                            'Provincia' => 'Lima',
-                            'Distrito' => 'V.E.S',
-                            'habilitado' => '1',
-                            'id_academico' => '1'
+                            'grado_academico' => 'Bachiller',
+                            'dni' => '79856321',
+                            'genero' => 'Masculino',
+                            'fecha_nacimiento' => '1999-02-25',
+                            'semestre_ingreso' => '2016-2',
+                            'semestre_egreso' => '2021-1',
+                            'celular' => '931183456',
+                            'pais_origen' => 'Perú',
+                            'departamento_origen' => 'Lima',
+                            'pais_residencia' => 'Cuba',
+                            'cuidad_residencia' => 'La Habana',
+                            'lugar_residencia' => 'Av. Habana 458',
+                            'linkedin' => 'www.linkendin.com',
+                            'id_carrera' => '2'
                         ]
                         );
 

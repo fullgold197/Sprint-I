@@ -63,35 +63,16 @@
                 @endif
             </div>
             <div class="form-group">
-                <label for="telefono">Teléfono</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" required maxlength="20"
+                <label for="celular">Teléfono</label>
+                <input type="text" class="form-control" id="celular" name="celular" required maxlength="20"
                 @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('telefono')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('telefono')}}
+                value="{{old('celular')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
+                {{$errors->first('celular')}}
                 @else
-                value="{{$egresado->telefono}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
+                value="{{$egresado->celular}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
-            <div class="form-group">
-                <label for="Provincia">Provincia</label>
-                <input type="text" class="form-control" id="Provincia" name="Provincia" required maxlength="20"
-                @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('Provincia')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('Provincia')}}
-                @else
-                value="{{$egresado->Provincia}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
-                @endif
-            </div>
-            <div class="form-group">
-                <label for="Distrito">Distrito</label>
-                <input type="text" class="form-control" id="Distrito" name="Distrito" required maxlength="20"
-                @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('Distrito')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('Distrito')}}
-                @else
-                value="{{$egresado->Distrito}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
-                @endif
-            </div>
+            
 
           </div>
           <div class="modal-footer">

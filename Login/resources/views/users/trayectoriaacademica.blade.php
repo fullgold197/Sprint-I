@@ -164,27 +164,27 @@
                                 <h5>PERFIL DE EGRESADO</h5>
                             </th>
                         </tr>
-
+                        @foreach ($egresados0 as $egresado)
                         <tr>
                         <th>CARRERA PROFESIONAL</th>
-                        <td>qqr2</td>
+                        <td>Ingeniería de Sistemas</td>
                         </tr>
 
                         <tr>
                         <th>GRADO ACADÉMICO</th>
-                        <td>qqr2</td>
+                        <td>{{$egresado->grado_academico}}</td>
                         </tr>
 
                         <tr>
                         <th>FECHA DE INGRESO</th>
-                        <td>qqr2</td>
+                        <td>{{$egresado->semestre_ingreso}}</td>
                         </tr>
 
                         <tr>
                         <th>FECHA DE EGRESO</th>
-                        <td>qqr2</td>
+                        <td>{{$egresado->semestre_egreso}}</td>
                         </tr>
-
+                        @endforeach
 
                     </tbody>
                 </table>
@@ -201,7 +201,6 @@
                                 <div class="card-body">
                                 <table>
                                 <tbody>
-
                                 <tr>
                                     <th>CARRERA PROFESIONAL</th>
                                     <td colspan="">{{$egresado->carr_profesional}}</td>
@@ -209,7 +208,6 @@
 
                                 <tr>
                                     <th>GRADO ACADÉMICO</th>
-
                                     <td>{{$egresado->maestria_grado_academico}}</td>
                                 </tr>
 
@@ -234,11 +232,7 @@
                                     <th>FECHA FINAL</th>
                                     <td>{{$egresado->maestria_fecha_final}}</td>
 
-
-
                                 </tr>
-
-
                                 </tbody>
                                 </table>
                                 <div align="right">

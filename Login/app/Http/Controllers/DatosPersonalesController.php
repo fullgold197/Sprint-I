@@ -18,7 +18,7 @@ class DatosPersonalesController extends Controller
      */
     public function index(Request $request)
     {
-        $egresados = Egresado::select('matricula','ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'telefono','Provincia','Distrito','url')->where('matricula', Auth::user()->egresado_matricula)->get();
+        $egresados = Egresado::select('matricula','ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'celular', 'dni','url')->where('matricula', Auth::user()->egresado_matricula)->get();
         /* return $users; */
         return view('users.datospersonales', compact('egresados'));
     }
@@ -105,8 +105,6 @@ $url=Storage::url($imagenes); //ahora si podemos almacenar esta url en nuestra B
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
-        $egresados->Provincia = $request->input('Provincia');
-        $egresados->Distrito = $request->input('Distrito');
         $egresados->url=$url;
 
         $egresados->save();
