@@ -30,7 +30,7 @@ class EgresadosImport implements ToModel
             'pais_origen'           =>$row['11'],
             'departamento_origen'   =>$row['12'],
             'pais_residencia'       =>$row['13'],
-            'cuidad_residencia'     =>$row['14'],
+            'ciudad_residencia'     =>$row['14'],
             'lugar_residencia'      =>$row['15'],
             'id_carrera'            =>$row['16']
 

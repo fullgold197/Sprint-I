@@ -44,7 +44,7 @@
             <div class="modal-body">
               <div class="form-group">
                         <label for="matricula">Matricula</label>
-                        <input type="text" class="form-control" id="matricula" name="matricula" value="{{ old('matricula')}}"  maxlength="12" >
+                        <input type="text" class="form-control" id="matricula" name="matricula" value="{{ old('matricula')}}"  maxlength="10" >
                         {{$errors->first('matricula')}}
                     </div>
                     <div class="form-group">
@@ -76,9 +76,17 @@
                         {{$errors->first('fecha_nacimiento')}}
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{ old('telefono')}}"   maxlength="9">
-                        {{$errors->first('telefono')}}
+                        <label for="celular">Celular</label>
+                        <input type="text" class="form-control" id="celular" name="celular" value="{{ old('celular')}}"   maxlength="9">
+                        {{$errors->first('celular')}}
+                    </div>
+                    <div class="form-group">
+                        <label for="grado_academico">Grado Academico</label>
+                        <select name="grado_academico" class="form-control"  id="grado_academico" >
+                            <option selected disabled value="">Seleccione grado academico</option>
+                            <option value="Bachiller">Bachiller</option>
+                            <option value="Maestria">Maestria</option>
+                          </select>
                     </div>
                     <div class="form-group">
                         <button  class="btn btn-primary" id="ajaxSubmit" value="Guardar">Guardar</button>

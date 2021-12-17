@@ -30,6 +30,8 @@ class EgresadosAdminController extends Controller
 
 
         }
+
+
         $texto=$request->get('texto');
         //trae de la tabla egresa$egresados todo los campos
         $egresados=DB::table('egresado')
@@ -41,7 +43,8 @@ class EgresadosAdminController extends Controller
         ->orderBy('ap_paterno','asc')
         ->paginate(5);
         /* return $egresados; */
-        return view('admin.egresado.index',compact('egresados','texto'),[ 'valor' => $string ]);
+        return view('admin.egresado.index',compact('egresados','texto'),[ 'valor2' => $string ]);
+
     }
     public function TrayectoriaAcademicaindex(Request $request)
     {
@@ -88,11 +91,21 @@ class EgresadosAdminController extends Controller
         $egresados->nombres = $request->input('nombres');
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
-        $egresados->telefono = $request->input('telefono');
-        $egresados->id_academico = $request->input('telefono');
+        $egresados->celular = $request->input('celular');
+        $egresados->id_academico = '1';
+        $egresados->dni = '';
+        $egresados->semestre_ingreso = '';
+        $egresados->semestre_egreso = '';
+        $egresados->pais_origen = '';
+        $egresados->departamento_origen = '';
+        $egresados->pais_residencia = '';
+        $egresados->lugar_residencia = '';
+        $egresados->id_carrera = '1';
+        $egresados->grado_academico = $request->input('grado_academico');
         $egresados->save();
         /* return $egresados; */
         return redirect()->route('egresado.index');
+
     }
 
 
@@ -145,10 +158,13 @@ class EgresadosAdminController extends Controller
         $egresados->nombres = $request->input('nombres');
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
-        $egresados->telefono = $request->input('telefono');
+        $egresados->celular = $request->input('celular');
         $egresados->save();
         /* return $egresados; */
-        return redirect()->route('egresado.index');
+        $matricula_id= $egresados->matricula;
+        return redirect()->route('egresado.index',['matricula_id'=>$matricula_id]);
+
+        //return $matricula_id; si envia el id
     }
 
     /**
