@@ -46,17 +46,16 @@
             </div>
             <div class="form-group">
                 <label for="genero">Genero</label>
-                <input type="text" class="form-control" id="genero" name="genero" required maxlength="20"
-                @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('genero')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('genero')}}
-                @else
-                value="{{$egresado->genero}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
-                @endif
+                <select name="genero" class="form-control" id="genero" >
+
+                    <option value="Masculino" {{$egresado->genero=="Masculino" ? 'selected' : '' }}>Masculino</option>
+                    <option value="Femenino" {{$egresado->genero=="Femenino" ? 'selected' : '' }}>Femenino</option>
+                  </select>
+
             </div>
             <div class="form-group">
                 <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required maxlength="20"
+                <input type="date" class="form-control" id="fecha_nacimiento"  min="1910-01-01" max="2100-12-31" name="fecha_nacimiento" required maxlength="20"
                 @if($errors->any()) {{-- Si existe algun error entonces--}}
                 value="{{old('fecha_nacimiento')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
                 {{$errors->first('fecha_nacimiento')}}

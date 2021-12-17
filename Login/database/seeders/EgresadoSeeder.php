@@ -50,7 +50,7 @@ class EgresadoSeeder extends Seeder
                 'pais_origen' => 'Perú',
                 'departamento_origen' => 'Lima',
                 'pais_residencia' => 'Chile',
-                'cuidad_residencia' => 'Santiago de Chile',
+                'ciudad_residencia' => 'Santiago de Chile',
                 'lugar_residencia' => 'Av. Ferreñape 390',
                 'linkedin' => 'www.linkendin.com',
                 'id_carrera' => '1'
@@ -73,7 +73,7 @@ class EgresadoSeeder extends Seeder
                 'pais_origen' => 'Perú',
                 'departamento_origen' => 'Lima',
                 'pais_residencia' => 'México',
-                'cuidad_residencia' => 'Cuidad de México',
+                'ciudad_residencia' => 'Cuidad de México',
                 'lugar_residencia' => 'Av. Guadalupe 344',
                 'linkedin' => 'www.linkendin.com',
                 'id_carrera' => '1'
@@ -96,7 +96,7 @@ class EgresadoSeeder extends Seeder
                 'pais_origen' => 'Perú',
                 'departamento_origen' => 'Lima',
                 'pais_residencia' => 'Colombia',
-                'cuidad_residencia' => 'Cuidad de Colombia',
+                'ciudad_residencia' => 'Cuidad de Colombia',
                 'lugar_residencia' => 'Av. Guadalajara 788',
                 'linkedin' => 'www.linkendin.com',
                 'id_carrera' => '1'
@@ -118,7 +118,7 @@ class EgresadoSeeder extends Seeder
                 'pais_origen' => 'Perú',
                 'departamento_origen' => 'Lima',
                 'pais_residencia' => 'Venezuela',
-                'cuidad_residencia' => 'Caracas',
+                'ciudad_residencia' => 'Caracas',
                 'lugar_residencia' => 'Av. Chavez 728',
                 'linkedin' => 'www.linkendin.com',
                 'id_carrera' => '1'
@@ -140,7 +140,7 @@ class EgresadoSeeder extends Seeder
                             'pais_origen' => 'Perú',
                             'departamento_origen' => 'Lima',
                             'pais_residencia' => 'Cuba',
-                            'cuidad_residencia' => 'La Habana',
+                            'ciudad_residencia' => 'La Habana',
                             'lugar_residencia' => 'Av. Habana 458',
                             'linkedin' => 'www.linkendin.com',
                             'id_carrera' => '2'
