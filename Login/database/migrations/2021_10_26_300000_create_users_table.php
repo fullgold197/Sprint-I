@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('egresado_matricula', 10)->nullable();
             $table->tinyInteger('role_as')->default('0');
+            $table->string('api_token')->unique()->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
 
