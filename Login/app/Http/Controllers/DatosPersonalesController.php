@@ -116,10 +116,12 @@ $imagenes='';
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
-        /* $egresados->url=$url; */
+        //$egresados->url=$url;
+        
+        
 
         $egresados->save();
-        /* return $egresados; */
+        //return $url;
         return redirect()->route('datos-personales.index');
     }
 
