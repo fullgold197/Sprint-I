@@ -39,7 +39,7 @@ class CreateEgresadoTable extends Migration
             $table->foreign('id_carrera')->references('id_carrera')->on('carrera')->unique();
             $table->integer('primer_empleo_id')->unsigned()->nullable();
             $table->foreign('primer_empleo_id')->references('id')->on('PrimerEmpleo')->unique();
-            $table->integer('id_academico')->unsigned()->nullable();
+            $table->integer('id_academico')->unsigned()->default('1');
             $table->foreign('id_academico')->references('id_academico')->on('academico')->unique();
            /*  $table->integer('id_profesion')->unsigned()->nullable();
             $table->foreign('id_profesion')->references('id_profesion')->on('profesion')->unique(); */
