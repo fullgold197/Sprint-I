@@ -121,6 +121,7 @@ class EgresadoSeeder extends Seeder
                 'cuidad_residencia' => 'Caracas',
                 'lugar_residencia' => 'Av. Chavez 728',
                 'linkedin' => 'www.linkendin.com',
+                'id_carrera' => '1'
                     ]
                     );
                     Egresado::create(
