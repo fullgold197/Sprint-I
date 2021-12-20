@@ -6,6 +6,7 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -14,6 +15,8 @@ use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Contracts\LoginResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -74,6 +77,26 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::verifyEmailView(function () {
             return view('auth.verify');
         });
+
+        Fortify::authenticateUsing(function (Request $request) {
+            /* $rol=User::where('role_as', $request->role_as)->first(); */
+
+                    $user = User::where('dni', $request->egresado_matricula)
+                    ->orWhere('email', $request->egresado_matricula)
+                    ->first();
+                if (
+                    $user &&
+                    Hash::check($request->password, $user->password)
+                )
+                 {
+                    return $user;
+                }
+
+
+
+
+        });
+
 
         RateLimiter::for('login', function (Request $request) {
             return Limit::perMinute(5)->by($request->email.$request->ip());

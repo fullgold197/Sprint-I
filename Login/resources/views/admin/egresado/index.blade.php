@@ -90,11 +90,15 @@
                                 <td>
 
                                 <!-- Button trigger modal -->
-                                <a href="{{route('academico-profesional.index')}}">
+                                <a href="{{route('academico-profesional.index' )}}">
                                 <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
+
                                 </button>
+
+                                
                                 </a>
+
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->matricula}}">
                                 <i class="fas fa-edit"></i>
                                 </button>

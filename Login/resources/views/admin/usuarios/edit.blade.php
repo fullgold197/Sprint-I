@@ -35,7 +35,7 @@
                 <label for="role_as">Rol</label>
                     <select name="role_as" class="form-control" id="role_as" >
                         <option value="0" {{$usuario->role_as=="0" ? 'selected' : '' }}>Usuario</option>
-                        <option value="1" {{$usuario->role_as=="0" ? 'selected' : '' }}>Administrador</option>
+                        <option value="1" {{$usuario->role_as=="1" ? 'selected' : '' }}>Administrador</option>
                     </select>
             </div>
             <div class="form-group">

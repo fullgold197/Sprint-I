@@ -13,9 +13,10 @@ class Egresado extends Model
     public $fillable = [
         'matricula','ap_paterno', 'ap_materno', 'nombres', 'grado_academico', 'dni',
         'genero', 'fecha_nacimiento', 'semestre_ingreso', 'semestre_egreso', 'celular', 'pais_origen', 'departamento_origen', 'pais_residencia',
-        'cuidad_residencia', 'lugar_residencia', 'linkedin', 'habilitado', 'id_carrera', 'primer_empleo_id ','id_academico ', 'created_at', 'updated_at'
+        'cuidad_residencia', 'lugar_residencia', 'linkedin', 'habilitado','url','id_carrera', 'primer_empleo_id ','id_academico ', 'created_at', 'updated_at'
     ];
     public $timestamps = false;
     //use HasFactory;
 
 }
+

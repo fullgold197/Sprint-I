@@ -16,6 +16,7 @@ class EgresadoAcademicoProfesionalController extends Controller
      */
     public function index(Request $request)
     {
+        $matricula = $request->get('matricula');
         $egresados = Egresado::select('matricula', 'ap_paterno', 'ap_materno', 'nombres', 'grado_academico', 'dni', 'genero', 'fecha_nacimiento', 'semestre_ingreso', 'semestre_egreso', 'celular', 'pais_origen', 'departamento_origen', 'pais_residencia', 'cuidad_residencia', 'lugar_residencia', 'linkedin')->where('matricula', 2016200241)->get();
 
         $egresados1 = DB::table('academico')
@@ -32,7 +33,7 @@ class EgresadoAcademicoProfesionalController extends Controller
         ->where('matricula', 2016200241)
             ->get();
 
-        /* return $egresados2; */
+        /* return $matricula; */
         return view('admin.egresado.academico_profesional',compact('egresados', 'egresados1', 'egresados2'));
     }
 

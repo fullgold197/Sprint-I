@@ -30,7 +30,7 @@ class CarreraSeeder extends Seeder
         );
         Carrera::create(
             [
-                'carrera' => 'Ingeniería Mecánica y Eléctrica.',
+                'carrera' => 'Ingeniería Mecánica y Eléctrica',
             ]
         );
         Carrera::create(

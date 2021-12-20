@@ -22,6 +22,7 @@
                     </div>
                 </div>
 
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -33,7 +34,7 @@
                         <div class="form-group row">
                             {{--  <label for="egresado_matricula" class="col-md-4 col-form-label text-md-right">{{ __('Codigo') }}</label>  --}}
                             <div class="col-md-12">
-                                <input id="egresado_matricula" type="egresado_matricula" class="form-control @error('egresado_matricula') is-invalid @enderror" name="egresado_matricula" value="{{ old('egresado_matricula') }}" required autocomplete="email" autofocus>
+                                <input id="egresado_matricula" type="egresado_matricula" class="form-control @error('egresado_matricula') is-invalid @enderror" name="egresado_matricula" value="{{ old('egresado_matricula') }}" required autocomplete="egresado_matricula" autofocus>
 
                                 @error('egresado_matricula')
                                     <span class="invalid-feedback" role="alert">
@@ -76,6 +77,7 @@
                                 <button type="submit" class="btn btn-primary" style="background-color: #004A98;">
                                     {{ __('Iniciar Sesión') }}
                                 </button>
+
                             </div>
                         </div>
                         <div id="" align="center">
@@ -88,9 +90,8 @@
                     </form>
                 </div>
             </div>
-        </div>
 
-        <div id="espacio" align="center">
+            <div id="espacio" align="center" >
             <div id="col-md-10">
             <a target="_blank" href="https://www.facebook.com/untelsperu">
                 <img src="{{asset('images/facebook.png')}}" class="img-fluid" width="40px" alt="facebook untelss">
@@ -103,6 +104,10 @@
             </a>
 
         </div>
+            
+        </div>
+
+
 
     </div>
 </div>

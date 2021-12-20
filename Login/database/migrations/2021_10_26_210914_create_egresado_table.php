@@ -19,8 +19,8 @@ class CreateEgresadoTable extends Migration
             $table->string('ap_paterno', 50);
             $table->string('ap_materno', 50);
             $table->string('nombres', 100);
-            $table->string('grado_academico', 50);
-            $table->string('dni', 8);
+            $table->string('grado_academico')->default('Bachiller');
+            $table->string('dni', 8)->unique();
             $table->enum('genero', ['Masculino', 'Femenino']);
             $table->date('fecha_nacimiento');
             $table->string('semestre_ingreso', 10);
@@ -37,8 +37,8 @@ class CreateEgresadoTable extends Migration
 
             $table->integer('id_carrera')->unsigned()->nullable();
             $table->foreign('id_carrera')->references('id_carrera')->on('carrera')->unique();
-            $table->integer('primer_empleo_id')->unsigned()->nullable();
-            $table->foreign('primer_empleo_id')->references('id')->on('PrimerEmpleo')->unique();
+            /* $table->integer('primer_empleo_id')->unsigned()->nullable();
+            $table->foreign('primer_empleo_id')->references('id')->on('PrimerEmpleo')->unique(); */
             $table->integer('id_academico')->unsigned()->nullable();
             $table->foreign('id_academico')->references('id_academico')->on('academico')->unique();
            /*  $table->integer('id_profesion')->unsigned()->nullable();

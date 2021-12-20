@@ -29,6 +29,21 @@ class UsuarioSeeder extends Seeder
         ->value('matricula');
         $egresadoID3=Egresado::where('matricula','2016200186')
         ->value('matricula');
+        $egresadoID4 = Egresado::where('matricula', '2016200092')
+        ->value('matricula');
+        $egresadoID5 = Egresado::where('matricula', '2016200216')
+        ->value('matricula');
+
+        $egresadoDNI = Egresado::where('dni', '71046461')
+        ->value('dni');
+        $egresadoDNI2 = Egresado::where('dni', '77072553')
+        ->value('dni');
+        $egresadoDNI3 = Egresado::where('dni', '71305640')
+        ->value('dni');
+        $egresadoDNI4 = Egresado::where('dni', '72700841')
+        ->value('dni');
+        $egresadoDNI5 = Egresado::where('dni', '73980032')
+        ->value('dni');
 
         User::create(
         [
@@ -36,7 +51,8 @@ class UsuarioSeeder extends Seeder
             'email' =>'cruzjean52@gmail.com',
             'password' => bcrypt('12345678'),
             'egresado_matricula'=> $egresadoID,
-            'role_as' => '1'
+            'dni' => $egresadoDNI,
+            'role_as' => '0'
 
         ]
         );
@@ -46,7 +62,8 @@ class UsuarioSeeder extends Seeder
                 'email' =>'oevr1997@gmail.com',
                 'password' => bcrypt('12345678'),
                 'egresado_matricula'=> $egresadoID2,
-                'role_as' => '1'
+                'dni' => $egresadoDNI2,
+                'role_as' => '0'
 
             ]
             );
@@ -56,10 +73,42 @@ class UsuarioSeeder extends Seeder
                 'email' =>'orlando@gmail.com',
                 'password' => bcrypt('12345678'),
                 'egresado_matricula'=> $egresadoID3,
+                'dni' => $egresadoDNI3,
                 'role_as' => '0'
 
             ]
             );
+        User::create(
+            [
+                'name' => 'Elias',
+                'email' => 'elias@gmail.com',
+                'password' => bcrypt('12345678'),
+                'egresado_matricula' => $egresadoID4,
+                'dni' => $egresadoDNI4,
+                'role_as' => '0'
+
+            ]
+        );
+        User::create(
+            [
+                'name' => 'Nathan',
+                'email' => 'nathan@gmail.com',
+                'password' => bcrypt('12345678'),
+                'egresado_matricula' => $egresadoID5,
+                'dni' => $egresadoDNI5,
+                'role_as' => '0'
+
+            ]
+        );
+        User::create(
+            [
+                'name' => 'Erika',
+                'email' => 'erika@gmail.com',
+                'password' => bcrypt('12345678'),
+                'role_as' => '1'
+
+            ]
+        );
 
     }
 }

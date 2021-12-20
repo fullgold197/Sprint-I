@@ -34,7 +34,7 @@ class EgresadosAdminController extends Controller
         //trae de la tabla egresa$egresados todo los campos
         $egresados=DB::table('egresado')
         ->join('carrera', 'carrera.id_carrera', '=', 'egresado.id_carrera')
-        ->select('egresado.matricula', 'egresado.ap_paterno', 'egresado.ap_materno', 'egresado.nombres', 'egresado.genero', 'egresado.fecha_nacimiento', 'egresado.celular', 'semestre_ingreso', 'semestre_egreso', 'carrera.carrera')
+        ->select('egresado.matricula', 'egresado.ap_paterno', 'egresado.ap_materno', 'egresado.nombres','egresado.grado_academico' , 'egresado.dni','egresado.genero', 'egresado.fecha_nacimiento', 'egresado.semestre_ingreso', 'egresado.semestre_egreso', 'egresado.celular', 'egresado.pais_origen', 'egresado.departamento_origen', 'egresado.pais_residencia', 'egresado.cuidad_residencia', 'egresado.lugar_residencia', 'egresado.linkedin','egresado.id_carrera','carrera.carrera')
         ->where('ap_paterno','LIKE','%'.$texto.'%')
         ->orWhere('nombres', 'LIKE', '%'.$texto.'%')
         ->orWhere('matricula', 'LIKE', '%'.$texto.'%')
@@ -82,14 +82,27 @@ class EgresadosAdminController extends Controller
         //
 
         $egresados=new Egresado;
-        $egresados->matricula=$request->input('matricula');
-        $egresados->ap_paterno=$request->input('ap_paterno');
+
+        $egresados->matricula = $request->input('matricula');
+        $egresados->ap_paterno = $request->input('ap_paterno');
         $egresados->ap_materno = $request->input('ap_materno');
         $egresados->nombres = $request->input('nombres');
+
+
+        $egresados->dni= $request->input('dni');
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
-        $egresados->telefono = $request->input('telefono');
-        $egresados->id_academico = $request->input('telefono');
+
+        $egresados->semestre_ingreso = $request->input('semestre_ingreso');
+        $egresados->semestre_egreso  = $request->input('semestre_egreso');
+        $egresados->celular = $request->input('celular');
+        $egresados->pais_origen = $request->input('pais_origen');
+
+        $egresados->departamento_origen = $request->input('departamento_origen');
+        $egresados->pais_residencia  = $request->input('pais_residencia');
+        $egresados->cuidad_residencia = $request->input('cuidad_residencia');
+        $egresados->lugar_residencia = $request->input('lugar_residencia');
+        $egresados->id_carrera =$request->input('id_carrera');
         $egresados->save();
         /* return $egresados; */
         return redirect()->route('egresado.index');
@@ -139,13 +152,27 @@ class EgresadosAdminController extends Controller
             'matricula' => ['required',Rule::unique('egresado')->ignore($user->id), 'matricula']
         ]); */
         $egresados=Egresado::findOrFail($matricula);
-        $egresados->matricula=$request->input('matricula');
-        $egresados->ap_paterno=$request->input('ap_paterno');
+        $egresados->matricula = $request->input('matricula');
+        $egresados->ap_paterno = $request->input('ap_paterno');
         $egresados->ap_materno = $request->input('ap_materno');
         $egresados->nombres = $request->input('nombres');
+
+
+        $egresados->dni = $request->input('dni');
         $egresados->genero = $request->input('genero');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
-        $egresados->telefono = $request->input('telefono');
+
+        $egresados->semestre_ingreso = $request->input('semestre_ingreso');
+        $egresados->semestre_egreso  = $request->input('semestre_egreso');
+        $egresados->celular = $request->input('celular');
+        $egresados->pais_origen = $request->input('pais_origen');
+
+        $egresados->departamento_origen = $request->input('departamento_origen');
+        $egresados->pais_residencia  = $request->input('pais_residencia');
+        $egresados->cuidad_residencia = $request->input('cuidad_residencia');
+        $egresados->lugar_residencia = $request->input('lugar_residencia');
+        $egresados->linkedin = $request->input('linkedin');
+        $egresados->id_carrera = $request->input('id_carrera');
         $egresados->save();
         /* return $egresados; */
         return redirect()->route('egresado.index');
