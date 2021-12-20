@@ -12,6 +12,6 @@ class EgresadosExport implements FromCollection
     */
     public function collection()
     {
-        return Egresado::select('matricula','ap_paterno', 'ap_materno', 'nombres', 'grado_academico', 'dni','genero', 'fecha_nacimiento', 'semestre_ingreso', 'semestre_egreso', 'celular', 'pais_origen', 'departamento_origen', 'pais_residencia','cuidad_residencia', 'lugar_residencia','id_carrera')->get();
+        return Egresado::select('matricula','ap_paterno', 'ap_materno', 'nombres', 'grado_academico', 'dni','genero', 'fecha_nacimiento', 'semestre_ingreso', 'semestre_egreso', 'celular', 'pais_origen', 'departamento_origen', 'pais_residencia','ciudad_residencia','lugar_residencia','id_carrera')->get();
     }
 }

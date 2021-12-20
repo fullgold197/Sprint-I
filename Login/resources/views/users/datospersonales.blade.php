@@ -130,37 +130,53 @@
 
     <div class="content-wrapper ">
     <div class="content">
-        <div class="container-fluid">
+        <div class="container-fluid text-left">
                 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-xl-12 my-2">
-                <div class="table-responsive" align="left">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-12 ">
+                <div class="table-responsive " style="margin:10px;align=center">
                     <tbody>
-                        <h5>PERFIL DEL EGRESADO</h5>
-                        <h5>Datos personales</h5>
+                        {{-- <h5 style="font-family:garamond">PERFIL DEL EGRESADO</h5>
+                        <h5 style="font-family:garamond">DATOS PERSONALES</h5> --}}
 
                     </tbody>
                 </div>
+            </div>
+        </div>
+                @foreach ($egresados as $egresado)
+                <div class="row d-flex justify-content-center">
+                    <div class="col-xl-6">
+                <form action="{{route('datos-personales.update',$egresado->matricula)}}" method="POST" enctype="multipart/form-data">
+                <div class="table-responsive mx-auto d-block" style="margin:10px">
+                    <div class="card " >
 
-                <div class="table-responsive">
-                    @foreach ($egresados as $egresado)
-                    <form action="{{route('datos-personales.update',$egresado->matricula)}}" method="POST" enctype="multipart/form-data">
-                        <div class="card">
+
+
+                            <div class="card-header " {{-- style="background-color:teal" --}} >
+                             <h5 style="font-family:garamond;text-align:center;">PERFIL DEL EGRESADO</h5>
+{{--                         <h5 style="font-family:garamond;text-align:center">DATOS PERSONALES</h5>
+ --}}                          </div>
                         <div class="card-body">
-                        <table align="center">
-                        <tbody>
+                            <table align="left"  >
+                        <tbody >
+
+
                         @csrf
                         @method('PUT')
                             <input type="hidden" class="form-control" id="matricula" name="matricula"
                              value="{{$egresado->matricula}}">
-                            <tr>
+
+
+
+                            <tr >
                                 <td colspan="2">
-                                    <img src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" class="img-fluid img-thumbnail" width="300px">
+                                    <img src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" style="width:80%;max-height:400px" class="img-fluid img-thumbnail mx-auto d-block my-4 card-img-top" >
                                 </td>
                             </tr>
-                            <tr>
-                                {{-- <td align="center" colspan="2">
+
+{{--                             <tr>
+ --}}                                {{-- <td align="center" colspan="2">
                                     <div class="form-group">
                                     <label for="file"> </label>
                                         <input type="file" name="file" id="file" accept="image/*"><br>
@@ -169,38 +185,48 @@
                                         @enderror
                                 </div>
                                 </td> --}}
-                            </tr>
-                          {{--   <tr>
+{{--                             </tr>
+ --}}                          {{--   <tr>
                                 <td align="center" colspan="2">
                                     <button type="submit" class="btn btn-primary">Cambiar foto</button>
                                 </td>
                             </tr> --}}
-                            <tr>
-                                <th>NOMBRES</th>
-                                <td>{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
+
+                            <tr colspan="2" class="bg-gray-light"  >
+                                <th style="padding-left:50px;padding-bottom: 5px;">NOMBRES</th>
+                                <td >{{$egresado->ap_paterno}} {{$egresado->ap_materno}}
+                                     {{$egresado->nombres}}</td>
                             </tr>
+
                             <tr>
-                                <th>DNI</th>
+                                <th style="padding-left:50px;padding-bottom: 5px;">DNI</th>
                                 <td>{{$egresado->dni}}</td>
                             </tr>
-                            <tr >
-                                <th>CELULAR</th>
+                            <tr class="bg-gray-light" >
+                                <th style="padding-left:50px;padding-bottom: 5px;">CELULAR</th>
                                 <td>{{$egresado->celular}}</td>
                             </tr>
                             <tr >
-                                <th>FECHA DE NACIMIENTO</th>
+                                <th style="padding-left:50px;padding-bottom: 5px;">FECHA DE NACIMIENTO</th>
                                 <td>{{$egresado->fecha_nacimiento}}</td>
                             </tr>
-                            <tr >
-                                <th>GÉNERO</th>
+                            <tr class="bg-gray-light" >
+                                <th style="padding-left:50px;padding-bottom: 5px;">GÉNERO</th>
                                 <td>{{$egresado->genero}} </td>
                             </tr>
 
-                            
-                            <tr >
-                                <td align="center" colspan="2">
+
+                            <tr class="text-lg-center">
+                                <td  colspan="2" style="padding-left:50px;padding-bottom: 5px;">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-datos-personales-edit-{{$egresado->matricula}}">
+                                <button type="button" class="btn btn-primary  my-3 "
+                                style='width:200px; height:40px;
+
+                                ;border-radius: 10px;
+                                ;-moz-border-radius: 10px;
+                                ;-webkit-border-radius: 10px;
+                                ;margin:10px'
+                                data-bs-toggle="modal" data-bs-target="#modal-datos-personales-edit-{{$egresado->matricula}}">
                                 Editar
                                 </button>
                                 </td>
@@ -214,29 +240,26 @@
                              value="{{$egresado->matricula}}">
 
 
-                            </div>
+
                             @include('users.modalEgresados.datos_personales_edit')
                         @endforeach
-
+                    </div>
+                </div>
+                </div>
+            </div>
                     </tbody>
                 </table>
                 </form>
-
-            </div>
-
-</div>
-</div>
-</div>
-
     </div>
+</div>
+</div>
+</div>
+</div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
-        </div>
-    </div>
-</div>
-</div>
+
 
 
         <script src="http://127.0.0.1:8000/vendor/jquery/jquery.min.js"></script>

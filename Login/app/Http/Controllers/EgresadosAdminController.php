@@ -30,6 +30,8 @@ class EgresadosAdminController extends Controller
 
 
         }
+
+
         $texto=$request->get('texto');
         //trae de la tabla egresa$egresados todo los campos
         $egresados=DB::table('egresado')
@@ -41,7 +43,8 @@ class EgresadosAdminController extends Controller
         ->orderBy('ap_paterno','asc')
         ->paginate(5);
         /* return $egresados; */
-        return view('admin.egresado.index',compact('egresados','texto'),[ 'valor' => $string ]);
+        return view('admin.egresado.index',compact('egresados','texto'),[ 'valor2' => $string ]);
+
     }
     public function TrayectoriaAcademicaindex(Request $request)
     {
@@ -100,12 +103,13 @@ class EgresadosAdminController extends Controller
 
         $egresados->departamento_origen = $request->input('departamento_origen');
         $egresados->pais_residencia  = $request->input('pais_residencia');
-        $egresados->cuidad_residencia = $request->input('cuidad_residencia');
+        $egresados->ciudad_residencia = $request->input('ciudad_residencia');
         $egresados->lugar_residencia = $request->input('lugar_residencia');
         $egresados->id_carrera =$request->input('id_carrera');
         $egresados->save();
         /* return $egresados; */
         return redirect()->route('egresado.index');
+
     }
 
 
@@ -175,7 +179,10 @@ class EgresadosAdminController extends Controller
         $egresados->id_carrera = $request->input('id_carrera');
         $egresados->save();
         /* return $egresados; */
-        return redirect()->route('egresado.index');
+        $matricula_id= $egresados->matricula;
+        return redirect()->route('egresado.index',['matricula_id'=>$matricula_id]);
+
+        //return $matricula_id; si envia el id
     }
 
     /**

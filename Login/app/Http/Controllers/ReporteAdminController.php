@@ -23,7 +23,7 @@ class ReporteAdminController extends Controller
         ->orderBy( 'ap_paterno', 'desc' )
         ->get();
 
-        $pdf = PDF::LoadView('admin.egresado.pdf',compact('egresados'),['valor'=>$string]);
+        $pdf = PDF::LoadView('admin.egresado.pdf',compact('egresados'),['valor2'=>$string]);
         //$pdf->loadHTML('<h1>Test</h1>');
         return $pdf->stream();
     }
