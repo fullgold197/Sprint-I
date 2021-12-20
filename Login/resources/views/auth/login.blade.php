@@ -17,6 +17,7 @@
                     <div id="amarillo">
                         Iniciar Sesión
                     </div>
+
                     <div id="azul">
                         Por favor, ingrese los datos solicitados
                     </div>
@@ -104,7 +105,7 @@
             </a>
 
         </div>
-            
+
         </div>
 
 

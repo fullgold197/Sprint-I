@@ -257,7 +257,7 @@ return [
         /* ['header' => 'account_settings'], */
         [
             'text' => 'Inicio',
-            'url'  => 'admin',
+            'url'  => 'admin/egresado/GraficoVistaEgresados',
             'icon' => 'fas fa-fw fa-home',
         ],
         [

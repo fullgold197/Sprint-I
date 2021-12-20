@@ -9,6 +9,7 @@ use App\Models\Egresado;
 use App\Models\User;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\EgresadoEditRequest;
+use App\Models\Carrera;
 use PDF;
 
 class EgresadosAdminController extends Controller
@@ -43,9 +44,12 @@ class EgresadosAdminController extends Controller
         ->orderBy('ap_paterno','asc')
         ->paginate(5);
         /* return $egresados; */
-        return view('admin.egresado.index',compact('egresados','texto'),[ 'valor2' => $string ]);
 
-    }
+         return view('admin.egresado.index',compact('egresados','texto'),[ 'valor2' => $string ]);
+
+
+}
+
     public function TrayectoriaAcademicaindex(Request $request)
     {
         $egresados = new Egresado;
