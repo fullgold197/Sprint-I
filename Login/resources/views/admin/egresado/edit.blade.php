@@ -158,13 +158,13 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="cuidad_residencia">Cuidad de residencia</label>
-                        <input type="text" class="form-control" id="cuidad_residencia" name="cuidad_residencia"  maxlength="15"
+                        <label for="ciudad_residencia">Cuidad de residencia</label>
+                        <input type="text" class="form-control" id="ciudad_residencia" name="ciudad_residencia"  maxlength="15"
                         @if($errors->any())
-                        value="{{old('cuidad_residencia')}}">
-                        {{$errors->first('cuidad_residencia')}}
+                        value="{{old('ciudad_residencia')}}">
+                        {{$errors->first('ciudad_residencia')}}
                         @else
-                        value="{{$egresado->cuidad_residencia}}">
+                        value="{{$egresado->ciudad_residencia}}">
                         @endif
                     </div>
                     <div class="form-group">
