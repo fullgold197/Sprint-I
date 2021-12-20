@@ -136,29 +136,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="cuidad_residencia">Ciudad de residencia</label>
-                        <input type="text" class="form-control" id="cuidad_residencia" name="cuidad_residencia" value="{{ old('cuidad_residencia')}}"   maxlength="20">
-                        {{$errors->first('cuidad_residencia')}}
+                        <label for="ciudad_residencia">Ciudad de residencia</label>
+                        <input type="text" class="form-control" id="ciudad_residencia" name="ciudad_residencia" value="{{ old('ciudad_residencia')}}"   maxlength="20">
+                        {{$errors->first('ciudad_residencia')}}
                     </div>
 
                     <div class="form-group">
-<<<<<<< HEAD
                         <label for="lugar_residencia">Lugar de residencia</label>
                         <input type="text" class="form-control" id="lugar_residencia" name="lugar_residencia" value="{{ old('lugar_residencia')}}"   maxlength="20">
                         {{$errors->first('lugar_residencia')}}
-=======
-                        <label for="celular">Celular</label>
-                        <input type="text" class="form-control" id="celular" name="celular" value="{{ old('celular')}}"   maxlength="9">
-                        {{$errors->first('celular')}}
-                    </div>
-                    <div class="form-group">
-                        <label for="grado_academico">Grado Academico</label>
-                        <select name="grado_academico" class="form-control"  id="grado_academico" >
-                            <option selected disabled value="">Seleccione grado academico</option>
-                            <option value="Bachiller">Bachiller</option>
-                            <option value="Maestria">Maestria</option>
-                          </select>
->>>>>>> origin/main
                     </div>
                     <div class="form-group">
                         <button  class="btn btn-primary" id="ajaxSubmit" value="Guardar">Guardar</button>

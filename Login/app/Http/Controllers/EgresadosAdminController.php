@@ -105,6 +105,7 @@ class EgresadosAdminController extends Controller
         $egresados->pais_residencia  = $request->input('pais_residencia');
         $egresados->ciudad_residencia = $request->input('ciudad_residencia');
         $egresados->lugar_residencia = $request->input('lugar_residencia');
+        $egresados->linkedin = $request->input('linkedin');
         $egresados->id_carrera =$request->input('id_carrera');
         $egresados->save();
         /* return $egresados; */
