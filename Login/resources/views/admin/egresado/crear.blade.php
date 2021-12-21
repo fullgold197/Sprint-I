@@ -154,6 +154,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="linkedin">Linkedin</label>
+                        <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{ old('linkedin')}}"   maxlength="20">
+                        {{$errors->first('linkedin')}}
+                    </div>
+                    <div class="form-group">
                         <button  class="btn btn-primary" id="ajaxSubmit" value="Guardar">Guardar</button>
                         <button type="reset" class="btn btn-primary" value="Cancelar">Cancelar</button>
 
@@ -171,8 +176,8 @@
                crossorigin="anonymous">
       </script>
       <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-@if(count($errors)>0)
+{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ --}}@if(count($errors)>0)
 
       <script>
          jQuery(document).ready(function(){
