@@ -146,6 +146,13 @@
                         <input type="text" class="form-control" id="lugar_residencia" name="lugar_residencia" value="{{ old('lugar_residencia')}}"   maxlength="20">
                         {{$errors->first('lugar_residencia')}}
                     </div>
+
+                    <div class="form-group">
+                        <label for="linkedin">Linkedin</label>
+                        <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{ old('linkedin')}}"  maxlength="20">
+                        {{$errors->first('linkedin')}}
+                    </div>
+
                     <div class="form-group">
                         <button  class="btn btn-primary" id="ajaxSubmit" value="Guardar">Guardar</button>
                         <button type="reset" class="btn btn-primary" value="Cancelar">Cancelar</button>
