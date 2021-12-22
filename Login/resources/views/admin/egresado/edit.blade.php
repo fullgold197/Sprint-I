@@ -79,7 +79,6 @@
                             <option value="Masculino" {{$egresado->genero=="Masculino" ? 'selected' : '' }}>Masculino</option>
                             <option value="Femenino" {{$egresado->genero=="Femenino" ? 'selected' : '' }}>Femenino</option>
                           </select>
-
                     </div>
 
                     <div class="form-group">
@@ -183,20 +182,20 @@
                         @if($errors->any())
                         value="{{old('linkedin')}}">
                         {{$errors->first('linkedin')}}
-                        @els
+                        @else
                         value="{{$egresado->linkedin}}">
                         @endif
                     </div>
                     <div class="form-group">
                         {{-- <input type="text" class="form-control" id="genero" name="genero" required maxlength="50" value="{{$egresado->genero}}"> --}}
-                        <label for="id_carrera">Carrera</label>
-                        <select name="id_carrera" class="form-control" id="id_carrera">
+                        <label for="id_academico">Carrera</label>
+                        <select name="id_academico" class="form-control" id="id_academico">
 
-                            <option value="1" {{$egresado->id_carrera=="1" ? 'selected' : '' }}>Ingeniería de Sistemas</option>
-                            <option value="2" {{$egresado->id_carrera=="2" ? 'selected' : '' }}>Ingeniería Electrónica y Telecomunicaciones</option>
-                            <option value="3" {{$egresado->id_carrera=="3" ? 'selected' : '' }}>Ingeniería Ambiental</option>
-                            <option value="4" {{$egresado->id_carrera=="4" ? 'selected' : '' }}>Ingeniería Mecánica y Eléctrica</option>
-                            <option value="5" {{$egresado->id_carrera=="5" ? 'selected' : '' }}>Administración de Empresas</option>
+                            <option value="1" {{$egresado->id_academico=="1" ? 'selected' : '' }}>Ingeniería de Sistemas</option>
+                            <option value="2" {{$egresado->id_academico=="2" ? 'selected' : '' }}>Ingeniería Electrónica y Telecomunicaciones</option>
+                            <option value="3" {{$egresado->id_academico=="3" ? 'selected' : '' }}>Ingeniería Ambiental</option>
+                            <option value="4" {{$egresado->id_academico=="4" ? 'selected' : '' }}>Ingeniería Mecánica y Eléctrica</option>
+                            <option value="5" {{$egresado->id_academico=="5" ? 'selected' : '' }}>Administración de Empresas</option>
                           </select>
 
                     </div>

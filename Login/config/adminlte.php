@@ -257,8 +257,13 @@ return [
         /* ['header' => 'account_settings'], */
         [
             'text' => 'Inicio',
-            'url'  => 'admin/egresado/GraficoVistaEgresados',
+            'url'  => 'admin',
             'icon' => 'fas fa-fw fa-home',
+        ],
+        [
+            'text' => 'Datos estadísticos',
+            'url'  => 'admin/egresado/GraficoVistaEgresados',
+            'icon' => 'fas fa-fw fa-user-cog',
         ],
         [
             'text' => 'Egresados',

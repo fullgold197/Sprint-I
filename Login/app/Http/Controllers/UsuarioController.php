@@ -32,8 +32,8 @@ class UsuarioController extends Controller
         ->orWhere('role_as', 'LIKE', '%' . $texto . '%')
         ->orderBy('name', 'asc')
         ->paginate(5);
-        /* return $usuarios; */
-        return view('admin.usuarios.index', compact('usuarios', 'texto'), ['valor' => $string]);
+        return $usuarios;
+        /* return view('admin.usuarios.index', compact('usuarios', 'texto'), ['valor' => $string]); */
     }
 
     /**
@@ -112,7 +112,7 @@ class UsuarioController extends Controller
             $usuario->password = Hash::make($request->input('password'));
             $usuario->save();
         }
-        
+
         return redirect()->route('usuario.index');
 
 

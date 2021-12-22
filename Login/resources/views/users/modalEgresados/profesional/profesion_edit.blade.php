@@ -43,15 +43,14 @@
                 value="{{$egresado->puesto}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
+            
             <div class="form-group">
                 <label for="nivel_experiencia">Nivel de experiencia</label>
-                <input type="text" class="form-control" id="nivel_experiencia" name="nivel_experiencia" required maxlength="20"
-                @if($errors->any()) {{-- Si existe algun error entonces--}}
-                value="{{old('nivel_experiencia')}}">   {{-- Ojo aqui se debe cerrar el input con ">" si ingresa a la condicion --}}
-                {{$errors->first('nivel_experiencia')}}
-                @else
-                value="{{$egresado->nivel_experiencia}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
-                @endif
+                <select name="nivel_experiencia" class="form-control" id="nivel_experiencia" >
+
+                <option value="Junior" {{$egresado->nivel_experiencia=="Junior" ? 'selected' : '' }}>Junior</option>
+                <option value="Senior" {{$egresado->nivel_experiencia=="Senior" ? 'selected' : '' }}>Senior</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="area_puesto">Area</label>

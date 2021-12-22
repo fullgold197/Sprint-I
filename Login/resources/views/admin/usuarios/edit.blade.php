@@ -38,7 +38,7 @@
                         <option value="1" {{$usuario->role_as=="1" ? 'selected' : '' }}>Administrador</option>
                     </select>
             </div>
-            <div class="form-group">
+            {{--  <div class="form-group">
                 <label for="id">ID</label>
                 <input type="text" class="form-control" id="id" name="id" required maxlength="20"
                 @if($errors->any())
@@ -47,7 +47,7 @@
                 @else
                 value="{{$usuario->id}}">
                 @endif
-            </div>
+            </div>  --}}
 
             <div class="form-group">
                 <label for="email">Correo electronico</label>

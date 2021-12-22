@@ -53,7 +53,7 @@ class EgresadoSeeder extends Seeder
                 'ciudad_residencia' => 'Santiago de Chile',
                 'lugar_residencia' => 'Av. Ferreñape 390',
                 'linkedin' => 'www.linkendin.com',
-                'id_carrera' => '1'
+                'id_academico' => '1'
 
         ]
         );
@@ -76,7 +76,7 @@ class EgresadoSeeder extends Seeder
                 'ciudad_residencia' => 'Cuidad de México',
                 'lugar_residencia' => 'Av. Guadalupe 344',
                 'linkedin' => 'www.linkendin.com',
-                'id_carrera' => '1'
+                'id_academico' => '1'
 
             ]
             );
@@ -99,7 +99,7 @@ class EgresadoSeeder extends Seeder
                 'ciudad_residencia' => 'Cuidad de Colombia',
                 'lugar_residencia' => 'Av. Guadalajara 788',
                 'linkedin' => 'www.linkendin.com',
-                'id_carrera' => '1'
+                'id_academico' => '1'
                 ]
                 );
                 Egresado::create(
@@ -121,7 +121,7 @@ class EgresadoSeeder extends Seeder
                 'ciudad_residencia' => 'Caracas',
                 'lugar_residencia' => 'Av. Chavez 728',
                 'linkedin' => 'www.linkendin.com',
-                'id_carrera' => '1'
+                'id_academico' => '1'
                     ]
                     );
                     Egresado::create(
@@ -143,7 +143,7 @@ class EgresadoSeeder extends Seeder
                             'ciudad_residencia' => 'La Habana',
                             'lugar_residencia' => 'Av. Habana 458',
                             'linkedin' => 'www.linkendin.com',
-                            'id_carrera' => '2'
+                            'id_academico' => '2'
                         ]
                         );
 

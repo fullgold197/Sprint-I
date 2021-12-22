@@ -15,7 +15,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
+            <input type="submit" class="btn btn-danger" value="Eliminar">
           </div>
         </div>
       </div>

@@ -80,7 +80,7 @@
                                 @foreach ($egresados as $egresado)
                             <tr class="text-center">
                                 <td>{{$egresado->matricula}}</td>
-                                <td>{{$egresado->carrera}}</td>
+                                <td>{{$egresado->carr_profesional}}</td>
                                 <td class="text-capitalize">{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
                                 <td>{{$egresado->semestre_ingreso}}</td>
                                 <td>{{$egresado->semestre_egreso}}</td>
@@ -92,7 +92,8 @@
                                 <!-- Button trigger modal -->
                                 <form action="{{route('academico-profesional.index')}}" method="GET">
 {{--                                 <a href="{{route('academico-profesional.index')}}">
- --}}                                <button type="submit" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
+ --}}
+                                <button type="submit" class="btn btn-info btn-sm"      data-bs-toggle="modal" data-bs-target="#modal">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
 
                                 </button>

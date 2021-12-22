@@ -39,7 +39,7 @@ class DoctoradoSeeder extends Seeder
             'institución'=>'Universidad Nacional de Colombia',
             'fecha_inicial' => '2024-05-01',
             'fecha_final'=> '2025-05-01',
-            'id_academico' => '1',
+            'matricula' => '2016200241',
         ]
         );
 
@@ -50,7 +50,7 @@ class DoctoradoSeeder extends Seeder
                 'institución'=>'Universidad Nacional de Chile',
                 'fecha_inicial' => '2024-05-01',
                 'fecha_final'=> '2025-05-01',
-                'id_academico' => '1',
+                'matricula' => '2016200062',
             ]
             );
     }
