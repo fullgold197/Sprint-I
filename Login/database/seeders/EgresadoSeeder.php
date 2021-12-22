@@ -41,7 +41,7 @@ class EgresadoSeeder extends Seeder
                 'ap_materno' => 'Iñigo',
                 'nombres' => 'Nathan Josue',
                 'grado_academico' => 'Bachiller',
-                'dni' => '77071134',
+                'dni' => '73980032',
                 'genero' => 'Masculino',
                 'fecha_nacimiento' => '1997-03-12',
                 'semestre_ingreso' => '2016-2',
@@ -50,7 +50,7 @@ class EgresadoSeeder extends Seeder
                 'pais_origen' => 'Perú',
                 'departamento_origen' => 'Lima',
                 'pais_residencia' => 'Chile',
-                'cuidad_residencia' => 'Santiago de Chile',
+                'ciudad_residencia' => 'Santiago de Chile',
                 'lugar_residencia' => 'Av. Ferreñape 390',
                 'linkedin' => 'www.linkendin.com',
                 'id_carrera' => '1'
@@ -73,7 +73,7 @@ class EgresadoSeeder extends Seeder
                 'pais_origen' => 'Perú',
                 'departamento_origen' => 'Lima',
                 'pais_residencia' => 'México',
-                'cuidad_residencia' => 'Cuidad de México',
+                'ciudad_residencia' => 'Cuidad de México',
                 'lugar_residencia' => 'Av. Guadalupe 344',
                 'linkedin' => 'www.linkendin.com',
                 'id_carrera' => '1'
@@ -87,7 +87,7 @@ class EgresadoSeeder extends Seeder
                 'ap_materno' => 'Huanca',
                 'nombres' => 'Jean Carlos',
                 'grado_academico' => 'Bachiller',
-                'dni' => '77078963',
+                'dni' => '71046461',
                 'genero' => 'Masculino',
                 'fecha_nacimiento' => '1996-02-17',
                 'semestre_ingreso' => '2016-2',
@@ -96,7 +96,7 @@ class EgresadoSeeder extends Seeder
                 'pais_origen' => 'Perú',
                 'departamento_origen' => 'Lima',
                 'pais_residencia' => 'Colombia',
-                'cuidad_residencia' => 'Cuidad de Colombia',
+                'ciudad_residencia' => 'Cuidad de Colombia',
                 'lugar_residencia' => 'Av. Guadalajara 788',
                 'linkedin' => 'www.linkendin.com',
                 'id_carrera' => '1'
@@ -109,7 +109,7 @@ class EgresadoSeeder extends Seeder
                 'ap_materno' => 'Machuca',
                 'nombres' => 'Jose Orlando',
                 'grado_academico' => 'Bachiller',
-                'dni' => '77895632',
+                'dni' => '71305640',
                 'genero' => 'Masculino',
                 'fecha_nacimiento' => '1997-09-30',
                 'semestre_ingreso' => '2016-2',
@@ -118,9 +118,10 @@ class EgresadoSeeder extends Seeder
                 'pais_origen' => 'Perú',
                 'departamento_origen' => 'Lima',
                 'pais_residencia' => 'Venezuela',
-                'cuidad_residencia' => 'Caracas',
+                'ciudad_residencia' => 'Caracas',
                 'lugar_residencia' => 'Av. Chavez 728',
                 'linkedin' => 'www.linkendin.com',
+                'id_carrera' => '1'
                     ]
                     );
                     Egresado::create(
@@ -130,7 +131,7 @@ class EgresadoSeeder extends Seeder
                             'ap_materno'=>'Florez',
                             'nombres' => 'Elias',
                             'grado_academico' => 'Bachiller',
-                            'dni' => '79856321',
+                            'dni' => '72700841',
                             'genero' => 'Masculino',
                             'fecha_nacimiento' => '1999-02-25',
                             'semestre_ingreso' => '2016-2',
@@ -139,7 +140,7 @@ class EgresadoSeeder extends Seeder
                             'pais_origen' => 'Perú',
                             'departamento_origen' => 'Lima',
                             'pais_residencia' => 'Cuba',
-                            'cuidad_residencia' => 'La Habana',
+                            'ciudad_residencia' => 'La Habana',
                             'lugar_residencia' => 'Av. Habana 458',
                             'linkedin' => 'www.linkendin.com',
                             'id_carrera' => '2'

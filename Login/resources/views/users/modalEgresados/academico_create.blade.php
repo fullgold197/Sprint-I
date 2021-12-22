@@ -39,8 +39,9 @@
 
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Guardar">
-                        <input type="hidden" value="{{$egresado->id_academico}}" name="id_academico" />
-                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <input type="hidden" value="{{$egresado->id_academico}}" name="id_academico">
+
+    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     </div>
           </div>
         </div>

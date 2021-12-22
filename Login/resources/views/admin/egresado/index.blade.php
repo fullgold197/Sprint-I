@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="form-row">
             <div class="col-auto my-1" >
-                <a href="{{ route('imprimir', $valor)}}"  target="_blank" class="btn btn-danger" ><i class="fas fa-file-pdf"></i></a>
+                <a href="{{ route('imprimir', $valor2)}}"  target="_blank" class="btn btn-danger" ><i class="fas fa-file-pdf"></i></a>
                 </div>
                 <div class="col-auto my-1" >
                     <a href="{{ route('egresados.Export-excel')}}"  target="_blank" class="btn btn-success" ><i class="fas fa-file-export"></i></a>
@@ -90,11 +90,17 @@
                                 <td>
 
                                 <!-- Button trigger modal -->
-                                <a href="{{route('academico-profesional.index')}}">
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
+                                <form action="{{route('academico-profesional.index')}}" method="GET">
+{{--                                 <a href="{{route('academico-profesional.index')}}">
+ --}}                                <button type="submit" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
+
                                 </button>
+                                <input type="hidden" name="matricula_id" value="{{$egresado->matricula}}">
+                            </form>
+
                                 </a>
+
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->matricula}}">
                                 <i class="fas fa-edit"></i>
                                 </button>

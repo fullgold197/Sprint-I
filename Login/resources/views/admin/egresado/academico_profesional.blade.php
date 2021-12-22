@@ -16,8 +16,8 @@
                         </thead>
                         <tbody>
                             <h5 align="left">DATOS PERSONALES</h5>
-                            @foreach ($egresados as $egresado)
-                            <tr class="text-center">
+{{--                             @foreach ($egresados as $egresado) no es necesario y no se debe iterar cuando se usa findOrFail()
+ --}}                            <tr class="text-center">
                                 <th>NOMBRES</th>
                                 <td>{{$egresado->ap_paterno}} {{$egresado->ap_materno}} {{$egresado->nombres}}</td>
                             </tr>
@@ -67,7 +67,7 @@
                             </tr>
                             <tr class="text-center">
                                 <th>CIUDAD DE RESIDENCIA</th>
-                                <td>{{$egresado->cuidad_residencia}}</td>
+                                <td>{{$egresado->ciudad_residencia}}</td>
                             </tr>
                             <tr class="text-center">
                                 <th>LUGAR DE RESIDENCIA</th>
@@ -77,8 +77,8 @@
                                 <th>LINKEDIN</th>
                                 <td>{{$egresado->linkedin}}</td>
                             </tr>
-                            @endforeach
-
+{{--                             @endforeach
+ --}}
 
                         </tbody>
                     </table>

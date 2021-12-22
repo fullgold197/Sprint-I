@@ -1,6 +1,7 @@
 <?php
 
 use App\Providers\RouteServiceProvider;
+use App\Providers\FortifyServiceProvider;
 use Laravel\Fortify\Features;
 
 return [
@@ -47,6 +48,7 @@ return [
     */
 
     'username' => 'egresado_matricula',
+
 
     'email' => 'email',
 
