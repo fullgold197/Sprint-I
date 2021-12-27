@@ -20,7 +20,8 @@ class TrayectoriaAcademicaController extends Controller
     public function index(Request $request)
     {
         $egresados0= DB::table('egresado')
-        ->select('grado_academico', 'semestre_ingreso', 'semestre_egreso')
+        ->join('academico', 'egresado.id_academico', '=', 'academico.id_academico')
+        ->select('academico.carr_profesional','egresado.grado_academico', 'egresado.semestre_ingreso', 'egresado.semestre_egreso')
         ->where('matricula', Auth::user()->egresado_matricula)
         ->get();
 

@@ -32,7 +32,7 @@
                         @foreach ($egresados0 as $egresado)
                         <tr>
                         <th>CARRERA PROFESIONAL</th>
-                        <td>Ingeniería de Sistemas</td>
+                        <td>{{$egresado->carr_profesional}}</td>
                         </tr>
 
                         <tr>
