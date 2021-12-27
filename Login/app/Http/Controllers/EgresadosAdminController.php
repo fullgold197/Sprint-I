@@ -36,8 +36,8 @@ class EgresadosAdminController extends Controller
         $texto=$request->get('texto');
         //trae de la tabla egresa$egresados todo los campos
         $egresados=DB::table('egresado')
-        ->join('carrera', 'carrera.id_carrera', '=', 'egresado.id_carrera')
-        ->select('egresado.matricula', 'egresado.ap_paterno', 'egresado.ap_materno', 'egresado.nombres','egresado.grado_academico' , 'egresado.dni','egresado.genero', 'egresado.fecha_nacimiento', 'egresado.semestre_ingreso', 'egresado.semestre_egreso', 'egresado.celular', 'egresado.pais_origen', 'egresado.departamento_origen', 'egresado.pais_residencia', 'egresado.ciudad_residencia', 'egresado.lugar_residencia', 'egresado.linkedin','egresado.id_carrera','carrera.carrera')
+        ->join('academico', 'academico.id_academico', '=', 'egresado.id_academico')
+        ->select('egresado.matricula', 'egresado.ap_paterno', 'egresado.ap_materno', 'egresado.nombres','egresado.grado_academico' , 'egresado.dni','egresado.genero', 'egresado.fecha_nacimiento', 'egresado.semestre_ingreso', 'egresado.semestre_egreso', 'egresado.celular', 'egresado.pais_origen', 'egresado.departamento_origen', 'egresado.pais_residencia', 'egresado.ciudad_residencia', 'egresado.lugar_residencia', 'egresado.linkedin', 'egresado.url', 'academico.id_academico', 'academico.carr_profesional')
         ->where('ap_paterno','LIKE','%'.$texto.'%')
         ->orWhere('nombres', 'LIKE', '%'.$texto.'%')
         ->orWhere('matricula', 'LIKE', '%'.$texto.'%')
@@ -110,7 +110,8 @@ class EgresadosAdminController extends Controller
         $egresados->ciudad_residencia = $request->input('ciudad_residencia');
         $egresados->lugar_residencia = $request->input('lugar_residencia');
         $egresados->linkedin = $request->input('linkedin');
-        $egresados->id_carrera =$request->input('id_carrera');
+        $egresados->id_academico =$request->input('id_academico');
+
         $egresados->save();
         /* return $egresados; */
         return redirect()->route('egresado.index');
@@ -181,7 +182,8 @@ class EgresadosAdminController extends Controller
         $egresados->ciudad_residencia = $request->input('ciudad_residencia');
         $egresados->lugar_residencia = $request->input('lugar_residencia');
         $egresados->linkedin = $request->input('linkedin');
-        $egresados->id_carrera = $request->input('id_carrera');
+        $egresados->id_academico=$request->input('id_academico');
+
         $egresados->save();
         /* return $egresados; */
         $matricula_id= $egresados->matricula;

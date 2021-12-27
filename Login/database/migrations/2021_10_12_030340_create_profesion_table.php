@@ -19,7 +19,7 @@ class CreateProfesionTable extends Migration
             $table->string('empresa', 50);
             $table->string('actividad_empresa', 50);
             $table->string('puesto', 50);
-            $table->string('nivel_experiencia', 50);
+            $table->enum('nivel_experiencia', ['Junior', 'Senior']);
             $table->string('area_puesto', 50);
             $table->string('subarea', 50);
             $table->string('pais', 50);

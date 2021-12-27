@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>EPIS-UNTELS</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>UNTELS</b>',
+    'logo_img' => 'images/untels/untels.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -226,7 +226,7 @@ return [
 
     'menu' => [
         // Navbar items:
-       /*  [
+     /*    [
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
@@ -257,8 +257,13 @@ return [
         /* ['header' => 'account_settings'], */
         [
             'text' => 'Inicio',
-            'url'  => 'admin/egresado/GraficoVistaEgresados',
+            'url'  => 'admin',
             'icon' => 'fas fa-fw fa-home',
+        ],
+        [
+            'text' => 'Datos estadísticos',
+            'url'  => 'admin/egresado/GraficoVistaEgresados',
+            'icon' => 'fas fa-table',
         ],
         [
             'text' => 'Egresados',
@@ -270,11 +275,30 @@ return [
             'url'  => 'admin/academico-profesional',
             'icon' => 'fas fa-fw fa-file',
         ],
-        [
+        /* [
             'text' => 'Usuarios',
             'url'  => 'admin/usuario',
-            'icon' => 'fas fa-fw fa-user-cog',
+            'icon' => 'fas fa-fw fa-users-cog',
+        ], */
+        [
+            'text'    => 'Usuarios',
+            'icon'    => 'fas fa-fw fa-users-cog',
+            'submenu' => [
+                [
+                    'text' => 'Egresados',
+                    'url'  => 'admin/usuario',
+                    'icon' => 'far fa-user',
+                ],
+
+                [
+                    'text' => 'Administradores',
+                    'url'  => 'admin/administradores',
+                    'icon' => 'fas fa-user-cog',
+                ],
+            ],
         ],
+
+    ],
         /* [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -328,8 +352,8 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ], */
-    ],
+        ],
+    ], */
 
     /*
     |--------------------------------------------------------------------------

@@ -22,10 +22,14 @@
                         <label for="puesto">Puesto</label>
                         <input type="text" class="form-control" id="puesto" name="puesto" required maxlength="50" >
                     </div>
+
                     <div class="form-group">
                         <label for="nivel_experiencia">Nivel de experiencia</label>
-                        <input type="text" class="form-control" id="nivel_experiencia" name="nivel_experiencia" value="{{ old('nivel_experiencia')}}" required maxlength="20" >
-                        {{$errors->first('nivel_experiencia')}}
+                        <select name="nivel_experiencia" class="form-control"  id="nivel_experiencia" required>
+                            <option selected disabled value="">Seleccione experiencia</option>
+                            <option value="Junior">Junior</option>
+                                <option value="Senior">Senior</option>
+                          </select>
                     </div>
                     <div class="form-group">
                         <label for="area_puesto">Area de puesto</label>

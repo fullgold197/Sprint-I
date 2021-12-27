@@ -1,8 +1,8 @@
 <!-- Modal -->
-<form action="{{route('usuario.update', $usuario->id)}}" method="POST">
+<form action="{{route('administradores.update', $usuario->id)}}" method="POST">
     @csrf
     @method('PUT')
-    <div class="modal fade" id="modal-edit-{{$usuario->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-administradores-edit-{{$usuario->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -11,15 +11,8 @@
           </div>
           <div class="modal-body">
 
-            <div class="form-group">
-                <label for="matricula">Nombres</label>
-                <input type="text" class="form-control" id="" name="" required maxlength="20" value="{{$usuario->nombres}} {{$usuario->ap_paterno}} {{$usuario->ap_materno}} " disabled>
-            </div>
 
-            <div class="form-group">
-                <label for="matricula">Código de egresado</label>
-                <input type="text" class="form-control" id="matricula" name="matricula" required maxlength="20" value="{{$usuario->matricula}}" disabled>
-            </div>
+
             <div class="form-group">
                 <label for="name">Usuario</label>
                 <input type="text" class="form-control" id="name" name="name" required maxlength="20"

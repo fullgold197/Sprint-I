@@ -39,7 +39,26 @@ class AcademicoSeeder extends Seeder
                 'carr_profesional' =>'Ingeniería de sistemas',
             ]
             );
-
+        Academico::create(
+            [
+                'carr_profesional' => 'Ingeniería Electrónica y Telecomunicaciones',
+            ]
+        );
+        Academico::create(
+            [
+                'carr_profesional' => 'Ingeniería Ambiental',
+            ]
+        );
+        Academico::create(
+            [
+                'carr_profesional' => 'Ingeniería Mecánica y Eléctrica',
+            ]
+        );
+        Academico::create(
+            [
+                'carr_profesional' => 'Administración de Empresas',
+            ]
+        );
 
     }
 }

@@ -22,6 +22,7 @@ class DatosPersonalesController extends Controller
         $egresados = Egresado::select('matricula','ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'celular', 'dni','url')->where('matricula', Auth::user()->egresado_matricula)->get();
         /* return $users; */
         return view('users.datospersonales', compact('egresados'));
+        /* return view('users.datospersonales', compact('egresados'))->share('layouts.egresado'); */
     }
 
     /**
@@ -117,8 +118,7 @@ $imagenes='';
         $egresados->celular = $request->input('celular');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         //$egresados->url=$url;
-        
-        
+
         $egresados->save();
         //return $url;
         return redirect()->route('datos-personales.index');
