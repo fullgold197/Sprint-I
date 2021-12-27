@@ -115,11 +115,9 @@ $imagenes='';
         $egresados->ap_materno = $request->input('ap_materno');
         $egresados->nombres = $request->input('nombres');
         $egresados->genero = $request->input('genero');
-        $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $egresados->celular = $request->input('celular');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         //$egresados->url=$url;
-
-
 
         $egresados->save();
         //return $url;
