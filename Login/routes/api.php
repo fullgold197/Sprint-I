@@ -18,9 +18,22 @@ Route::post('/login', [App\Http\Controllers\Authcontroller::class, 'login']);
 
 
 Route::middleware(['auth:api'])->group(function(){
+    //Datos personales
     Route::get('/user', [App\Http\Controllers\Authcontroller::class, 'datospersonales']);
-    Route::get('/trayectoriaaca', [App\Http\Controllers\Authcontroller::class, 'trayectoriaaca']);
     Route::put('/updatedp/{matricula}', [App\Http\Controllers\Authcontroller::class, 'updatedp']);
+
+    //Trayectoria academica
+    Route::get('/trayectoriaaca', [App\Http\Controllers\Authcontroller::class, 'trayectoriaaca']);
+    Route::post('/createtrayaca', [App\Http\Controllers\Authcontroller::class, 'createtrayaca']);
+    Route::put('/updatemaes/{id_maestria}', [App\Http\Controllers\Authcontroller::class, 'updatemaes']);
+    Route::delete('/deletemaes/{id_maestria}', [App\Http\Controllers\Authcontroller::class, 'deletemaes']);
+    Route::put('/updatedoc/{id_maestria}', [App\Http\Controllers\Authcontroller::class, 'updatedoc']);
+    Route::delete('/deletedoc/{id_maestria}', [App\Http\Controllers\Authcontroller::class, 'deletedoc']);
+   
+    //Trayectoria profesional
     Route::get('/trayectoriapro', [App\Http\Controllers\Authcontroller::class, 'trayectoriapro']);
+    Route::post('/createtraypro', [App\Http\Controllers\Authcontroller::class, 'createtraypro']);
+    
+    
     Route::post('/logout', [App\Http\Controllers\Authcontroller::class, 'logout']);
 });

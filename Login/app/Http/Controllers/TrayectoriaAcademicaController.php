@@ -69,8 +69,8 @@ class TrayectoriaAcademicaController extends Controller
             $egresados->fecha_final = $request->input('fecha_final');
             $egresados->id_academico = $request->input('id_academico');
             $egresados->save();
-            /* return $egresados; */
-            return redirect()->route('trayectoria-academica.index');
+            return $egresados;
+            //return redirect()->route('trayectoria-academica.index');
         } else {
             if ($prueba == 'Doctor') {
                 $egresados = new Doctorado();

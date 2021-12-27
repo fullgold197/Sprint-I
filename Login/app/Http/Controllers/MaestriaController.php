@@ -84,7 +84,7 @@ class MaestriaController extends Controller
         $egresados->fecha_inicial = $request->input('maestria_fecha_inicial');
         $egresados->fecha_final = $request->input('maestria_fecha_final');
         $egresados->save();
-        /* return $egresados; */
+        //return $egresados; 
         return redirect()->route('trayectoria-academica.index');
     }
 

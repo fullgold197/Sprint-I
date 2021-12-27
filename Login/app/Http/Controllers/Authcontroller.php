@@ -8,6 +8,7 @@ use App\Models\Maestria;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Egresado;
+use App\Models\Profesion;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -29,7 +30,7 @@ class Authcontroller extends Controller
         $egresados->ap_materno = $request->input('ap_materno');
         $egresados->nombres = $request->input('nombres');
         $egresados->genero = $request->input('genero');
-        $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $egresados->celular = $request->input('celular');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
         //$egresados->url=$url;
         
@@ -63,6 +64,56 @@ class Authcontroller extends Controller
         return compact('egresados0','egresados','egresados1');
     }
 
+    public function createtrayaca(Request $request)
+    {
+        $prueba = $request->input('grado_academico');
+        if ($prueba == 'Maestro') {
+            $egresados = new Maestria();
+            $egresados->grado_academico = $request->input('grado_academico');
+            $egresados->pais = $request->input('pais');
+            $egresados->institución = $request->input('institución');
+            $egresados->fecha_inicial = $request->input('fecha_inicial');
+            $egresados->fecha_final = $request->input('fecha_final');
+            $egresados->id_academico = $request->input('id_academico');
+            $egresados->save();
+            /* return $egresados; */
+            return $egresados;
+        } else {
+            if ($prueba == 'Doctor') {
+                $egresados = new Doctorado();
+                $egresados->grado_academico = $request->input('grado_academico');
+                $egresados->pais = $request->input('pais');
+                $egresados->institución = $request->input('institución');
+                $egresados->fecha_inicial = $request->input('fecha_inicial');
+                $egresados->fecha_final = $request->input('fecha_final');
+                $egresados->id_academico = $request->input('id_academico');
+                $egresados->save();
+                /* return $egresados; */
+                return $egresados;
+            }
+        }
+    }
+
+    public function updatemaes(Request $request, $id_maestria)
+    {
+        $egresados = Maestria::findOrFail($id_maestria);
+        $egresados->grado_academico = $request->input('maestria_grado_academico');
+        $egresados->pais = $request->input('maestria_pais');
+        $egresados->institución = $request->input('maestria_institución');
+        $egresados->fecha_inicial = $request->input('maestria_fecha_inicial');
+        $egresados->fecha_final = $request->input('maestria_fecha_final');
+        $egresados->save();
+        /* return $egresados; */
+        return $egresados;
+    }
+
+    public function deletemaes($id_maestria)
+    {
+        $egresados = Maestria::findOrFail($id_maestria);
+        $egresados->delete();
+        return $egresados;
+    }
+
     public function trayectoriapro(Request $request)
     {
         /* $egresados = Profesion::all(); */
@@ -79,6 +130,46 @@ class Authcontroller extends Controller
         /* return $egresados; */
 
         return compact('egresados');
+    }
+
+    public function createtraypro(Request $request)
+    {
+        $egresados = new Profesion();
+        $egresados->empresa = $request->input('empresa');
+        $egresados->actividad_empresa = $request->input('actividad_empresa');
+        $egresados->puesto = $request->input('puesto');
+        $egresados->nivel_experiencia = $request->input('nivel_experiencia');
+        $egresados->area_puesto = $request->input('area_puesto');
+        $egresados->subarea = $request->input('subarea');
+        $egresados->pais = $request->input('pais');
+        $egresados->fecha_inicio = $request->input('fecha_inicio');
+        $egresados->fecha_finalizacion = $request->input('fecha_finalizacion');
+        $egresados->descripcion_responsabilidades = $request->input('descripcion_responsabilidades');
+        $egresados->matricula = Auth::user()->egresado_matricula;
+        $egresados->save();
+        return $egresados;
+    }
+
+
+    public function updatedoc(Request $request, $id_doctorado)
+    {
+        $egresados = Doctorado::findOrFail($id_doctorado);
+        $egresados->grado_academico = $request->input('doctorado_grado_academico');
+        $egresados->pais = $request->input('doctorado_pais');
+        $egresados->institución = $request->input('doctorado_institución');
+        $egresados->fecha_inicial = $request->input('doctorado_fecha_inicial');
+        $egresados->fecha_final = $request->input('doctorado_fecha_final');
+        $egresados->save();
+        /* return $egresados; */
+        return $egresados;
+    }
+
+
+    public function deletedoc($id_doctorado)
+    {
+        $egresados = Doctorado::findOrFail($id_doctorado);
+        $egresados->delete();
+        return $egresados;
     }
 
 
@@ -110,7 +201,7 @@ class Authcontroller extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'egresado_matricula'=>'required',
+            'dni'=>'required',
             'password'=>'required'
         ]);
 

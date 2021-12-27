@@ -63,8 +63,8 @@ class TrayectoriaProfesionalController extends Controller
         $egresados->descripcion_responsabilidades = $request->input('descripcion_responsabilidades');
         $egresados->matricula = Auth::user()->egresado_matricula;
         $egresados->save();
-        return redirect()->route('trayectoria-profesional.index');
-
+        //return redirect()->route('trayectoria-profesional.index');
+        return $egresados;
     }
 
     /**

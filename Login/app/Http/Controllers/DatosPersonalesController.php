@@ -119,7 +119,6 @@ $imagenes='';
         //$egresados->url=$url;
         
         
-
         $egresados->save();
         //return $url;
         return redirect()->route('datos-personales.index');

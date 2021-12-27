@@ -88,7 +88,7 @@ class DoctoradoController extends Controller
         $egresados->fecha_inicial = $request->input('doctorado_fecha_inicial');
         $egresados->fecha_final = $request->input('doctorado_fecha_final');
         $egresados->save();
-        /* return $egresados; */
+        //return $egresados;
         return redirect()->route('trayectoria-academica.index');
     }
 
