@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Egresado;
-use App\Http\Requests\EgresadoEditRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-class UsuarioController extends Controller
+
+class UsuariosAdministradoresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,15 +24,16 @@ class UsuarioController extends Controller
         $texto = $request->get('texto');
         //trae de la tabla $egresados todo los campos
         $usuarios = DB::table('users')
-        ->join('egresado','users.egresado_matricula','=','egresado.matricula')
-        ->select('users.id', 'users.name', 'users.email', 'users.role_as','users.password','egresado.ap_paterno','egresado.ap_materno','egresado.nombres', 'egresado.matricula', 'egresado.matricula')
-        ->where('name', 'LIKE', '%' . $texto . '%')
+        ->select('id', 'name', 'email', 'role_as', 'password',)
+
+        /* ->orWhere('name', 'LIKE', '%' . $texto . '%')
         ->orWhere('email', 'LIKE', '%' . $texto . '%')
-        ->orWhere('role_as', 'LIKE', '%' . $texto . '%')
+        ->orWhere('role_as', 'LIKE', '%' . $texto . '%') */
+        ->where('role_as', 1)
         ->orderBy('name', 'asc')
         ->paginate(5);
-       /*  return $usuarios; */
-        return view('admin.usuarios.index', compact('usuarios', 'texto'), ['valor' => $string]);
+         /* return $usuarios; */
+        return view('admin.usuarios.administradores_index', compact('usuarios', 'texto'), ['valor' => $string]);
     }
 
     /**
@@ -43,7 +43,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('admin.usuarios.create');
+        //
     }
 
     /**
@@ -54,14 +54,15 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $usuarios = new User;
+        $usuarios = new User();
         $usuarios->name = $request->input('name');
         $usuarios->email = $request->input('email');
         $usuarios->password = Hash::make($request->input('password'));
         $usuarios->egresado_matricula = $request->input('egresado_matricula');
+        $usuarios->role_as = 1;
         /* $usuarios->role_as = $request->input('role_as'); */
         $usuarios->save();
-        return redirect()->route('usuario.index');
+        return redirect()->route('administradores.index');
     }
 
     /**
@@ -83,10 +84,7 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $usuarios = User::findOrFail($id);
-
-        //return $egresados;
-        return view('admin.usuarios.editar', compact('usuarios'));
+        //
     }
 
     /**
@@ -96,16 +94,15 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $usuario = User::findOrFail($id);
-        if(trim($request->password) == ''){
+        if (trim($request->password) == '') {
             $usuario->name = $request->input('name');
             $usuario->email = $request->input('email');
             $usuario->role_as = $request->input('role_as');
             $usuario->save();
-        }
-        else{
+        } else {
             $usuario->name = $request->input('name');
             $usuario->email = $request->input('email');
             $usuario->role_as = $request->input('role_as');
@@ -113,9 +110,7 @@ class UsuarioController extends Controller
             $usuario->save();
         }
 
-        return redirect()->route('usuario.index');
-
-
+        return redirect()->route('administradores.index');
     }
 
     /**
@@ -128,7 +123,6 @@ class UsuarioController extends Controller
     {
         $usuarios = User::findOrFail($id);
         $usuarios->delete();
-        return redirect()->route('usuario.index');
+        return redirect()->route('administradores.index');
     }
-
 }

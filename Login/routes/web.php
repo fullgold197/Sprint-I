@@ -14,6 +14,7 @@ use App\Http\Controllers\TrayectoriaAcademica;
 use App\Http\Controllers\TrayectoriaAcademicaController;
 use App\Http\Controllers\TrayectoriaProfesional;
 use App\Http\Controllers\TrayectoriaProfesionalController;
+use App\Http\Controllers\UsuariosAdministradoresController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
 
@@ -42,7 +43,7 @@ Route::resource('/home/trayectoria-academica/maestria', MaestriaController::clas
 Route::resource('/home/trayectoria-academica/doctorado', DoctoradoController::class)->middleware('auth');
 Route::resource('/home/trayectoria-profesional', TrayectoriaProfesionalController::class)->middleware('auth');
 
-Route::resource('/cambiarcontrasena', CambiarContrasenaController::class)->middleware('auth');
+Route::resource('/home/cambiar-contrasena', CambiarContrasenaController::class)->middleware('auth');
 
 Route::get('/admin/egresado/GraficoVistaEgresados',[App\Http\Controllers\GraficosEgresadosAdminController::class,'index'])->name('egresados.graficos');
 Route::get('/admin/egresado/VistaImportexcel',[App\Http\Controllers\ReporteAdminController::class,'VistaImportexcel'])->name('egresados.Import-excel');
@@ -55,7 +56,8 @@ Route::resource('/admin/academico-profesional', EgresadoAcademicoProfesionalCont
 Route::resource('/permisos', App\Http\Controllers\PermissionController::class);
 
 Route::view('/profile/edit', 'profile.edit')->middleware('auth');
-Route::view('/profile/password', 'profile.password')->middleware('auth');
+Route::view('/profile/password', 'profile.password')->middleware('auth')->name('home/password');
+Route::resource('/admin/administradores', UsuariosAdministradoresController::class)->middleware('auth');
 
 /* Route::middleware(['auth','isAdmin'])->group( function (){
 
