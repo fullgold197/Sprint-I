@@ -67,7 +67,7 @@ return [
     'usermenu_enabled' => true,
     'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => true, //habilita imagen para usuario
+    'usermenu_image' => false, //habilita imagen para usuario
     'usermenu_desc' => true, //habilita para que se vea el tipo de usuario como egresado o admin
     'usermenu_profile_url' => true,
 
