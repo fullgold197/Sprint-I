@@ -99,17 +99,17 @@
 
 
 
-        <li class="user-footer">
-                            <a href="http://127.0.0.1:8000/datospersonales" class="btn btn-default btn-flat">
+                    <li class="user-footer">
+                    <a href="http://127.0.0.1:8000/datospersonales" class="btn btn-default btn-flat">
                     <i class="fa fa-fw fa-user text-lightblue"></i>
                     Profile
                 </a>
-                        <a class="btn btn-default btn-flat float-right "
+                <a class="btn btn-default btn-flat float-right "
                href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fa fa-fw fa-power-off text-red"></i>
                 Log Out
             </a>
-            <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" style="display: none;">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 <input type="hidden" name="_token" value="G5EUdTqPBPgDQLSXnnqwv21XRQSHIHzpWU4fSIS9">
             </form>
         </li>
@@ -176,7 +176,6 @@
 
         <p>
             Datos estadísticos
-
                     </p>
 
     </a>
