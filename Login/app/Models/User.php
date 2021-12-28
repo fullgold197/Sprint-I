@@ -23,6 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'egresado_matricula',
         'password',
+        'url',
     ];
     //protected $guarded =[];
     /**

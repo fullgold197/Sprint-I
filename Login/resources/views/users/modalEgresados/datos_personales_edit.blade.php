@@ -73,15 +73,7 @@
                 value="{{$egresado->celular}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
                 @endif
             </div>
-            <div class="form-group">
-                <label for="file"> Seleccione Imagen: </label><br>
-                    <input type="file" name="file" id="file" accept="image/*"
-                    @if($errors->any())
-                    value="{{old('file')}}">
-                    @else
-                    value="{{$egresado->url}}"> {{--Si no ingresa a la condicion tambien debe cerrarse el input con ">" --}}
-                @endif
-            </div>
+
 
 
           </div>

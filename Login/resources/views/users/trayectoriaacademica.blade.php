@@ -103,10 +103,10 @@
                                 <div align="right">
                                     <button  type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$egresado->id_maestria}}">
                                         <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$egresado->id_maestria}}">
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$egresado->id_maestria}}">
                                         <i class="fas fa-trash-alt"></i>
-                                        </button>
+                                    </button>
                                 </div>
                                 </div>
                             </div>

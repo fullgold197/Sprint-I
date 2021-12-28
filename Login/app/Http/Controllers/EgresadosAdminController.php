@@ -37,7 +37,8 @@ class EgresadosAdminController extends Controller
         //trae de la tabla egresa$egresados todo los campos
         $egresados=DB::table('egresado')
         ->join('academico', 'academico.id_academico', '=', 'egresado.id_academico')
-        ->select('egresado.matricula', 'egresado.ap_paterno', 'egresado.ap_materno', 'egresado.nombres','egresado.grado_academico' , 'egresado.dni','egresado.genero', 'egresado.fecha_nacimiento', 'egresado.semestre_ingreso', 'egresado.semestre_egreso', 'egresado.celular', 'egresado.pais_origen', 'egresado.departamento_origen', 'egresado.pais_residencia', 'egresado.ciudad_residencia', 'egresado.lugar_residencia', 'egresado.linkedin', 'egresado.url', 'academico.id_academico', 'academico.carr_profesional')
+        ->join('users', 'users.egresado_matricula', '=', 'egresado.matricula')
+        ->select('egresado.matricula', 'egresado.ap_paterno', 'egresado.ap_materno', 'egresado.nombres','egresado.grado_academico' , 'egresado.dni','egresado.genero', 'egresado.fecha_nacimiento', 'egresado.semestre_ingreso', 'egresado.semestre_egreso', 'egresado.celular', 'egresado.pais_origen', 'egresado.departamento_origen', 'egresado.pais_residencia', 'egresado.ciudad_residencia', 'egresado.lugar_residencia', 'egresado.linkedin', 'users.url', 'academico.id_academico', 'academico.carr_profesional')
         ->where('ap_paterno','LIKE','%'.$texto.'%')
         ->orWhere('nombres', 'LIKE', '%'.$texto.'%')
         ->orWhere('matricula', 'LIKE', '%'.$texto.'%')

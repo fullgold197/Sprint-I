@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->foreign('dni')->references('dni')->on('egresado')->unique();
             $table->string('api_token')->unique()->nullable()->default(null);
             $table->rememberToken();
+            $table->string('url')->nullable();
             $table->timestamps();
 
         });

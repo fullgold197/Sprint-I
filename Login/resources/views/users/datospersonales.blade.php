@@ -37,11 +37,20 @@
 
 
 
-                            <tr >
+                            <tr>
                                 <td colspan="2">
                                     <img src="{{asset($egresado->url)}}" alt="{{$egresado->url}}" style="width:80%;max-height:400px" class="img-fluid img-thumbnail mx-auto d-block my-4 card-img-top" >
                                 </td>
                             </tr>
+                            
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-datos-personales-foto-edit-{{$egresado->id}}">
+                                        Cambiar foto
+                                    </button>
+                                </td>
+                            </tr>
+
 
 {{--                             <tr>
  --}}                                {{-- <td align="center" colspan="2">
@@ -107,6 +116,7 @@
                             <input type="hidden" class="form-control" id="matricula" name="matricula"
                              value="{{$egresado->matricula}}">
                             @include('users.modalEgresados.datos_personales_edit')
+                            @include('users.modalEgresados.foto.datos_personales_foto_edit')
                         @endforeach
                     </div>
                 </div>

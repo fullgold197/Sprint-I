@@ -19,7 +19,9 @@ class DatosPersonalesController extends Controller
      */
     public function index(Request $request)
     {
-        $egresados = Egresado::select('matricula','ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'celular', 'dni','url')->where('matricula', Auth::user()->egresado_matricula)->get();
+        $egresados = DB::table('egresado')
+        ->join('users', 'egresado.matricula', '=', 'users.egresado_matricula')
+        ->select('egresado.matricula', 'egresado.ap_paterno', 'egresado.ap_materno', 'egresado.nombres', 'egresado.genero', 'egresado.fecha_nacimiento', 'egresado.celular', 'egresado.dni', 'users.url', 'users.id')->where('matricula', Auth::user()->egresado_matricula)->get();
         /* return $users; */
         return view('users.datospersonales', compact('egresados'));
         /* return view('users.datospersonales', compact('egresados'))->share('layouts.egresado'); */
@@ -78,49 +80,16 @@ class DatosPersonalesController extends Controller
      */
     public function update(Request $request, $matricula)
     {
+        
         $egresados = Egresado::findOrFail($matricula);
-
-        $request->validate(
-            [
-                'file' => 'image|max:2048'
-            ]
-        );
-/*         return $request->all();*/
-/*          return $request->file('file')->store('public/imagenes'); //ahora devuelve una url public/imagenes/da$%1¿.png , pero queremos cambiar el nombre public por storage(storage/imagenes/da$%1¿.png) con el Facade Storage */
-
-$imagenes='';
-    if ($request->hasFile('file')){
-    $imagenes=$request->file('file')->getClientOriginalName();
-    $ruta=$request->file('file')->storeAs('public/imagenes/subfolder/ '. $egresados->matricula,$imagenes);
-    $url=Storage::url($ruta);
-    if($egresados->url != ''){  //si ya hay imagenes anteriores entonces eliminarlas y que solo quede la ultima imagen actualizada
-        //unlink(storage_path('app/public/imagenes/subfolder/ '. $egresados->matricula.'/image (1).png'));
-
-
-
-    };
-     //para obtener la ruta de la imagen correspondiente a app/storage/public/imagenes/subfolder.... hayamos definido en la variable $ruta
-    $egresados->update(['url'=>$url]);
-}
-    //ahora si podemos almacenar esta url en nuestra BD
-/*    $img=new Egresado();
-   $img->url=$url;
-   $img->save(); */
-    /*   $egresados=Egresado::create(
-       [
-           'url' =>$url
-       ]
-       ); */
         $egresados->ap_paterno = $request->input('ap_paterno');
         $egresados->ap_materno = $request->input('ap_materno');
         $egresados->nombres = $request->input('nombres');
         $egresados->genero = $request->input('genero');
         $egresados->celular = $request->input('celular');
         $egresados->fecha_nacimiento = $request->input('fecha_nacimiento');
-        //$egresados->url=$url;
-
         $egresados->save();
-        //return $url;
+            /* return $url; */
         return redirect()->route('datos-personales.index');
     }
 

@@ -37,12 +37,14 @@
         </li>
 
     <li class="nav-item dropdown user-menu">
-       
-    <li class="nav-link ">
-        <img src=""
+    @php
+        $url=Auth::user()->url
+    @endphp
+    <li class="">
+        <img src="{{asset($url)}}"
          alt="AdminLTE"
          class="brand-image img-circle elevation-4"
-         style="opacity:.8" width="30">
+         style="opacity:.8" width="33">
     </li>
     <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -149,9 +151,9 @@
 </li>
 
 <li  class="nav-item">
-    <a class="{{ (request()->is('home/cambiar-contrasena')) ? 'nav-link active' : 'nav-link' }}"
+    <a class="{{ (request()->is('home/password')) ? 'nav-link active' : 'nav-link' }}"
 
-       href="{{route('cambiar-contrasena.index')}}">
+       href="{{route('password')}}">
         <i class="fas fa-unlock-alt"></i>
         <p>Mi contraseña</p>
     </a>

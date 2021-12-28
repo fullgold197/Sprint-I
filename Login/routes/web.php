@@ -7,6 +7,7 @@ use App\Http\Controllers\EgresadoAcademicoProfesionalController;
 use App\Http\Controllers\EgresadosAdminController;
 use App\Http\Controllers\EgresadosAdminTrayectoriaAcademicaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\MaestriaController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\QQR2Controller;
@@ -38,6 +39,7 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/home/datos-personales', DatosPersonalesController::class)->middleware('auth');
+Route::resource('/home/datos-personales/imagen', ImagenController::class)->middleware('auth');
 Route::resource('/home/trayectoria-academica', TrayectoriaAcademicaController::class)->middleware('auth');
 Route::resource('/home/trayectoria-academica/maestria', MaestriaController::class)->middleware('auth');
 Route::resource('/home/trayectoria-academica/doctorado', DoctoradoController::class)->middleware('auth');
@@ -56,7 +58,9 @@ Route::resource('/admin/academico-profesional', EgresadoAcademicoProfesionalCont
 Route::resource('/permisos', App\Http\Controllers\PermissionController::class);
 
 Route::view('/profile/edit', 'profile.edit')->middleware('auth');
-Route::view('/profile/password', 'profile.password')->middleware('auth')->name('home/password');
+
+//password
+Route::view('/home/password', 'users.password')->middleware('auth')->name('password');
 Route::resource('/admin/administradores', UsuariosAdministradoresController::class)->middleware('auth');
 
 /* Route::middleware(['auth','isAdmin'])->group( function (){
