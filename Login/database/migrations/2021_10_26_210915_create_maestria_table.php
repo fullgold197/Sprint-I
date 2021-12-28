@@ -21,8 +21,8 @@ class CreateMaestriaTable extends Migration
             $table->string('institución', 50);
             $table->date('fecha_inicial');
             $table->date('fecha_final');
-            $table->string('matricula', 10)->nullable();
-            $table->foreign('matricula')->references('matricula')->on('egresado')->unique();
+            $table->string('egresado_matricula', 10)->nullable();
+            $table->foreign('egresado_matricula')->references('matricula')->on('egresado')->unique();
             $table->timestamps();
         });
     }
