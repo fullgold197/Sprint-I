@@ -21,7 +21,7 @@ class TrayectoriaProfesionalController extends Controller
         /* return $users; */
         $egresados = DB::table('profesion')
             ->select('id_profesion','empresa', 'actividad_empresa', 'actividad_empresa', 'puesto', 'nivel_experiencia', 'area_puesto', 'subarea', 'pais', 'fecha_inicio', 'fecha_finalizacion', 'descripcion_responsabilidades')
-            ->where('matricula', Auth::user()->egresado_matricula)
+            ->where('matricula', /* Auth::user() */->egresado_matricula)
             ->get();
         /* $egresados = DB::table('profesion')
             ->join('egresado', 'profesion.matricula', '=', 'egresado.matricula')
@@ -63,8 +63,8 @@ class TrayectoriaProfesionalController extends Controller
         $egresados->descripcion_responsabilidades = $request->input('descripcion_responsabilidades');
         $egresados->matricula = Auth::user()->egresado_matricula;
         $egresados->save();
-        //return redirect()->route('trayectoria-profesional.index');
-        return $egresados;
+        return redirect()->route('trayectoria-profesional.index');
+        /* return $egresados; */
     }
 
     /**
