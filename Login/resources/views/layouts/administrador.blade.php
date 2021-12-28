@@ -99,17 +99,17 @@
 
 
 
-        <li class="user-footer">
-                            <a href="http://127.0.0.1:8000/datospersonales" class="btn btn-default btn-flat">
+                    <li class="user-footer">
+                    <a href="#" class="btn btn-default btn-flat">
                     <i class="fa fa-fw fa-user text-lightblue"></i>
                     Profile
                 </a>
-                        <a class="btn btn-default btn-flat float-right "
+                <a class="btn btn-default btn-flat float-right "
                href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fa fa-fw fa-power-off text-red"></i>
                 Log Out
             </a>
-            <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" style="display: none;">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 <input type="hidden" name="_token" value="G5EUdTqPBPgDQLSXnnqwv21XRQSHIHzpWU4fSIS9">
             </form>
         </li>
@@ -139,7 +139,7 @@
 
 
     <span class="brand-text font-weight-light ">
-        <b>UNTELS</b>
+        <b>UNTELaaS</b>
     </span>
 
 </a>
@@ -170,13 +170,12 @@
 <li  class="nav-item">
 
     <a class="{{ (request()->is('admin/egresado/GraficoVistaEgresados')) ? 'nav-link active' : 'nav-link' }}"
-       href="http://127.0.0.1:8000/admin/egresado/GraficoVistaEgresados"        >
+       href="{{route('egresados.graficos')}}"        >
 
         <i class="fas fa-table "></i>
 
         <p>
             Datos estadísticos
-
                     </p>
 
     </a>
@@ -186,7 +185,7 @@
 <li  class="nav-item">
 
     <a class="{{ (request()->is('admin/egresado')) ? 'nav-link active' : 'nav-link' }}"
-       href="http://127.0.0.1:8000/admin/egresado"        >
+       href="{{route('egresado.index')}}"        >
 
         <i class="fas fa-fw fa-graduation-cap "></i>
 
@@ -220,7 +219,7 @@
         <li  class="nav-item">
 
     <a class="{{ (request()->is('admin/usuario')) ? 'nav-link active' : 'nav-link' }}"
-       href="http://127.0.0.1:8000/admin/usuario"        >
+       href="{{route('usuario.index')}}"        >
 
         <i class="far fa-user "></i>
 
@@ -236,7 +235,7 @@
 <li  class="nav-item">
 
     <a class="{{ (request()->is('admin/administradores')) ? 'nav-link active' : 'nav-link' }}"
-       href="http://127.0.0.1:8000/admin/administradores"        >
+       href="{{route('administradores.index')}}"        >
 
         <i class="fas fa-user-cog "></i>
 
