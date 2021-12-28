@@ -40,7 +40,7 @@ class MaestriaSeeder extends Seeder
                 'institución'=>'UNMSM',
                 'fecha_inicial' => '2022-07-01',
                 'fecha_final'=> '2023-07-01',
-                'egresado_matricula' => '2016200241',
+                'matricula' => '2016200241',
 
 
             ]
@@ -52,7 +52,7 @@ class MaestriaSeeder extends Seeder
                 'institución'=>'UNI',
                 'fecha_inicial' => '2022-05-01',
                 'fecha_final'=> '2023-05-01',
-                'egresado_matricula' => '2016200241',
+                'matricula' => '2016200241',
 
             ]
             );
@@ -64,7 +64,7 @@ class MaestriaSeeder extends Seeder
                 'institución' => 'Universidad de Chile',
                 'fecha_inicial' => '2022-07-01',
                 'fecha_final' => '2023-07-01',
-                'egresado_matricula' => '2016200216',
+                'matricula' => '2016200216',
             ]
         );
         Maestria::create(
@@ -74,7 +74,7 @@ class MaestriaSeeder extends Seeder
                 'institución' => 'Universidad de Harvard',
                 'fecha_inicial' => '2022-05-01',
                 'fecha_final' => '2023-05-01',
-                'egresado_matricula' => '2016200216',
+                'matricula' => '2016200216',
 
             ]
         );
@@ -86,7 +86,7 @@ class MaestriaSeeder extends Seeder
                 'institución' => 'Universidad de Colombia',
                 'fecha_inicial' => '2022-07-01',
                 'fecha_final' => '2023-07-01',
-                'egresado_matricula' => '2016200062',
+                'matricula' => '2016200062',
 
 
             ]
@@ -98,7 +98,7 @@ class MaestriaSeeder extends Seeder
                 'institución' => 'Universidad de Ecuador',
                 'fecha_inicial' => '2022-05-01',
                 'fecha_final' => '2023-05-01',
-                'egresado_matricula' => '2016200062',
+                'matricula' => '2016200062',
 
             ]
         );
@@ -111,7 +111,7 @@ class MaestriaSeeder extends Seeder
                 'institución' => 'Universidad de Cuba',
                 'fecha_inicial' => '2022-07-01',
                 'fecha_final' => '2023-07-01',
-                'egresado_matricula' => '2016200186',
+                'matricula' => '2016200186',
 
 
             ]
@@ -123,7 +123,7 @@ class MaestriaSeeder extends Seeder
                 'institución' => 'Universidad de Uruguay',
                 'fecha_inicial' => '2022-05-01',
                 'fecha_final' => '2023-05-01',
-                'egresado_matricula' => '2016200186',
+                'matricula' => '2016200186',
 
             ]
         );
@@ -135,7 +135,7 @@ class MaestriaSeeder extends Seeder
                 'institución' => 'Universidad Alas Peruanas',
                 'fecha_inicial' => '2022-07-01',
                 'fecha_final' => '2023-07-01',
-                'egresado_matricula' => '2016200092',
+                'matricula' => '2016200092',
 
 
             ]
@@ -147,7 +147,7 @@ class MaestriaSeeder extends Seeder
                 'institución' => 'Untels',
                 'fecha_inicial' => '2022-07-01',
                 'fecha_final' => '2023-07-01',
-                'egresado_matricula' => '2016200092',
+                'matricula' => '2016200092',
 
             ]
         );

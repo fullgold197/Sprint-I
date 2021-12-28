@@ -13,7 +13,7 @@ class CreateEgresadoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Egresado', function (Blueprint $table) {
+        Schema::create('egresado', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->string('matricula', 10)->primary()->unique();
             $table->string('ap_paterno', 50);
@@ -48,7 +48,7 @@ class CreateEgresadoTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('Egresado');
+        Schema::dropIfExists('egresado');
         Schema::enableForeignKeyConstraints();
     }
 }
