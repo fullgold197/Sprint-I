@@ -36,7 +36,6 @@ class DoctoradoController extends Controller
     public function store(Request $request)
     {
         $egresados = new Doctorado();
-        $egresados->grado_academico = $request->input('grado_academico');
         $egresados->pais = $request->input('pais');
         $egresados->institución = $request->input('institución');
         $egresados->fecha_inicial = $request->input('fecha_inicial');

@@ -78,7 +78,6 @@ class MaestriaController extends Controller
     public function update(Request $request, $id_maestria)
     {
         $egresados = Maestria::findOrFail($id_maestria);
-        $egresados->grado_academico = $request->input('maestria_grado_academico');
         $egresados->pais = $request->input('maestria_pais');
         $egresados->institución = $request->input('maestria_institución');
         $egresados->fecha_inicial = $request->input('maestria_fecha_inicial');
