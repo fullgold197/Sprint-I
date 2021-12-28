@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-DB::statement('SET SESSION sql_require_primary_key=0');
+/* DB::statement('SET SESSION sql_require_primary_key=0'); */
 class CreateEgresadoTable extends Migration
 {
     /**
