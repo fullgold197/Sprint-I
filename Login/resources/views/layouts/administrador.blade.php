@@ -100,7 +100,7 @@
 
 
                     <li class="user-footer">
-                    <a href="http://127.0.0.1:8000/datospersonales" class="btn btn-default btn-flat">
+                    <a href="#" class="btn btn-default btn-flat">
                     <i class="fa fa-fw fa-user text-lightblue"></i>
                     Profile
                 </a>
