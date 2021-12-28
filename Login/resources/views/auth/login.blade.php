@@ -27,15 +27,15 @@
 
 
     <div class="container">
-        <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="row d-flex justify-content-center ">
+        <div class="col-md-4"  style="margin:70px;align=center">
             <div class="card">
-                <div class="card-header" align="center">
-                    <div id="">
+                <div class="card-header">
+                    <div id="" align="center">
                         <i class="fas fa-user-graduate" id="azul"></i>
                         <h5 id="azul">SISTEMA DE SEGUIMIENTO DE EGRESADOS UNTELS</h5>
                     </div>
-                    <div id="amarillo">
+                    <div id="amarillo" align="center">
                         Iniciar Sesión
                     </div>
 
