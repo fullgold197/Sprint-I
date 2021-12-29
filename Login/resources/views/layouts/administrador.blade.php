@@ -73,50 +73,39 @@
 
 
 
-                                    <li class="nav-item dropdown user-menu">
+    <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }}</a>
 
 
-    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <span >
-            Erika
-        </span>
-    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+       {{--   <a class="dropdown-item" href="#">
+        {{ __('Mi perfil') }}
+        </a>
+        <a class="dropdown-item" href="{{  url("/profile/password")}}">
+        {{ __('Cambiar contraseña') }}
+        </a>  --}}
+
+        <a class="dropdown-item" href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+        {{ __('Cerrar Sesion') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+        </form>
+    </div>
+    </li>
 
 
-    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
-
-                    <li class="user-header bg-primary
-                 h-auto ">
-                                <p class=" mt-0 ">
-                    Erika
-                                            <small>Administrador</small>
-                                    </p>
-            </li>
 
 
 
-
-
-
-                    <li class="user-footer">
-                    <a href="#" class="btn btn-default btn-flat">
-                    <i class="fa fa-fw fa-user text-lightblue"></i>
-                    Profile
-                </a>
-                <a class="btn btn-default btn-flat float-right "
-               href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fa fa-fw fa-power-off text-red"></i>
-                Log Out
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                <input type="hidden" name="_token" value="G5EUdTqPBPgDQLSXnnqwv21XRQSHIHzpWU4fSIS9">
-            </form>
-        </li>
 
     </ul>
 
-</li>
+    </li>
 
 
             </ul>
