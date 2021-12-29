@@ -1,4 +1,4 @@
-{{--  @extends('adminlte::page')
+@extends('adminlte::page')
 
 @section('title', 'Admin')
 
@@ -6,12 +6,11 @@
     <h1>Dashboard</h1>
 @stop
 
-@section('content')  --}}
-@extends('layouts.administrador')
 @section('content')
+
     <p>Dashboard</p>
-@endsection
-{{--  @stop
+
+@stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
@@ -20,4 +19,4 @@
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
-  --}}
+

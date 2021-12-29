@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\EgresadoEditRequest;
 use App\Models\Carrera;
+use Illuminate\Support\Facades\Hash;
 use PDF;
 
 class EgresadosAdminController extends Controller
@@ -63,6 +64,8 @@ class EgresadosAdminController extends Controller
         $egresados->telefono = $request->input('telefono');
         $egresados->id_academico = $request->input('telefono');
         $egresados->save();
+
+
         /* return $egresados; */
         return redirect()->route('egresado.index');
     }
@@ -114,6 +117,14 @@ class EgresadosAdminController extends Controller
         $egresados->id_academico =$request->input('id_academico');
 
         $egresados->save();
+
+        $usuarios = new User;
+        $usuarios->name = $request->input('nombres');
+        $usuarios->dni = $request->input('dni');
+        $usuarios->email = $request->input('matricula').'@untels.edu.pe';
+        $usuarios->egresado_matricula = $request->input('matricula');
+        $usuarios->password = Hash::make($request->input('dni'));
+        $usuarios->save();
         /* return $egresados; */
         return redirect()->route('egresado.index');
 
