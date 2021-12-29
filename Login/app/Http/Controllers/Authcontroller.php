@@ -18,8 +18,11 @@ use App\Http\Controllers\DatosPersonalesController;
 class Authcontroller extends Controller
 {
     public function datospersonales(Request $data){
-        $data = Egresado::select('matricula','ap_paterno','ap_materno','nombres', 'genero', 'fecha_nacimiento', 'celular', 'dni','url')->where('matricula', Auth::user()->egresado_matricula)->get();
-        return $data;
+        $egresados = DB::table('egresado')
+        ->join('users', 'egresado.matricula', '=', 'users.egresado_matricula')
+        ->select('egresado.matricula', 'egresado.ap_paterno', 'egresado.ap_materno', 'egresado.nombres', 'egresado.genero', 'egresado.fecha_nacimiento', 'egresado.celular', 'egresado.dni', 'users.url', 'users.id')->where('matricula', Auth::user()->egresado_matricula)->get();        
+    
+        return compact('egresados');
     }
 
     public function updatedp(Request $request, $matricula)
