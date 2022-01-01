@@ -146,6 +146,28 @@ class EgresadoSeeder extends Seeder
                             'id_academico' => '2'
                         ]
                         );
+        Egresado::create(
+            [
+                'matricula' => '2017210435',
+                'ap_paterno' => 'Quispe',
+                'ap_materno' => 'Loayza',
+                'nombres' => 'Arnny Snaydher',
+                'grado_academico' => 'Bachiller',
+                'dni' => '70585952',
+                'genero' => 'Masculino',
+                'fecha_nacimiento' => '1999-02-25',
+                'semestre_ingreso' => '2016-2',
+                'semestre_egreso' => '2021-1',
+                'celular' => '931183456',
+                'pais_origen' => 'Perú',
+                'departamento_origen' => 'Lima',
+                'pais_residencia' => 'Alemania',
+                'ciudad_residencia' => 'Berlin',
+                'lugar_residencia' => 'Av. Berlin',
+                'linkedin' => 'www.linkendin.com',
+                'id_academico' => '1'
+            ]
+        );
 
     }
 }

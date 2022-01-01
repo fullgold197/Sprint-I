@@ -33,6 +33,8 @@ class UsuarioSeeder extends Seeder
         ->value('matricula');
         $egresadoID5 = Egresado::where('matricula', '2016200216')
         ->value('matricula');
+        $egresadoID6 = Egresado::where('matricula', '2017210435')
+        ->value('matricula');
 
         $egresadoDNI = Egresado::where('dni', '71046461')
         ->value('dni');
@@ -43,6 +45,8 @@ class UsuarioSeeder extends Seeder
         $egresadoDNI4 = Egresado::where('dni', '72700841')
         ->value('dni');
         $egresadoDNI5 = Egresado::where('dni', '73980032')
+        ->value('dni');
+        $egresadoDNI6 = Egresado::where('dni', '70585952')
         ->value('dni');
 
         User::create(
@@ -105,7 +109,19 @@ class UsuarioSeeder extends Seeder
                 'name' => 'Erika',
                 'email' => 'erika@gmail.com',
                 'password' => bcrypt('12345678'),
-                'role_as' => '1'
+                'egresado_matricula' => $egresadoID6,
+                'dni' => $egresadoDNI6,
+                'role_as' => '0'
+            ]
+        );
+        User::create(
+            [
+                'name' => 'Arnny',
+                'email' => 'arnny@gmail.com',
+                'password' => bcrypt('12345678'),
+                'egresado_matricula' => $egresadoID6,
+                'dni' => $egresadoDNI6,
+                'role_as' => '0'
 
             ]
         );
